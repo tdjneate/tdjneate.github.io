@@ -1,0 +1,6 @@
+@article{neate2014generic,
+  title={A Generic Evaluation Model for Auditory Feedback in Complex Visual Searches},
+  author={Neate, Timothy and Degara, Norberto and Hunt, Andy and Nagel, Frederik},
+  year={2014},
+  publisher={Georgia Institute of Technology}
+}

@@ -1,0 +1,7 @@
+@inproceedings{degara2014reproducible,
+  title={A Reproducible Sonification for Virtual Navigation},
+  author={Degara, Norberto and Kuppanda, Thimmaiah and Neate, Timothy and Yang, Jiajun and Torres, Andres},
+  booktitle={The IEEE Virtual Reality Conference},
+  year={2014},
+  organization={IEEE}
+}

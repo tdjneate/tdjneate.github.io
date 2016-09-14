@@ -1,0 +1,207 @@
+/*!
+ * Start Bootstrap - One Page Wonder HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    margin-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.header-image {
+    display: block;
+     max-height: 100%;
+    max-width:100%;
+    text-align: center;
+	background-image: url('tim.jpg');    
+    -webkit-background-size: cover;
+    moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover
+
+    
+}
+
+.headline {
+    padding: 150px 0;
+}
+
+.headline h1 {
+    font-size: 600%;
+	color: white;
+    background: rgba(0,0,0,0.0);
+}
+
+.headline h2 {
+   font-size: 200%;
+	color: white;
+    background: rgba(0,0,0,0.0);
+}
+
+.featurette-divider {
+    margin: 30px 0;
+	width:30px;
+}
+
+.featurette {
+    overflow: hidden;
+}
+
+.featurette-image.pull-left {
+    margin-right: 40px;
+}
+
+.featurette-image.pull-right {
+    margin-left: 40px;
+}
+
+.featurette-heading {
+    font-size: 40px;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+@media(max-width:1200px) {
+    .headline h1 {
+        font-size: 600%;
+    }
+
+    .headline h2 {
+        font-size: 200%;
+    }
+
+    .featurette-divider {
+        margin: 30px 0;
+    }
+
+    .featurette-image.pull-left {
+        margin-right: 20px;
+    }
+
+    .featurette-image.pull-right {
+        margin-left: 20px;
+    }
+
+    .featurette-heading {
+        font-size: 35px;
+    }
+}
+
+@media(max-width:991px) {
+    .headline h1 {
+        font-size: 600%;
+    }
+
+    .headline h2 {
+        font-size: 200%;
+    }
+
+    .featurette-divider {
+        margin: 30px 0;
+    }
+
+    .featurette-image {
+        max-width: 50%;
+    }
+
+    .featurette-image.pull-left {
+        margin-right: 10px;
+    }
+
+    .featurette-image.pull-right {
+        margin-left: 10px;
+    }
+
+    .featurette-heading {
+        font-size: 30px;
+    }
+}
+
+@media(max-width:768px) {
+    .container {
+        margin: 0 15px;
+    }
+
+    .featurette-divider {
+        margin: 30px 0;
+    }
+
+    .featurette-heading {
+        font-size: 25px;
+    }
+}
+
+@media(max-width:668px) {
+    .headline h1 {
+        font-size: 600%;
+    }
+
+    .headline h2 {
+        font-size: 200%;
+    }
+
+    .featurette-divider {
+       display: block;
+	   position: relative;
+	   padding: 0;
+	   margin: 8px auto;
+	   height: 5;
+	   width: 100%;
+	   max-height: 0;
+	   font-size: 10px;
+	   line-height: 0;
+	   clear: both;
+	   border: none;
+	   border-top: 1px solid #aaaaaa;
+	   border-bottom: 1px solid #ffffff;
+    }
+}
+
+@media(max-width:640px) {
+    .headline {
+        padding: 75px 0 25px 0;
+    }
+
+    .headline h1 {
+        font-size: 600%;
+    }
+
+    .headline h2 {
+        font-size: 200%;
+    }
+}
+
+@media(max-width:375px) {
+    .featurette-divider {
+        margin: 50px 0;
+    }
+
+    .featurette-image {
+        max-width: 100%;
+    }
+
+    .featurette-image.p
+ull-left {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .featurette-image.pull-right {
+        margin-bottom: 10px;
+        margin-left: 0;
+    }
+}
+
+#full-size{
+
+  overflow:hidden; /* or overflow:auto; if you want scrollbars */
+  position:relative;
+  margin:0;
+  padding:0;
+  width:100%;
+  background:black;
+  background-color: rgba(0, 0, 0, 1);
+  color:white;
+}
