@@ -26,16 +26,18 @@
 </head>
 <body>
 <!--Analytics-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128906214-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  ga('create', 'UA-72444133-1', 'auto');
-  ga('send', 'pageview');
-
+  gtag('config', 'UA-128906214-1');
 </script>
+    
+    
     
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -55,9 +57,6 @@
                
                     <li>
                         <a href="publications.html">Publications</a>
-                    </li>
-                    <li>
-                        <a href="projects.html">Projects</a>
                     </li>
                     
                     <li>
@@ -87,15 +86,33 @@
         <br><br>
         <!-- First Featurette -->
         <div class="featurette" id="about">
-            <img class="featurette-image img-circle img-responsive pull-right" src="img/moi.jpg" width = 40%>
-
+            
             <h2 class="featurette-heading">About 
                 <span class="text-muted"></span>
             </h2>
+            
+<div class="row">
+     
+      
+    <div class="col-sm-8">
+        <p class="lead">I am a Research Fellow and Visiting Lecturer in the <a href="https://www.city.ac.uk/mathematics-computer-science-engineering/research/centre-for-human-computer-interaction-design"> Centre for Human-Computer Interaction Design</a> in the Department of <a href="https://www.city.ac.uk/department-computer-science">Computer Science </a> at City, University of London. I work on the EPSRC funded <a href="http://gow.epsrc.ac.uk/NGBOViewGrant.aspx?GrantRef=EP/P025587/1">INCA Project</a>, which aims to enable people with Aphasia to create and curate digital content. My research interests are human-computer interaction, multi-device computing, tangible/tactile user interfaces and augmentative technology.</p>
+      
+      <p class="lead">I got my PhD from the <a href="http://fitlab.eu">FIT Lab</a>, Department of Computer Science, at Swansea University and my masters and undergraduate degrees at the <a href="https://www.york.ac.uk/electronic-engineering/">Department of Electronics</a> at the University of York. I have previously worked at <a href="https://www.audiolabs-erlangen.de/">Fraunhofer IIS's Audio Labs</a> and as a Research Officer at the <a href="http://fitlab.eu">FIT Lab</a> at Swansea.</p>
 
-<p class="lead">I am a Research Fellow and Visiting Lecturer in the <a href="https://www.city.ac.uk/mathematics-computer-science-engineering/research/centre-for-human-computer-interaction-design"> Centre for Human-Computer Interaction Design</a> in the Department of <a href="https://www.city.ac.uk/department-computer-science">Computer Science </a> at City, University of London. I work on the EPSRC funded <a href="http://gow.epsrc.ac.uk/NGBOViewGrant.aspx?GrantRef=EP/P025587/1">INCA Project</a>, which aims to enable people with Aphasia to create and curate digital content. My research interests are human-computer interaction, multi-device computing, tangible/tactile user interfaces and augmentative technology.</p>
+    </div>
 
-<p class="lead">I got my PhD from the <a href="http://fitlab.eu">FIT Lab</a>, Department of Computer Science, at Swansea University and my masters and undergraduate degrees at the <a href="https://www.york.ac.uk/electronic-engineering/">Department of Electronics</a> at the University of York. I have previously worked at <a href="https://www.audiolabs-erlangen.de/">Fraunhofer IIS's Audio Labs</a> and as a Research Officer at the <a href="http://fitlab.eu">FIT Lab</a> at Swansea.</p>
+ <div class="col-sm-4">   
+      
+      <img class="featurette-image img-circle img-responsive center" src="img/moi.jpg" width = 100%>
+     
+
+</div>
+            </div>
+
+
+            
+
+            
     
 </div>
 
@@ -105,7 +122,7 @@
 	
 	        <div class="featurette" id="contact"> 
 	            <h2 class="featurette-heading" ><center>Contact</center>
-	                <span class="text-muted" style="vertical-align:middle"></span>
+	                <span class="text-muted" style="vertical-align:right"></span>
 	            </h2>
 	            <center><p style="line-height:1">Room A210, Centre for HCID</center></p></font>
 	           <center> <p style="line-height:1">College Building, City, University of London</center></h4></p>
