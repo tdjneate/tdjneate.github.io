@@ -4,22 +4,38 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+
 body {
     margin-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
+
+/* To keep things verically aligned in div*/
+span {
+    height: 100px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
 
 .header-image {
     display: block;
      max-height: 100%;
     max-width:100%;
     text-align: center;
-	background-image: url('tim.jpg');    
+	background-image: url('bg.jpg');    
     -webkit-background-size: cover;
     moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover
 
     
+}
+
+.boxed {
+  border: 1px solid green ;
+  padding:3%;
 }
 
 .headline {
@@ -34,7 +50,9 @@ body {
 
 .headline h2 {
    font-size: 200%;
-	color: white;
+
+    
+    color: white;
     background: rgba(0,0,0,0.0);
 }
 
@@ -165,7 +183,7 @@ footer {
     }
 
     .headline h1 {
-        font-size: 600%;
+        font-size: 400%;
     }
 
     .headline h2 {
@@ -205,3 +223,36 @@ ull-left {
   background-color: rgba(0, 0, 0, 1);
   color:white;
 }
+
+h1
+{
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+  
+
+}
+
+
+h2
+{
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+
+
+}
+
+body 
+{
+        font-family: 'Nunito', sans-serif;
+        font-weight: lighter;
+    
+}
+
+
+strong 
+{
+        font-family: 'Nunito Extra-Bold', sans-serif;
+'
+    
+}
+
