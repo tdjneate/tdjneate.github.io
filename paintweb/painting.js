@@ -45,7 +45,7 @@ var xDotVariation, yDotVariation;
 var randomDotShape = false;
 var randomColours = false;
 var slightlyRandomColours = false;
-var speedAffectsSize = true;
+var speedAffectsSize = false;
 
 //brush types
 var rectBrush = false;
@@ -59,13 +59,14 @@ var multiMirror = false;
 
 var drawing = true;
 var rubbing = false;
-
+var brushSize = 15;
 
 var imgs = ["alley", "beach", "mountain", "sea", "tree", "waterfall"];
 var imageLoaded = 0;
 
-
-
+var brushSizeSlider;
+var button;
+var brushSizeSliderLabel;
 function preload() 
 {
   img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
@@ -73,10 +74,14 @@ function preload()
 
 function setup() 
 {
-  var canvas = createCanvas(displayWidth/2, displayHeight/2 );
+
+    var canvas = createCanvas(displayWidth/1.5, displayHeight/1.5 );
 
   canvas.parent('sketch-holder');
+    
   
+    
+    
   //undo = new Undo(20); //setup some undos
 
  // initNewStroke();
@@ -86,9 +91,36 @@ function setup()
   rectMode(RADIUS);  
 
   background(20);
+  brushSizeSliderLabel = createP("")
+  brushSizeSlider = createSlider(0,30,15);
+  brushSizeSlider.changed(updateUI);
+  
+  button = createButton("Clear Screen");
+  button.mousePressed(clearScreen);
+    
+    
+
 }
 
+function clearScreen()
+{
+    clear();
+    print("clearing");
+    background(20);
+}
 
+function draw()
+{
+     
+
+    
+}
+
+function updateUI()
+{
+        brushSize = brushSizeSlider.value();
+       brushSizeSliderLabel.html(brushSize);
+}
 
 function touchStarted() {
 
@@ -138,13 +170,12 @@ function modeSelector()
 function drawWithBrush( x,  y,  prevX,  prevY)
 { 
     var mouseSpeed;
-    var brushSize;
   if(speedAffectsSize)
     {
      mouseSpeed =  dist(x, y, prevX, prevY);
     brushSize = mouseSpeed * 5;
     }
-    else{brushSize = 15;}
+   
     
     strokeWeight(brushSize);
     
@@ -215,8 +246,7 @@ function keyPressed()
   }
   if (key == 'c')
   {
-    clear();
-    background(20);
+    clearScreen();
   }
   if(key == 'a')
   {

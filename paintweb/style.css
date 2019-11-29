@@ -1,20 +1,23 @@
 /* style.css */
 
 
-
 html, body {
   height: 100%;
 }
 
 body {
   margin: 0%;
+    
 }
+
 head {
   margin: 0%;
 }
 
-
-
+p
+{
+    background-color: blueviolet;
+}
 
  sketch-holder {
            position:center;
