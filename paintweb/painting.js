@@ -10,6 +10,9 @@ var bristleCount = 6;
 var bristleThickness = 3;
 var img;
 
+var undos;
+var undoCounter = 0;
+
 var canvas; //for the main canvas
 
 
@@ -50,7 +53,6 @@ var speedAffectsSize = false;
 //brush types
 var rectBrush = false;
 var circleBrush = true;
-
 var stop = false;
 
 var horizontalMirror = false;
@@ -67,6 +69,14 @@ var imageLoaded = 0;
 var brushSizeSlider;
 var button;
 var brushSizeSliderLabel;
+var numberOfMirrors;
+var mirrorTriggerButton;
+var clearButton;
+var rubbingDotSizeSlider;
+var brushModeButton;
+
+var touchDown;
+
 function preload() 
 {
   img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
@@ -75,14 +85,17 @@ function preload()
 function setup() 
 {
 
-    var canvas = createCanvas(displayWidth/1.5, displayHeight/1.5 );
+  canvas = createCanvas(window.innerWidth/2,window.innerWidth/2);
 
-  canvas.parent('sketch-holder');
+  canvas.parent('sketch-holder'); 
+  canvas.touchEnded(addToUndoStack); // attach listener only for canvas
+
     
-  
+ 
+   undos = new Array();
     
     
-  //undo = new Undo(20); //setup some undos
+ // undo = new Undo(20); //setup some undos
 
  // initNewStroke();
 
@@ -91,15 +104,45 @@ function setup()
   rectMode(RADIUS);  
 
   background(20);
-  brushSizeSliderLabel = createP("")
-  brushSizeSlider = createSlider(0,30,15);
-  brushSizeSlider.changed(updateUI);
-  
-  button = createButton("Clear Screen");
-  button.mousePressed(clearScreen);
+
+  mirrorTriggerButton = select('#mirrorStateButton');
+  mirrorTriggerButton.mousePressed(toggleMirrorState);
+    
+
+ 
+   clearPageButton = select('#clearPageButton');
+   clearPageButton.mousePressed(clearScreen);
+    
+  brushModeButton = select('#brushModeToggle')
+  brushModeButton.mousePressed(toggleBrushMode);
+   
+    var randomColoursToggleButton = select('#randomColoursToggle');
+    randomColoursToggleButton.mousePressed(toggleRandomColours);
+    
+    
+    var undoButton = select('#undoButton');
+  undoButton.mousePressed(undoButtonPressed);
+      
+    var redoButton = select('#redoButton');
+  redoButton.mousePressed(redoButtonPressed);
+    
     
     
 
+    
+
+}
+
+function undoButtonPressed()
+{
+    undo();
+ 
+}
+
+
+function redoButtonPressed()
+{
+    
 }
 
 function clearScreen()
@@ -109,26 +152,56 @@ function clearScreen()
     background(20);
 }
 
+
+
 function draw()
 {
+    if(touchDown == true )
+        {
+              modeSelector();
+        }
+
+    //if this gets slow, we can give each slider an 'on move' function
      
+  brushSize = select('#brushThicknessSlider').value();
+  numberOfMirrors = select('#numberOfMirrors').value();
+  dotSize = select('#rubbingDotSizeSlider').value();
+  dotSpeed = select('#rubbingDotSpeedSlider').value();
 
-    
+ 
+  
+  
+  
 }
 
-function updateUI()
+function toggleBrushMode()
 {
-        brushSize = brushSizeSlider.value();
-       brushSizeSliderLabel.html(brushSize);
+    drawing = !drawing;
+    rubbing = !rubbing; 
 }
+function toggleMirrorState()
+{
+    multiMirror = !multiMirror;
+}
+
+
+function toggleRandomColours()
+{
+  randomColours = !randomColours;
+}
+
 
 function touchStarted() {
 
-  xOffset = mouseX-cx; 
-  yOffset = mouseY-cy; 
-  modeSelector();
+    touchDown = true;
+    
 }
 
+function touchEnded()
+{
+ touchDown = false;
+
+}
 
 
 function touchMoved() {
@@ -138,7 +211,7 @@ function touchMoved() {
     cy = mouseY-yOffset;
   }
 
-  modeSelector();
+  //modeSelector();
     return false;
 }
 
@@ -157,10 +230,16 @@ function modeSelector()
   }
   if(multiMirror)
   {
-      var  mirrorPoint = [width/2,height/2];
+        
+
+
+      
+      var  mirrorPoint = [(window.innerWidth/2)/2 , (window.innerWidth/2)/2];
+    
+      
       var points  =  [mouseX, mouseY];
       var prevPoints = [pmouseX, pmouseY];
-      mirror(mirrorPoint, 5, points, prevPoints);
+      mirror(mirrorPoint, numberOfMirrors, points, prevPoints);
   
   
   }
@@ -183,11 +262,6 @@ function drawWithBrush( x,  y,  prevX,  prevY)
     line(x, y, prevX, prevY);
 }
 
-
-function mouseReleased() {
-  locked = false;
- // undo.takeSnapshot(); //save current state
-}
 
 
 
@@ -279,7 +353,6 @@ function keyPressed()
   {
     drawing = !drawing;
     rubbing = !rubbing; 
-    print("Rubbing: " + rubbing + "\n" + "Drawing" + drawing + "\n" );
   }
   if ('0' <= key && key <= '9')
   {
@@ -375,10 +448,10 @@ function runPoints(xPos, yPos)
 
     if (circleBrush)
     {
-      randomPoint = getRandomPointInCircle(xPos, yPos, 30, 30);// if circle
+      randomPoint = getRandomPointInCircle(xPos, yPos, brushSize, brushSize);// if circle
     } else if (rectBrush)
     {
-      randomPoint = getRandomPointInSquare(xPos, yPos, 60, 60);
+      randomPoint = getRandomPointInSquare(xPos, yPos, brushSize, brushSize);
     }
 
        pix = getColourAtPoint(randomPoint[0], randomPoint[1]);
@@ -467,107 +540,74 @@ function windowResized(){
   resizeCanvas(windowWidth, windowHeight);
 }
 
-/*
- FOR UNDO AND REDO 
- Methods from: https://www.openprocessing.org/sketch/131411/
- */
- 
-/*
-class Undo
+
+function undo()
 {
-  constructor()
+    
+    
+
+    if(undoCounter > 0)
     {
-          this.undoSteps =  0;
-        this.redoSteps =  0;  
-    }
+         undoCounter--;
+         image(undos[undoCounter], 0, 0);
+     }
+    else
+        {
+          print("cannot undo more");
+        }
 
 
-circImageCollection  images;
+        print("undoCounter: " + undoCounter);
 
-  Undo( levels) {
-    images = new CircImgCollection(levels);
-  }
+    
 
-function takeSnapshot()
-  {
-    undoSteps = min(undoSteps+1, images.amount-1);
-    // each time we draw we disable redo
-    redoSteps = 0;
-    images.next();
-    images.capture();
-  }
 
-  function undo() {
-    if (undoSteps > 0) {
-      undoSteps--;
-      redoSteps++;
-      images.prev();
-      images.show();
-      if (undoSteps == 1)
-      {
-        background(20); //also reset background if last time
-      }
-    }
-  }
-
-  function redo() 
-{
-    if (redoSteps > 0) {
-      undoSteps++;
-      redoSteps--;
-      images.next();
-      images.show();
-    }
-  }
 }
 
+function redo()
+{
+    
+}
 
-class CircImgCollection {
-  var amount, current;
-  PImage[] img;
+function addToUndoStack()
+{
+   
+    var img = get();
+    undos[undoCounter] = img; 
+    print("added at element: " + undoCounter);
+    undoCounter++;
+    
 
-  CircImgCollection( amountOfImages) {
-    amount = amountOfImages;
 
-    // Initialize all images as copies of the current display
-    var = new PImage[amount];
-    for (var i=0; i<amount; i++) 
-    {
-      img[i] = createImage(width, height, RGB);
-      img[i] = get();
-    }
-  }
-  function next() {
-    current = (current + 1) % amount;
-  }
-  function prev() {
-    current = (current - 1 + amount) % amount;
-  }
-  function capture() {
-    img[current] = get();
-  }
-  function show() {
-    image(img[current], 0, 0);
-  }
+    
 }
 
 
 
-function printImage( path) 
+
+//printing
+
+/*
+function printImage(path) 
 {  
-  var p = exec("lp", path); 
+  Process p = exec("lp", path); 
   try {
-    var result = p.waitFor();
+    int result = p.waitFor();
 
     println("the process returned " + result);
   } 
-  catch (e) {
+  catch (InterruptedException e) {
     println("error : " + e);
   }
 }
-
-
 */
+
+
+
+
+
+
+
 
 
 

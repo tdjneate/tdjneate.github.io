@@ -5,7 +5,7 @@
 
 
 <!--<script src="p5/p5.js"></script>-->
-    <link rel="stylesheet" type="text/css" href="style.css" />
+ <link href="./style.css" rel="stylesheet" type="text/css" />
 
         <script src="https://cdn.jsdelivr.net/npm/p5"></script> <!-- statically hosted full p5 -- >
         
@@ -16,7 +16,89 @@
 
         <!-- stylesheet for p5-->
         
-        
+        <style>
+            
+            .slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 30%;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+            
+/*SWITCH
+            
+            
+            */
+   .switch input[type="checkbox"]:checked::before {
+  left: 10px;
+  background-color: blue;
+}
+
+.switch input[type="checkbox"]:not(:checked)::before {
+  right: 10px;
+  background-color: red;
+}
+
+.switch input[type="checkbox"]::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -0.25rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+.switch input[type="checkbox"]::after {
+  content: '';
+  display: block;
+  width: 1rem;
+  height: 0.5rem;
+  background-color: grey;
+}
+
+.switch input[type="checkbox"] {
+  -webkit-appearance: none;
+  position: relative;
+  margin: 0 1rem;
+}
+
+.switch input[type="checkbox"]:disabled::before {
+  background-color: darkgrey;
+}
+            
+</style>
+
         
 <!--The sketch-->        
 <script src="painting.js"></script>
@@ -26,18 +108,63 @@
     <body>
 
 
-
-
-
-
-        <center>
+<center>
+    
 <div id= "sketch-holder">
  </div>
+
+<div class="slidecontainer">
+  <p><button id = "undoButton">Undo</button> </p>
             
-            <p>
-            This is a para
-            </p>
-   
+            <p><button id = "redoButton">Redo</button> </p>
+    
+    <p>Thickness of Brush<input type="range" min="1" max="100" value="15" class="slider" id="brushThicknessSlider"></p>
+</div>
+            
+<div class="slidecontainer">
+
+ <p>Number of Mirrors <input type="range" min="1" max="24" value="4" class="slider" id="numberOfMirrors"> </p>
+</div>
+            
+<div class="slidecontainer">
+
+ <p>Rubbing Dot Size <input type="range" min="1" max="20" value="4" class="slider" id="rubbingDotSizeSlider"> </p>
+</div>
+            
+<div class="slidecontainer">
+
+ <p>Rubbing Dot Speed <input type="range" min="5" max="2000" value="50" class="slider" id="rubbingDotSpeedSlider"> </p>
+</div>
+            
+            
+   <!-- <p><button id = "mirrorStateButton">Mirror State</button> </p>-->
+            
+     <p><button id = "clearPageButton">Clear Page of Content</button> </p>
+ 
+
+
+<div><label class="switch" id = "mirrorStateButton"> 
+  mirroring off
+  <input type="checkbox">
+  mirroring on
+    </label></div>
+    
+   <div> <label class="switch" id = "brushModeToggle"> 
+  painting 
+  <input type="checkbox">
+  rubbbing
+    </label></div>
+    
+       <div> <label class="switch" id = "randomColoursToggle"> 
+  not random 
+  <input type="checkbox">
+  random
+    </label></div>
+
+
+
+    
+    
  </center>
     
 
