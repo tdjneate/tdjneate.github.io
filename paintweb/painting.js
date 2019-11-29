@@ -10,6 +10,9 @@ var bristleCount = 6;
 var bristleThickness = 3;
 var img;
 
+var canvas; //for the main canvas
+
+
 var brushPoint = new Array(2); 
 var previousBrushPoint = new Array(2);
 
@@ -75,7 +78,7 @@ function setup()
   //undo = new Undo(20); //setup some undos
 
 
-  createCanvas(1000, 1000);
+  canvas = createCanvas(window.innerWidth/1.3, window.innerHeight/1.3);
  // initNewStroke();
 
   cx = width/2.0;
@@ -431,7 +434,13 @@ function randomizeAllColours()
 }
 
 
-
+window.onresize = function() {
+  var w = window.innerWidth;
+  var h = window.innerHeight;  
+  canvas.size(w,h);
+  width = w;
+  height = h;
+};
 
 
 /*
