@@ -73,12 +73,12 @@ function preload()
 
 function setup() 
 {
+  var canvas = createCanvas(displayWidth/2, displayHeight/2 );
 
+  canvas.parent('sketch-holder');
   
   //undo = new Undo(20); //setup some undos
 
-
-  canvas = createCanvas(window.innerWidth/1.3, window.innerHeight/1.3);
  // initNewStroke();
 
   cx = width/2.0;
@@ -433,15 +433,9 @@ function randomizeAllColours()
   return color(random(0, 255), random(0, 255), random(0, 255));//randomize one channel
 }
 
-
-window.onresize = function() {
-  var w = window.innerWidth;
-  var h = window.innerHeight;  
-  canvas.size(w,h);
-  width = w;
-  height = h;
-};
-
+function windowResized(){
+  resizeCanvas(windowWidth, windowHeight);
+}
 
 /*
  FOR UNDO AND REDO 
