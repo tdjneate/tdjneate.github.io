@@ -10,8 +10,9 @@ var bristleCount = 6;
 var bristleThickness = 3;
 var img;
 
-var undos;
-var undoCounter = 0;
+var undos = [];
+var redos = [];
+var undoCounter;
 
 var canvas; //for the main canvas
 
@@ -28,8 +29,6 @@ var undo;
 
 //cursor stuff
 
-var cx;
-var cy;
 var circleSize = 75;
 var overBox = false;
 var locked = false;
@@ -74,7 +73,8 @@ var mirrorTriggerButton;
 var clearButton;
 var rubbingDotSizeSlider;
 var brushModeButton;
-
+var rubbingSquares = false;
+var rubbingCircles = true;
 var touchDown;
 
 function preload() 
@@ -82,68 +82,78 @@ function preload()
   img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
 }
 
+
 function setup() 
 {
+	frameRate(60);
+  undoCounter = 0;
 
   canvas = createCanvas(window.innerWidth/2,window.innerWidth/2);
 
-  canvas.parent('sketch-holder'); 
-  canvas.touchEnded(addToUndoStack); // attach listener only for canvas
+  
+		 //this is where drawing happens
 
+//	  canvas.mousePressed(modeSelector);	
+//	  canvas.mouseMoved(modeSelector);
+    canvas.mouseReleased(addToUndoStack); // attach listener only for canvas
+	
+    canvas.parent('sketch-holder'); 
     
- 
-   undos = new Array();
-    
-    
- // undo = new Undo(20); //setup some undos
 
- // initNewStroke();
+   
+    
 
-  cx = width/2.0;
-  cy = height/2.0;
-  rectMode(RADIUS);  
 
   background(20);
 
   mirrorTriggerButton = select('#mirrorStateButton');
   mirrorTriggerButton.mousePressed(toggleMirrorState);
-    
 
- 
+
    clearPageButton = select('#clearPageButton');
    clearPageButton.mousePressed(clearScreen);
+
+
+   var downloadImageButton = select('#downloadImageButton');
+   downloadImageButton.mouseReleased(downloadImage);
+
+   var nextImageButton = select('#nextImageButton');
+   nextImageButton.mouseReleased(cycleToNextImage);
     
   brushModeButton = select('#brushModeToggle')
   brushModeButton.mousePressed(toggleBrushMode);
+    
+    var shapeRubbingToggle = select('#shapeRubbingToggle');
+    shapeRubbingToggle.mousePressed(toggleRubbingShape);
    
+
+
     var randomColoursToggleButton = select('#randomColoursToggle');
     randomColoursToggleButton.mousePressed(toggleRandomColours);
     
-    
+    var speedAffectsSizeToggleButton = select('#speedAffectsSizeToggle');
+    speedAffectsSizeToggleButton.mousePressed(speedAffectsSizeToggled);
+
+
     var undoButton = select('#undoButton');
-  undoButton.mousePressed(undoButtonPressed);
+    
+    undoButton.mouseReleased(undo);
       
-    var redoButton = select('#redoButton');
-  redoButton.mousePressed(redoButtonPressed);
-    
-    
-    
+    /*var redoButton = select('#redoButton');
+  redoButton.mouseReleased(redo);*/ // no redo for now
 
-    
 
+  addToUndoStack(); // add the first thing to the undoStack
+    
 }
 
-function undoButtonPressed()
+
+function speedAffectsSizeToggled()
 {
-    undo();
- 
+  speedAffectsSize = !speedAffectsSize;
 }
 
 
-function redoButtonPressed()
-{
-    
-}
 
 function clearScreen()
 {
@@ -156,22 +166,42 @@ function clearScreen()
 
 function draw()
 {
-    if(touchDown == true )
-        {
-              modeSelector();
-        }
 
-    //if this gets slow, we can give each slider an 'on move' function
-     
+
+
+    //only do every 10 frames - if this gets slow, we can give each slider an 'on move' function
+   if(frameCount % 10 == 0)
+   {
+
   brushSize = select('#brushThicknessSlider').value();
   numberOfMirrors = select('#numberOfMirrors').value();
   dotSize = select('#rubbingDotSizeSlider').value();
   dotSpeed = select('#rubbingDotSpeedSlider').value();
+}
 
- 
   
   
   
+}
+
+function cycleToNextImage()
+{
+    if (imageLoaded < imgs.length - 1)
+    {
+      imageLoaded++;
+    } else
+    {
+      imageLoaded = 0;
+    }
+    img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
+
+}
+
+
+function toggleRubbingShape()
+{
+rubbingCircles = !rubbingCircles;
+rubbingSquares = !rubbingSquares;
 }
 
 function toggleBrushMode()
@@ -191,35 +221,66 @@ function toggleRandomColours()
 }
 
 
-function touchStarted() {
 
-    touchDown = true;
-    
-}
-
-function touchEnded()
+function mousePressed()
 {
+
+if(touchingCanvas == true)
+{
+    modeSelector();
+}
+}
+    //touchDown = true;
+
+function mouseReleased()
+{
+ 
  touchDown = false;
 
+
+
+
 }
 
+function touchMoved() 
+{
 
-function touchMoved() {
-  if (locked) 
-  {
-    cx = mouseX-xOffset; 
-    cy = mouseY-yOffset;
+if(touchingCanvas() == true)
+{
+    modeSelector();
+}
   }
 
-  //modeSelector();
+
+function touchingCanvas()
+{
+
+if ((mouseX <= width) &&  (mouseX >= 0) &&   (mouseY <= height) && (mouseY >= 0)) 
+{
+  print("ye m8 that is sick");
+  return true;
+} 
+else
+{
+
+    print("no bruv");
     return false;
+} 
 }
 
+function mouseMoved()
+{
+      return false; // 
 
+
+}
 
 function modeSelector()
 {
 
+
+  //if(mouseIsPressed)
+ // {
   if (drawing)
   {
     drawWithBrush(mouseX, mouseY, pmouseX, pmouseY);
@@ -242,11 +303,13 @@ function modeSelector()
       mirror(mirrorPoint, numberOfMirrors, points, prevPoints);
   
   
-  }
+ // }
+}
 }
 
 
-function drawWithBrush( x,  y,  prevX,  prevY)
+
+function drawWithBrush(x,  y,  prevX,  prevY)
 { 
     var mouseSpeed;
   if(speedAffectsSize)
@@ -258,7 +321,8 @@ function drawWithBrush( x,  y,  prevX,  prevY)
     
     strokeWeight(brushSize);
     
-    stroke(getColourAtPoint(x, y)); 
+    stroke(getColourAtPoint(x, y));  // if colours
+
     line(x, y, prevX, prevY);
 }
 
@@ -485,8 +549,14 @@ function runPoints(xPos, yPos)
     }
 
     var randomCircleSize = random(1 * dotSize, 4 * dotSize);
-
+    if(rubbingSquares)
+    {   
+        rect(randomPoint[0], randomPoint[1], randomCircleSize + xDotVariation, randomCircleSize + yDotVariation);
+}
+      if(rubbingCircles)
+        {
     ellipse(randomPoint[0], randomPoint[1], randomCircleSize + xDotVariation, randomCircleSize + yDotVariation);
+  }
   }
 }
 
@@ -536,54 +606,61 @@ function randomizeAllColours()
   return color(random(0, 255), random(0, 255), random(0, 255));//randomize one channel
 }
 
-function windowResized(){
+function windowResized()
+{
   resizeCanvas(windowWidth, windowHeight);
 }
 
 
 function undo()
 {
-    
-    
 
-    if(undoCounter > 0)
+      print(undos.length);
+    if(undos.length  > 1) // if there is more than the blank canvas there...
     {
-         undoCounter--;
-         image(undos[undoCounter], 0, 0);
-     }
+      undos.pop();
+
+      image(undos[undos.length - 1], 0 ,0);
+    }
     else
-        {
-          print("cannot undo more");
-        }
+      {print("no more undo for you");}
 
 
-        print("undoCounter: " + undoCounter);
+
+
+
 
     
-
 
 }
 
 function redo()
 {
-    
+
+  /*if(redos.length > 0)
+  {
+  redos.pop();
+  image(redos[redos.length-1], 0, 0);
+}*/
+
 }
+
 
 function addToUndoStack()
 {
-   
-    var img = get();
-    undos[undoCounter] = img; 
-    print("added at element: " + undoCounter);
-    undoCounter++;
-    
+   undos.push(get());
 
 
-    
+
+ 
 }
 
 
+function downloadImage ()
+{
+ saveCanvas('myCreation', 'png');
 
+}
 
 //printing
 
