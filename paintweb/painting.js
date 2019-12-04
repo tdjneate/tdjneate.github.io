@@ -251,7 +251,7 @@ if(touchingCanvas() == true)
 }
     
     return false;
-  }
+}
 
 
 function touchingCanvas()
@@ -259,20 +259,17 @@ function touchingCanvas()
 
 if ((mouseX <= width) &&  (mouseX >= 0) &&   (mouseY <= height) && (mouseY >= 0)) 
 {
-  print("ye m8 that is sick");
   return true;
 } 
 else
 {
-
-    print("no bruv");
     return false;
 } 
 }
 
 function mouseMoved()
 {
-      return false; // 
+      return false;
 
 
 }
