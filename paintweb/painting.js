@@ -249,6 +249,8 @@ if(touchingCanvas() == true)
 {
     modeSelector();
 }
+    
+    return false;
   }
 
 
