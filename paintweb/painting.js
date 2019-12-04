@@ -250,7 +250,7 @@ if(touchingCanvas() == true)
     modeSelector();
 }
     
-    return false;
+    //return false;
 }
 
 
@@ -267,12 +267,7 @@ else
 } 
 }
 
-function mouseMoved()
-{
-      return false;
 
-
-}
 
 function modeSelector()
 {
@@ -306,6 +301,17 @@ function modeSelector()
 }
 }
 
+
+function noScroll() 
+{
+  window.scrollTo(0, 0);
+}
+
+// add listener to disable scroll
+window.addEventListener('scroll', noScroll);
+
+// Remove listener to re-enable scroll
+window.removeEventListener('scroll', noScroll);
 
 
 function drawWithBrush(x,  y,  prevX,  prevY)
