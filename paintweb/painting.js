@@ -88,7 +88,7 @@ function setup()
 	frameRate(60);
   undoCounter = 0;
 
-  canvas = createCanvas(window.innerWidth/2,window.innerWidth/2);
+  canvas = createCanvas(window.innerWidth/3,window.innerWidth/3);
 
   
 		 //this is where drawing happens
