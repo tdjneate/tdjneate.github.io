@@ -148,6 +148,8 @@ function setup()
 }
 
 
+window.addEventListener("contextmenu", function(e) { e.preventDefault(); }) //stop scrolling?
+
 function speedAffectsSizeToggled()
 {
   speedAffectsSize = !speedAffectsSize;
@@ -619,7 +621,7 @@ function randomizeAllColours()
 
 function windowResized()
 {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(window.innerWidth/2,window.innerWidth/2);
 }
 
 
