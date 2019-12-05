@@ -75,12 +75,13 @@ var touchDown;
 
 function preload() 
 {
-  img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
+  
 }
 
 
 function setup() 
 {
+    img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
 	frameRate(60);
   undoCounter = 0;
 
