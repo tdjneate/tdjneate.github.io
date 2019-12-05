@@ -127,20 +127,16 @@ h1 {
   background-color: lightgrey;
 }
         
-/* for moble devices*/
+@media(min-width:320px) and (max-width:1024px){
+.left2 {
+    text-align: left !important;
+}
 
-@media (min-width: 600px) {
-    .container{max-width: 600px;width: 600px;}
+.card__price {
+    text-align: right !important;
 }
-@media (min-width: 768px) {
-    .container{max-width: 900px;}
+
+.left2 {
+    text-align: left !important;
 }
-@media (min-width: 992px) {
-    .container{max-width: 900px;}
-}
-@media (min-width: 1024px) {
-    .container{width: 970px;}
-}
-@media (min-width: 1200px){
-    .container{width: 1170px;max-width: 1170px;}
-}
+}  
