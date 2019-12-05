@@ -715,7 +715,8 @@ function mouseMoved()
         return false; // stop scrolling outside
         }
 }
-/*
+
+
 function touchMoved() 
 {
 
@@ -723,7 +724,7 @@ function touchMoved()
         {
         return false; // stop scrolling outside
         }
-}  */
+}  
 
 
 
