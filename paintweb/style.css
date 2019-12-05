@@ -127,16 +127,3 @@ h1 {
   background-color: lightgrey;
 }
         
-@media(min-width:320px) and (max-width:1024px){
-.left2 {
-    text-align: left !important;
-}
-
-.card__price {
-    text-align: right !important;
-}
-
-.left2 {
-    text-align: left !important;
-}
-}  
