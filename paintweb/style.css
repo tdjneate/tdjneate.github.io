@@ -126,4 +126,21 @@ h1 {
 .switch input[type="checkbox"]:disabled::before {
   background-color: lightgrey;
 }
-            
+        
+/* for moble devices*/
+
+@media (min-width: 600px) {
+    .container{max-width: 600px;width: 600px;}
+}
+@media (min-width: 768px) {
+    .container{max-width: 900px;}
+}
+@media (min-width: 992px) {
+    .container{max-width: 900px;}
+}
+@media (min-width: 1024px) {
+    .container{width: 970px;}
+}
+@media (min-width: 1200px){
+    .container{width: 1170px;max-width: 1170px;}
+}
