@@ -126,4 +126,8 @@ h1 {
 .switch input[type="checkbox"]:disabled::before {
   background-color: lightgrey;
 }
+
+@-ms-viewport{
+  width: device-width;
+}
         
