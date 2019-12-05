@@ -169,7 +169,10 @@ function clearScreen()
 function draw()
 {
 
-
+if(touchingCanvas() && mouseIsPressed)
+    {
+        modeSelector();
+    }
 
     //only do every 10 frames - if this gets slow, we can give each slider an 'on move' function
    if(frameCount % 10 == 0)
@@ -222,12 +225,12 @@ function toggleRandomColours()
   randomColours = !randomColours;
 }
 
-
+/*
 
 function mousePressed()
 {
 
-if(touchingCanvas == true)
+/if(touchingCanvas == true)
 {
     modeSelector();
 }
@@ -257,15 +260,13 @@ function mouseMoved()
 function touchMoved() 
 {
 
-if(touchingCanvas() == true)
+/*if(touchingCanvas() == true)
 {
     modeSelector();
 }
-   if(touchingCanvas())
-   {
-       return false;
-   }
-}
+  
+  // return false;
+}  */
 
 
 function touchingCanvas()
