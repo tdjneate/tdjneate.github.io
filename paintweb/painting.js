@@ -248,7 +248,7 @@ function mouseReleased()
 
 function mouseMoved()
 {
-   // return false; // stop scrolling outside
+    return false; // stop scrolling outside
 }
 
 function touchMoved() 
