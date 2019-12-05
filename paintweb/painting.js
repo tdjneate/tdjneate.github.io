@@ -712,17 +712,22 @@ function mouseReleased()
 
 function mouseMoved()
 {
-    
-return false;
+    if(touchingCanvas())
+        {
+            return false;
+        }
+
 }
 
-
+/*
 function touchMoved() 
 {
-
-return false;
+    if(touchingCanvas())
+        {
+            return false;
+        }
 }  
-
+*/
 
 
 
