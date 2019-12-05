@@ -248,7 +248,7 @@ function mouseReleased()
 
 function mouseMoved()
 {
-    if(!touchingCanvas)
+    if(touchingCanvas)
         {
         return false; // stop scrolling outside
         }
@@ -261,8 +261,10 @@ if(touchingCanvas() == true)
 {
     modeSelector();
 }
-    
-  // return false;
+   if(touchingCanvas)
+   {
+       return false;
+   }
 }
 
 
