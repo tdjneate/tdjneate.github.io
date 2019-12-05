@@ -242,6 +242,11 @@ function mouseReleased()
 
 }
 
+function mouseMoved()
+{
+    return false; // stop scrolling outside
+}
+
 function touchMoved() 
 {
 
@@ -250,7 +255,7 @@ if(touchingCanvas() == true)
     modeSelector();
 }
     
-    //return false;
+    return false;
 }
 
 
@@ -302,7 +307,7 @@ function modeSelector()
 }
 
 
-function noScroll() 
+/*function noScroll() 
 {
   window.scrollTo(0, 0);
 }
@@ -312,6 +317,7 @@ window.addEventListener('scroll', noScroll);
 
 // Remove listener to re-enable scroll
 window.removeEventListener('scroll', noScroll);
+*/
 
 
 function drawWithBrush(x,  y,  prevX,  prevY)
