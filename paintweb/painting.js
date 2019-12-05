@@ -231,8 +231,10 @@ if(touchingCanvas == true)
 {
     modeSelector();
 }
+    return false;
 }
     //touchDown = true;
+
 
 function mouseReleased()
 {
