@@ -248,7 +248,10 @@ function mouseReleased()
 
 function mouseMoved()
 {
-    return false; // stop scrolling outside
+    if(touchingCanvas)
+        {
+        return false; // stop scrolling outside
+        }
 }
 
 function touchMoved() 
