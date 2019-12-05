@@ -713,17 +713,14 @@ function mouseMoved()
         return false; // stop scrolling outside
         }
 }
-
+*/
 function touchMoved() 
 {
 
-/*if(touchingCanvas() == true)
-{
-    modeSelector();
-}
+
   
-  // return false;
-}  */
+   return false;
+}  
 
 
 
