@@ -2,12 +2,7 @@ var x1, y1, x2, y2, x3, y3, x4, y4;
 
 var circleX, circleY;
 
-var col;
-var counter = 0;
-var strokeWidth = 8;
-var maxStrokeLength = 32;
-var bristleCount = 6; 
-var bristleThickness = 3;
+
 var img;
 
 var undos = [];
@@ -46,6 +41,7 @@ var colourInvert = false;
 var xDotVariation, yDotVariation;
 var randomDotShape = false;
 var randomColours = false;
+var matchColours = true;
 var slightlyRandomColours = false;
 var speedAffectsSize = false;
 
@@ -134,6 +130,10 @@ function setup()
     var speedAffectsSizeToggleButton = select('#speedAffectsSizeToggle');
     speedAffectsSizeToggleButton.mousePressed(speedAffectsSizeToggled);
 
+     var colourInvertButton = select('#colourInvertToggle');
+    colourInvertButton.mousePressed(colourInvertToggle);
+    
+    
 
     var undoButton = select('#undoButton');
     
@@ -149,11 +149,6 @@ function setup()
 
 
 
-
-function speedAffectsSizeToggled()
-{
-  speedAffectsSize = !speedAffectsSize;
-}
 
 
 
@@ -209,6 +204,21 @@ rubbingCircles = !rubbingCircles;
 rubbingSquares = !rubbingSquares;
 }
 
+function speedAffectsSizeToggled()
+{
+  speedAffectsSize = !speedAffectsSize;
+}
+
+
+function colourInvertToggle()
+{
+    colourInvert =  !colourInvert;
+
+
+    
+}
+
+
 function toggleBrushMode()
 {
     drawing = !drawing;
@@ -223,50 +233,10 @@ function toggleMirrorState()
 function toggleRandomColours()
 {
   randomColours = !randomColours;
-}
-
-/*
-
-function mousePressed()
-{
-
-/if(touchingCanvas == true)
-{
-    modeSelector();
-}
-   // return false;
-}
-    //touchDown = true;
-
-
-function mouseReleased()
-{
- 
- touchDown = false;
-
-
-
-
-}
-
-function mouseMoved()
-{
-    if(touchingCanvas())
-        {
-        return false; // stop scrolling outside
-        }
-}
-
-function touchMoved() 
-{
-
-/*if(touchingCanvas() == true)
-{
-    modeSelector();
-}
   
-  // return false;
-}  */
+  
+}
+
 
 
 function touchingCanvas()
@@ -300,10 +270,7 @@ function modeSelector()
   }
   if(multiMirror)
   {
-        
 
-
-      
       var  mirrorPoint = [(window.innerWidth/2)/2 , (window.innerWidth/2)/2];
     
       
@@ -317,134 +284,42 @@ function modeSelector()
 }
 
 
-/*function noScroll() 
-{
-  window.scrollTo(0, 0);
-}
-
-// add listener to disable scroll
-window.addEventListener('scroll', noScroll);
-
-// Remove listener to re-enable scroll
-window.removeEventListener('scroll', noScroll);
-*/
 
 
 function drawWithBrush(x,  y,  prevX,  prevY)
 { 
     var mouseSpeed;
+    
   if(speedAffectsSize)
     {
      mouseSpeed =  dist(x, y, prevX, prevY);
-    brushSize = mouseSpeed * 5;
+    brushSize = mouseSpeed * 3;
     }
    
     
     strokeWeight(brushSize);
     
-    stroke(getColourAtPoint(x, y));  // if colours
+    if(randomColours)
+    {
+      stroke(randomizeAllColours());
+    }
 
+     if(matchColours)
+    {
+        stroke(getColourAtPoint(x, y));
+    }
+     if (colourInvert)
+    {       
+            var col = getColourAtPoint(x, y);
+     
+            stroke(invertColor(red(col), green(col), blue(col)));
+    }
+   
     line(x, y, prevX, prevY);
 }
 
 
 
-
-
-function keyPressed()
-{
-  if (key == 's')
-  {
-    stop = !stop;
-  }
-  if (key == 'r') // for random dot shapes
-  {
-    randomDotShape = !randomDotShape;
-  }
-  if (key == 'i')
-  {
-    colourInvert = !colourInvert;
-  }
-  if (key == ',')
-  {
-    randomColours = !randomColours;
-  }
-  if (key == 'z')
-  {
-    slightlyRandomColours = !slightlyRandomColours;
-  }
-  if (key == 'p')
-  {
-    save("data/picture.png");
-
-    var picturePath = dataPath("");
-    print(dataPath(""));
-
-    printImage(picturePath + "picture.png");
-  }
-  if (key == 'h')
-
-  {
-    horizontalMirror = true;
-    verticalMirror = false;
-  }
-
-  if (key == 'v')
-  {
-    verticalMirror = true;
-    horizontalMirror = false;
-  }
-
-  if (key == 'g') //undo
-  {
-    undo.undo();
-  }
-  if (key == 'f')
-  {
-    undo.redo();
-  }
-  if (key == 'c')
-  {
-    clearScreen();
-  }
-  if(key == 'a')
-  {
-    multiMirror = !multiMirror;
-    
-  }
-  if(key == 'k')
-  {
-    speedAffectsSize = !speedAffectsSize;
-  }
-
-  if (key == 'l')
-  {
-    if (imageLoaded < imgs.length - 1)
-    {
-      imageLoaded++;
-    } else
-    {
-      imageLoaded = 0;
-    }
-    img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
-  }
-
-  if (key == 'q') //switch the brush
-  {
-    rectBrush = !rectBrush;
-    circleBrush = !circleBrush;
-  }
-  if (key == 'm')
-  {
-    drawing = !drawing;
-    rubbing = !rubbing; 
-  }
-  if ('0' <= key && key <= '9')
-  {
-    dotSize = int(key) - 48;
-    print("brush: " + dotSize + "\n");
-  }
-}
 
 
 function mirror(rotationPoint, totalMirrors,  point, prevPoint)
@@ -607,6 +482,7 @@ function invertColor( r,  g,  b)
   return color(255 - r, 255 - g, 255 - b);
 }
 
+
 function randomR(r, g, b) {
 
   return color(random(0, 255), 255 - g, 255 - b);//randomize one channel
@@ -702,11 +578,152 @@ function printImage(path)
 
 
 
+function keyPressed()
+{
+  if (key == 's')
+  {
+    stop = !stop;
+  }
+  if (key == 'r') // for random dot shapes
+  {
+    randomDotShape = !randomDotShape;
+  }
+  if (key == 'i')
+  {
+    colourInvert = !colourInvert;
+  }
+  if (key == ',')
+  {
+    randomColours = !randomColours;
+    matchColours = !matchColours;
+  }
+  if (key == 'z')
+  {
+    slightlyRandomColours = !slightlyRandomColours;
+  }
+  if (key == 'p')
+  {
+    save("data/picture.png");
+
+    var picturePath = dataPath("");
+    print(dataPath(""));
+
+    printImage(picturePath + "picture.png");
+  }
+  if (key == 'h')
+
+  {
+    horizontalMirror = true;
+    verticalMirror = false;
+  }
+
+  if (key == 'v')
+  {
+    verticalMirror = true;
+    horizontalMirror = false;
+  }
+
+  if (key == 'g') //undo
+  {
+    undo.undo();
+  }
+  if (key == 'f')
+  {
+    undo.redo();
+  }
+  if (key == 'c')
+  {
+    clearScreen();
+  }
+  if(key == 'a')
+  {
+    multiMirror = !multiMirror;
+    
+  }
+  if(key == 'k')
+  {
+    speedAffectsSize = !speedAffectsSize;
+  }
+
+  if (key == 'l')
+  {
+    if (imageLoaded < imgs.length - 1)
+    {
+      imageLoaded++;
+    } else
+    {
+      imageLoaded = 0;
+    }
+    img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
+  }
+
+  if (key == 'q') //switch the brush
+  {
+    rectBrush = !rectBrush;
+    circleBrush = !circleBrush;
+  }
+  if (key == 'm')
+  {
+    drawing = !drawing;
+    rubbing = !rubbing; 
+  }
+  if ('0' <= key && key <= '9')
+  {
+    dotSize = int(key) - 48;
+    print("brush: " + dotSize + "\n");
+  }
+}
 
 
 
 
 
+
+
+
+
+/*
+
+function mousePressed()
+{
+
+/if(touchingCanvas == true)
+{
+    modeSelector();
+}
+   // return false;
+}
+    //touchDown = true;
+
+
+function mouseReleased()
+{
+ 
+ touchDown = false;
+
+
+
+
+}
+
+function mouseMoved()
+{
+    if(touchingCanvas())
+        {
+        return false; // stop scrolling outside
+        }
+}
+
+function touchMoved() 
+{
+
+/*if(touchingCanvas() == true)
+{
+    modeSelector();
+}
+  
+  // return false;
+}  */
 
 
 
