@@ -708,22 +708,19 @@ function mouseReleased()
 }
 */
 
+
+
 function mouseMoved()
 {
-    if(touchingCanvas())
-        {
-        return false; // stop scrolling outside
-        }
+    
+return false;
 }
 
 
 function touchMoved() 
 {
 
-    if(touchingCanvas())
-        {
-        return false; // stop scrolling outside
-        }
+return false;
 }  
 
 
