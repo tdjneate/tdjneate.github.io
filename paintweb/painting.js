@@ -248,7 +248,7 @@ function mouseReleased()
 
 function mouseMoved()
 {
-    if(touchingCanvas)
+    if(!touchingCanvas)
         {
         return false; // stop scrolling outside
         }
