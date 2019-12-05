@@ -18,6 +18,9 @@ h1 {
 
 .sketch-holder {
   padding: 2%;
+    width: 100%;
+        height:100%;
+    background: grey;
 }
 
 .gui-holder {
