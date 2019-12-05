@@ -148,7 +148,7 @@ function setup()
 }
 
 
-window.addEventListener("contextmenu", function(e) { e.preventDefault(); }) //stop scrolling?
+
 
 function speedAffectsSizeToggled()
 {
@@ -231,7 +231,7 @@ if(touchingCanvas == true)
 {
     modeSelector();
 }
-    return false;
+   // return false;
 }
     //touchDown = true;
 
@@ -259,7 +259,7 @@ if(touchingCanvas() == true)
     modeSelector();
 }
     
-    return false;
+    //return false;
 }
 
 
