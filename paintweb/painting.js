@@ -248,7 +248,7 @@ function mouseReleased()
 
 function mouseMoved()
 {
-    return false; // stop scrolling outside
+   // return false; // stop scrolling outside
 }
 
 function touchMoved() 
@@ -624,13 +624,12 @@ function randomizeAllColours()
 function windowResized()
 {
   resizeCanvas(window.innerWidth/2,window.innerWidth/2);
+
 }
 
 
 function undo()
 {
-
-      print(undos.length);
     if(undos.length  > 1) // if there is more than the blank canvas there...
     {
       undos.pop();
