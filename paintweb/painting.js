@@ -259,7 +259,7 @@ if(touchingCanvas() == true)
     modeSelector();
 }
     
-   return false;
+  // return false;
 }
 
 
