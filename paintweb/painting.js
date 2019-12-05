@@ -712,7 +712,7 @@ function mouseReleased()
 
 function mouseMoved()
 {
-    if(touchingCanvas())
+    if(touchingCanvas() == true)
         {
             return false;
         }
@@ -721,7 +721,7 @@ function mouseMoved()
 function mousePressed()
 {
 
-if(touchingCanvas == true)
+if(touchingCanvas() == true)
 {
     return false;
 }
