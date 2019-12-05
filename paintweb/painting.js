@@ -708,7 +708,13 @@ function mouseReleased()
 }
 */
 
-
+function touchMoved()
+{
+     if(touchingCanvas() == true)
+        {
+            return false;
+        }
+}
 
 function mouseMoved()
 {
