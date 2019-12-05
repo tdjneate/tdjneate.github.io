@@ -709,7 +709,7 @@ function mouseReleased()
 */
 
 
-/*
+
 function mouseMoved()
 {
     if(touchingCanvas())
@@ -718,15 +718,16 @@ function mouseMoved()
         }
 
 }
-*/
-
-function touchMoved() 
+function mousePressed()
 {
-    if(touchingCanvas())
-        {
-            return false;
-        }
-}  
+
+if(touchingCanvas == true)
+{
+    return false;
+}
+   // return false;
+}
+
 
 
 
