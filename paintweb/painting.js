@@ -66,6 +66,9 @@ var button;
 var brushSizeSliderLabel;
 var numberOfMirrors;
 var mirrorTriggerButton;
+var mirrorOffsetX = .5;
+var mirrorOffsetY = .5;
+
 var clearButton;
 var rubbingDotSizeSlider;
 var brushModeButton;
@@ -134,6 +137,8 @@ function setup()
      var colourInvertButton = select('#colourInvertToggle');
     colourInvertButton.mousePressed(colourInvertToggle);
     
+   // var downloadImageButton = select('#downloadImageButton');
+ //  downloadImageButton.mouseReleased(downloadImage);
     
 
     var undoButton = select('#undoButton');
@@ -144,8 +149,8 @@ function setup()
   redoButton.mouseReleased(redo);*/ // no redo for now
 
 
-  addToUndoStack(); // add the first thing to the undoStack
-    
+  addToUndoStack(); // add the first thing to the undoStac
+    updatePreviewPicture();
 }
 
 
@@ -195,9 +200,35 @@ function cycleToNextImage()
       imageLoaded = 0;
     }
     img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
+    
+    //testing
+    updatePreviewPicture();
+    
+
+
+  
+
+   /*previewPicture.image = createImg("pics/" + imgs[imageLoaded] + ".jpg", "The preview image",
+  'test',
+  '',
+  () => {
+    previewPicture.size(100, AUTO); });*/
+    
+    
+
+  //  previewPicture = createImg("pics/" + imgs[imageLoaded] + ".jpg", "The preview image", 'anonymous' );
+  
+    
+
 
 }
 
+
+function updatePreviewPicture()
+{
+        var previewPicture = select('#previewPicture');
+    document.getElementById("previewPicture").src = "pics/" + imgs[imageLoaded] + ".jpg", "The preview image";
+}
 
 function toggleRubbingShape()
 {
@@ -258,9 +289,6 @@ else
 function modeSelector()
 {
 
-
-  //if(mouseIsPressed)
- // {
   if (drawing)
   {
     drawWithBrush(mouseX, mouseY, pmouseX, pmouseY);
@@ -271,16 +299,13 @@ function modeSelector()
   }
   if(multiMirror)
   {
-
-      var  mirrorPoint = [(window.innerWidth/2)/2 , (window.innerWidth/2)/2];
+     // future
+      var  mirrorPoint = [(window.innerWidth/2) * mirrorOffsetX , (window.innerWidth/2) * mirrorOffsetY]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
     
       
       var points  =  [mouseX, mouseY];
       var prevPoints = [pmouseX, pmouseY];
       mirror(mirrorPoint, numberOfMirrors, points, prevPoints);
-  
-  
- // }
 }
 }
 
@@ -294,7 +319,7 @@ function drawWithBrush(x,  y,  prevX,  prevY)
   if(speedAffectsSize)
     {
      mouseSpeed =  dist(x, y, prevX, prevY);
-    brushSize = mouseSpeed * 3;
+    brushSize = mouseSpeed * brushSize;
     }
    
     

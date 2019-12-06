@@ -25,8 +25,8 @@ h1 {
 
 .gui-holder {
     
-  padding-top:10%;
-  padding-bottom:10%;
+  padding-top:30%;
+  padding-bottom:30%;
 }
 
 .vertical-center {
@@ -57,9 +57,10 @@ h1 {
 
 
 .slider {
+  padding-left: 5%;
   -webkit-appearance: none;
   width: 50%;
-  height: 15px;
+  height: 25px;
   border-radius: 5px;  
   background: lightgrey;
   outline: none;
@@ -69,28 +70,29 @@ h1 {
 }
 
 .slider::-webkit-slider-thumb {
+
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%; 
-  background: purple;
+  background: black;
   cursor: pointer;
 }
 
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
+.slider::-moz-range-thumb 
+{
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   background: black
   cursor: pointer;
 }
             
-/*SWITCH
-            
-            
-            */
-.switch input[type="checkbox"]:checked::before {
+/*SWITCH*/
+
+.switch input[type="checkbox"]:checked::before 
+{
   left: 10px;
   background-color: lightblue;
 }
