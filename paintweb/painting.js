@@ -128,8 +128,8 @@ function setup()
    
 
 
-    var randomColoursToggleButton = select('#randomColoursToggle');
-    randomColoursToggleButton.mousePressed(toggleRandomColours);
+  //  var randomColoursToggleButton = select('#randomColoursToggle');
+   // randomColoursToggleButton.mousePressed(toggleRandomColours);
     
     var speedAffectsSizeToggleButton = select('#speedAffectsSizeToggle');
     speedAffectsSizeToggleButton.mousePressed(speedAffectsSizeToggled);
@@ -319,7 +319,7 @@ function drawWithBrush(x,  y,  prevX,  prevY)
   if(speedAffectsSize)
     {
      mouseSpeed =  dist(x, y, prevX, prevY);
-    brushSize = mouseSpeed * brushSize;
+    brushSize = mouseSpeed * 5;
     }
    
     
