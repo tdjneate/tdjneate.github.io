@@ -84,11 +84,14 @@ function preload()
 
 function setup() 
 {
-    img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
+    
 	frameRate(60);
-  undoCounter = 0;
+    undoCounter = 0;
 
   canvas = createCanvas(window.innerWidth/2,window.innerWidth/2);
+   
+    loadImageAndUpdatePreview();
+
 
   
 		 //this is where drawing happens
@@ -150,7 +153,7 @@ function setup()
 
 
   addToUndoStack(); // add the first thing to the undoStac
-    updatePreviewPicture();
+
 }
 
 
@@ -199,10 +202,9 @@ function cycleToNextImage()
     {
       imageLoaded = 0;
     }
-    img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
     
-    //testing
-    updatePreviewPicture();
+    loadImageAndUpdatePreview();
+
     
 
 
@@ -223,12 +225,18 @@ function cycleToNextImage()
 
 }
 
-
-function updatePreviewPicture()
+function loadImageAndUpdatePreview()
 {
-        var previewPicture = select('#previewPicture');
+        img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
+   img.resize(window.innerWidth/2,window.innerWidth/2);
+    
+
+    //updatePreview
+    var previewPicture = select('#previewPicture');
     document.getElementById("previewPicture").src = "pics/" + imgs[imageLoaded] + ".jpg", "The preview image";
+
 }
+
 
 function toggleRubbingShape()
 {
