@@ -52,16 +52,53 @@
 
       <div class="slidecontainer">
         <p>Thickness of Brush<input type="range" min="1" max="300" value="15" class="slider" id="brushThicknessSlider"></p>
-      </div>
+        </div>
+        
+           <div> <label class="switch" id = "speedAffectsSizeToggle"> 
+      <p>Normal size 
+        <input type="checkbox">
+      speed affects size</p>
+    </label>
+  </div>
+        
+          <div><label class="switch" id = "mirrorStateButton"> 
+      <p>Mirroring Off
+        <input type="checkbox">
+      Mirroring On</p>
+    </label>
+  </div>
+        
+                <div> <label class="switch" id = "colourInvertToggle"> 
+      <p>Normal Colours
+        <input type="checkbox">
+      Inverted Colours</p>
+    </label>
+  </div>
+        
+           <div class="slidecontainer">
+       <p>Number of Mirrors <input type="range" min="1" max="24" value="4" class="slider" id="numberOfMirrors"> </p>
+     </div>
+
+        <div> <label class="switch" id = "brushModeToggle"> 
+      <p>Painting 
+        <input type="checkbox">
+      Rubbbing</p>
+    </label>
+  </div>
+        
+        <div> <label class="switch" id = "shapeRubbingToggle"> 
+      <p>Rubbing Circles 
+        <input type="checkbox">
+      Rubbing Squares</p>
+       </label>
+        </div>
+        
         
           <div class="slidecontainer">
        <p>Rubbing Dot Size <input type="range" min="1" max="40" value="10" class="slider" id="rubbingDotSizeSlider"> </p>
      </div>
 
-      <div class="slidecontainer">
-       <p>Number of Mirrors <input type="range" min="1" max="24" value="4" class="slider" id="numberOfMirrors"> </p>
-     </div>
-
+   
    
 
      <div class="slidecontainer">
@@ -69,47 +106,15 @@
        <p>Rubbing Dot Speed <input type="range" min="5" max="200" value="50" class="slider" id="rubbingDotSpeedSlider"> </p>
      </div>
 
-     <div><label class="switch" id = "mirrorStateButton"> 
-      <p>mirroring off
-        <input type="checkbox">
-      mirroring on</p>
-    </label>
-  </div>
+   
     
 
-    <div> <label class="switch" id = "brushModeToggle"> 
-      <p>painting 
-        <input type="checkbox">
-      rubbbing</p>
-    </label>
-  </div>
+
+
+
     
-    <!--<div> <label class="switch" id = "randomColoursToggle"> 
-      <p>not random 
-        <input type="checkbox">
-      random</p>
-    </label>
-  </div>-->
-
-   <div> <label class="switch" id = "speedAffectsSizeToggle"> 
-      <p>Normal size 
-        <input type="checkbox">
-      speed affects size</p>
-    </label>
-  </div>
-
-    <div> <label class="switch" id = "shapeRubbingToggle"> 
-      <p>rubbing circles 
-        <input type="checkbox">
-      rubbing squares</p>
-        </div>
         
-            <div> <label class="switch" id = "colourInvertToggle"> 
-      <p>colour normal 
-        <input type="checkbox">
-      colour invert</p>
-    </label>
-  </div>
+    
         <div>
             <img id = "previewPicture" style = "width:30%">
             
