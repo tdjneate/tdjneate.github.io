@@ -439,7 +439,9 @@ function runPoints(xPos, yPos)
   for (var i=0; i < dotSpeed; i++) 
   {
     var randomPoint = new Array (2); //load as blank for now
+    
 
+      
     if (circleBrush)
     {
       randomPoint = getRandomPointInCircle(xPos, yPos, brushSize, brushSize);// if circle
