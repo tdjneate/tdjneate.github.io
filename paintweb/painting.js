@@ -321,7 +321,7 @@ function modeSelector()
   if(multiMirror)
   {
      // future
-      var  mirrorPoint = [(window.innerWidth * .6) * mirrorOffsetX , (window.innerHeight * .4) * mirrorOffsetY]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
+      var  mirrorPoint = [(window.innerWidth * .6) * (mirrorOffsetX * .6) , (window.innerHeight * .4) * (mirrorOffsetY * .4)]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
     
       
       var points  =  [mouseX, mouseY];
