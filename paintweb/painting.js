@@ -76,6 +76,10 @@ var rubbingSquares = false;
 var rubbingCircles = true;
 var touchDown;
 
+
+
+
+
 function preload() 
 {
   
@@ -123,33 +127,24 @@ function setup()
    var nextImageButton = select('#nextImageButton');
    nextImageButton.mouseReleased(cycleToNextImage);
     
-  brushModeButton = select('#brushModeToggle')
-  brushModeButton.mousePressed(toggleBrushMode);
+  //brushModeButton = select('#brushModeToggle')
+  //brushModeButton.mousePressed(toggleBrushMode);
+   drawing = true; // this is the default for now
     
     var shapeRubbingToggle = select('#shapeRubbingToggle');
     shapeRubbingToggle.mousePressed(toggleRubbingShape);
-   
-
-
-  //  var randomColoursToggleButton = select('#randomColoursToggle');
-   // randomColoursToggleButton.mousePressed(toggleRandomColours);
-    
+  
     var speedAffectsSizeToggleButton = select('#speedAffectsSizeToggle');
     speedAffectsSizeToggleButton.mousePressed(speedAffectsSizeToggled);
 
      var colourInvertButton = select('#colourInvertToggle');
     colourInvertButton.mousePressed(colourInvertToggle);
-    
-   // var downloadImageButton = select('#downloadImageButton');
- //  downloadImageButton.mouseReleased(downloadImage);
-    
 
     var undoButton = select('#undoButton');
-    
     undoButton.mouseReleased(undo);
-      
-    /*var redoButton = select('#redoButton');
-  redoButton.mouseReleased(redo);*/ // no redo for now
+
+    
+  toggleModeInUI();  // this toggles the UI between 'painting mode'
 
 
   addToUndoStack(); // add the first thing to the undoStac
@@ -157,7 +152,34 @@ function setup()
 }
 
 
+function toggleModeInUI() 
+{
+  var drawingUI = document.getElementById("drawingUI");
+  var rubbingUI  =  document.getElementById("rubbingUI");
+  
+    drawing = !drawing;
+    rubbing = !rubbing; 
+    //change UI here
+  
+    
+  if (drawing)
+  {
+    drawingUI.style.display = "block";
+    rubbingUI.style.display = "none";
+    document.getElementById("toggleUIMode").src = "ui/drawing.png";
 
+    
+    
+  }
+    
+  if(rubbing) 
+    {
+    drawingUI.style.display = "none";
+    rubbingUI.style.display = "block";
+     document.getElementById("toggleUIMode").src = "ui/rubbing.png";
+
+  }
+}
 
 
 
@@ -171,7 +193,7 @@ function clearScreen()
     print("clearing");
     background(20); 
      
-  touchingCanvas = false; // prevent drawing when we come back to the screen
+ // touchingCanvas = false; // prevent drawing when we come back to the screen
         }
     else
     {
@@ -719,12 +741,13 @@ function mousePressed()
    // return false;
 }
     //touchDown = true;
+    */
 function mouseReleased()
 {
  
  touchDown = false;
 }
-*/
+
 
 function touchMoved()
 {
