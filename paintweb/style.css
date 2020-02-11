@@ -9,15 +9,17 @@ h1 {
      } 
 
  h3 
-     { font-family: Nunito;
+     { 
+         font-family: Nunito;
       font-size: 14px;
        font-style: normal;
         font-variant: normal;
          font-weight: 700; line-height:
-          15.4px; }
+          15.4px; 
+}
 
 .sketch-holder {
- padding:5%;
+ padding:3%;
     
     width: 100%;
    height:100%;
@@ -26,12 +28,14 @@ h1 {
 
 .gui-holder {
     
-  padding-top:20%;
+  padding-top:5%;
+margin: 5%;
   padding-bottom:30%;
 }
 
 .vertical-center {
-  margin: 0;
+    
+  margin: 5%;
   position: absolute;
   top: 50%;
   -ms-transform: translateY(-50%);
@@ -57,7 +61,11 @@ h1 {
 }
 
 
-
+.previewpicture
+{
+    width:30%;
+    border-radius: 15px;
+}
 
 .slider {
   -webkit-appearance: none;
@@ -141,4 +149,3 @@ h1 {
 @-ms-viewport{
   width: device-width;
 }
-        

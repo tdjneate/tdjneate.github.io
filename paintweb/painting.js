@@ -88,7 +88,7 @@ function setup()
 	frameRate(60);
     undoCounter = 0;
 
-  canvas = createCanvas(window.innerWidth/2,window.innerWidth/2);
+  canvas = createCanvas(window.innerWidth * 0.6,window.innerWidth * 0.4);
    
     loadImageAndUpdatePreview();
 
@@ -163,9 +163,19 @@ function setup()
 
 function clearScreen()
 {
-    clear();
+    
+    var deleteCheck = confirm("Press a button!");
+    if(deleteCheck)
+        {
+   clear();
     print("clearing");
-    background(20);
+    background(20); 
+        }
+    else
+    {
+    print("user did not delete artwork");    
+    }
+  
 }
 
 
@@ -602,7 +612,6 @@ function printImage(path)
   Process p = exec("lp", path); 
   try {
     int result = p.waitFor();
-
     println("the process returned " + result);
   } 
   catch (InterruptedException e) {
@@ -719,10 +728,8 @@ function keyPressed()
 
 
 /*
-
 function mousePressed()
 {
-
 /if(touchingCanvas == true)
 {
     modeSelector();
@@ -730,16 +737,10 @@ function mousePressed()
    // return false;
 }
     //touchDown = true;
-
-
 function mouseReleased()
 {
  
  touchDown = false;
-
-
-
-
 }
 */
 
@@ -768,20 +769,6 @@ if(touchingCanvas() == true)
 }
    // return false;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
