@@ -241,7 +241,7 @@ function cycleToNextImage()
 function loadImageAndUpdatePreview()
 {
         img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
-   img.resize(window.innerWidth/2,window.innerWidth/2);
+   img.resize((window.innerWidth *.6 )/2, (window.innerWidth * .4)/2);
     
 
     //updatePreview
@@ -321,7 +321,7 @@ function modeSelector()
   if(multiMirror)
   {
      // future
-      var  mirrorPoint = [(window.innerWidth/2) * mirrorOffsetX , (window.innerWidth/2) * mirrorOffsetY]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
+      var  mirrorPoint = [((window.innerWidth * .6)/2) * mirrorOffsetX , ((window.innerWidth * .4)/2) * mirrorOffsetY]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
     
       
       var points  =  [mouseX, mouseY];
@@ -554,7 +554,7 @@ function randomizeAllColours()
 
 function windowResized()
 {
-  resizeCanvas(window.innerWidth/2,window.innerWidth/2);
+  resizeCanvas((window.innerWidth * .6)/2, (window.innerWidth * .4)/2);
 
 }
 
@@ -774,6 +774,5 @@ if(touchingCanvas() == true)
 }
    // return false;
 }
-
 
 
