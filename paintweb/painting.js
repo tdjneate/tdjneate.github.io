@@ -164,12 +164,14 @@ function setup()
 function clearScreen()
 {
     
-    var deleteCheck = confirm("Press a button!");
+    var deleteCheck = confirm("Delete everything?");
     if(deleteCheck)
         {
    clear();
     print("clearing");
     background(20); 
+     
+  touchingCanvas = false; // prevent drawing when we come back to the screen
         }
     else
     {
@@ -196,11 +198,7 @@ if(touchingCanvas() && mouseIsPressed)
   numberOfMirrors = select('#numberOfMirrors').value();
   dotSize = select('#rubbingDotSizeSlider').value();
   dotSpeed = select('#rubbingDotSpeedSlider').value();
-}
-
-  
-  
-  
+   }
 }
 
 function cycleToNextImage()
@@ -214,23 +212,6 @@ function cycleToNextImage()
     }
     
     loadImageAndUpdatePreview();
-
-    
-
-
-  
-
-   /*previewPicture.image = createImg("pics/" + imgs[imageLoaded] + ".jpg", "The preview image",
-  'test',
-  '',
-  () => {
-    previewPicture.size(100, AUTO); });*/
-    
-    
-
-  //  previewPicture = createImg("pics/" + imgs[imageLoaded] + ".jpg", "The preview image", 'anonymous' );
-  
-    
 
 
 }
@@ -600,6 +581,7 @@ function addToUndoStack()
 
 function downloadImage ()
 {
+    
  saveCanvas('myCreation', 'png');
 
 }
