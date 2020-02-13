@@ -20,8 +20,11 @@ h1 {
 .sketch-holder 
 {
  padding:1%;
-
-	align-content: center;
+position: relative;
+	
+clear:both;	
+	
+align-content: center;
     
 }
 
