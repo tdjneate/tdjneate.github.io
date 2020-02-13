@@ -101,23 +101,13 @@ function setup()
   canvas = createCanvas(window.innerWidth * 0.6,window.innerWidth * 0.4);
    
     loadImageAndUpdatePreview();
-
-
-
-    canvas.mouseReleased(addToUndoStack); // attach listener only for canvas
+    
+	canvas.mouseReleased(addToUndoStack); // attach listener only for canvas
 	
     canvas.parent('sketch-holder'); 
     
 
-   
-    
-
-
   background(20);
-
- // mirrorTriggerButton = select('#mirrorStateButton');
- // mirrorTriggerButton.mousePressed(toggleMirrorState);
-
 
    clearPageButton = select('#clearPageButton');
    clearPageButton.mousePressed(clearScreen);
@@ -128,27 +118,12 @@ function setup()
 
    var nextImageButton = select('#nextImageButton');
    nextImageButton.mouseReleased(cycleToNextImage);
-    
-  //brushModeButton = select('#brushModeToggle')
-  //brushModeButton.mousePressed(toggleBrushMode);
-  
-    
-   // var shapeRubbingToggle = select('#shapeRubbingToggle');
-   // shapeRubbingToggle.mousePressed(toggleRubbingShape);
-  
-//    var speedAffectsSizeToggleButton = select('#speedAffectsSizeToggle');
- //   speedAffectsSizeToggleButton.mousePressed(speedAffectsSizeToggled);
 
-    // var colourInvertButton = select('#colourInvertToggle');
-    //colourInvertButton.mousePressed(colourInvertToggle);
 
     var undoButton = select('#undoButton');
     undoButton.mouseReleased(undo);
 
-    
   toggleModeInUI(false);  // this toggles the UI between 'painting mode'
-
- 
   addToUndoStack(); // add the first thing to the undoStac
 	
 
@@ -245,8 +220,8 @@ function cycleToNextImage()
 
 function loadImageAndUpdatePreview()
 {
-        img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
-   img.resize((window.innerWidth *.6 )/2, (window.innerWidth * .4)/2);
+    img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
+   img.resize((window.innerWidth *.6 ), (window.innerWidth * .4));
     
 
     //updatePreview

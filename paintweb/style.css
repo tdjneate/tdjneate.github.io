@@ -17,28 +17,28 @@ h1 {
           15.4px; 
 }
 
-.sketch-holder {
+.sketch-holder 
+{
  padding:1%;
-	
-    
-    width: 100%;
-   height:100%;
+max-width: 100%;
+max-height: auto;
+	align-content: center;
     
 }
 
 .gui-holder {
     
   padding-top:5%;
-margin: 1%;
-
+  margin: 1%;
   padding-bottom:0%;
 }
 
-.vertical-center {
-    
+.vertical-center
+{
   margin: 3%;
   position: absolute;
-  top: 40%;
+
+  top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
@@ -64,6 +64,7 @@ margin: 1%;
 .panel 
 {
 	background-color: ghostwhite;
+	padding:4%;
 }
 
 
@@ -71,6 +72,7 @@ margin: 1%;
 {
     width:60%;
     border-radius: 5px;
+	padding:2%;
 }
 
 .slider {
