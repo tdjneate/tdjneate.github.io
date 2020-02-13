@@ -52,7 +52,7 @@ var stop = false;
 
 var horizontalMirror = false;
 var verticalMirror = false;
-var multiMirror = false;
+var multiMirror = true;
 
 var drawing = false;
 var rubbing = true;
@@ -278,10 +278,6 @@ function toggleBrushMode()
     drawing = !drawing;
     rubbing = !rubbing; 
 }
-function toggleMirrorState()
-{
-    multiMirror = !multiMirror;
-}
 
 
 function toggleRandomColours()
@@ -319,8 +315,8 @@ function modeSelector()
   {
     runPoints(mouseX, mouseY);
   }
-  if(multiMirror)
-  {
+ 
+  
      // future
       var  mirrorPoint = [window.innerWidth  * mirrorOffsetX * .6, window.innerHeight * mirrorOffsetY * .4]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
     
@@ -660,18 +656,7 @@ function keyPressed()
 
     printImage(picturePath + "picture.png");
   }
-  if (key == 'h')
-
-  {
-    horizontalMirror = true;
-    verticalMirror = false;
-  }
-
-  if (key == 'v')
-  {
-    verticalMirror = true;
-    horizontalMirror = false;
-  }
+ 
 
   if (key == 'g') //undo
   {
