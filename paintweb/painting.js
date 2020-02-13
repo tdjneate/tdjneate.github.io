@@ -136,8 +136,8 @@ function setup()
    // var shapeRubbingToggle = select('#shapeRubbingToggle');
    // shapeRubbingToggle.mousePressed(toggleRubbingShape);
   
-    var speedAffectsSizeToggleButton = select('#speedAffectsSizeToggle');
-    speedAffectsSizeToggleButton.mousePressed(speedAffectsSizeToggled);
+//    var speedAffectsSizeToggleButton = select('#speedAffectsSizeToggle');
+ //   speedAffectsSizeToggleButton.mousePressed(speedAffectsSizeToggled);
 
     // var colourInvertButton = select('#colourInvertToggle');
     //colourInvertButton.mousePressed(colourInvertToggle);

@@ -47,19 +47,25 @@
         <div class="col-md">                                                         
           <center>
         <div class="gui-holder">
-			 <input id ="toggleUIModeButton" onclick="toggleModeInUI()" type="image" src="ui/drawing.png" alt="Delete all content" height=40px><br>
+			
+			<input id ="nextImageButton" type="image" src="ui/nextImage.png" alt="Next Image" height=40px> <br/>
+                <img id = "previewPicture" class="previewpicture"><br/>
+
+				 <hr>
+
+			 <input id ="toggleUIModeButton" onclick="toggleModeInUI()" type="image" src="ui/drawing.png" alt="Toggle UI mode" height=40px><br>
 
            <input id ="undoButton" type="image" src="ui/undo.png" alt="Undo" height=40px> 
              <input id ="redoButton" type="image" src="ui/redo.png" alt="Redo" height=40px> <br/>
-             <input id ="downloadImageButton" type="image" src="ui/download.png" alt="Download your creation" height=40px>  <br/> 
-            <input id ="clearPageButton" type="image" src="ui/delete.png" alt="Delete all content" height=40px> 
+             <input id ="downloadImageButton" type="image" src="ui/download.png" alt="Download your creation" height=40px> 
+			<input id ="colourInvertToggle" onclick="colourInvertToggle()" type="image" src="ui/invertColour.png" alt="Toggle shape between inverting and not inverting the colour" height=40px><br/> 
+
             <br/>
        
    
 
             
             
-<input id ="colourInvertToggle" onclick="colourInvertToggle()" type="image" src="ui/invertColour.png" alt="Toggle shape between inverting and not inverting the colour" height=40px>  <br>
 
 
 
@@ -74,20 +80,21 @@
             
             <!-- DRAWING ONLY UI GOES HERE-->
 
+			
+			
+			
 <div id = "drawingUI">
-    <div>
-             <label class="switch" id = "speedAffectsSizeToggle"> 
-          <p>Normal Size 
-            <input type="checkbox">
-          Speed Affects Size</p>
-        </label>
-      </div>
+  
+   
+			
+<input id ="speedAffectsSizeToggle" onclick="speedAffectsSizeToggled()" type="image" src="ui/speedEffect.png" alt="Toggle whether speed affects size of brush" height=40px> 
 
-            </div>
+            
 
 			
+			</div>
 			
-   <div id = "rubbingUI">
+			<div id = "rubbingUI">
 
               <div class="slidecontainer">
            <p> Dot Size <input type="range" min="1" max="40" value="10" class="slider" id="rubbingDotSizeSlider"> </p>
@@ -103,16 +110,13 @@
               
               </div>
 
-            
-            <div>
-				 <hr>
-				<input id ="nextImageButton" type="image" src="ui/nextImage.png" alt="Next Image" height=40px> <br/>
-                <img id = "previewPicture" class="previewpicture"><br/>
-				
+            			            <input id ="clearPageButton" type="image" src="ui/delete.png" alt="Delete all content" height=40px> 
 
+        
+				
 				 
 			</div>
-			  </div>
+		
             </center>
 
       </div>
