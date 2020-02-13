@@ -166,19 +166,20 @@ function toggleModeInUI()
 	print("Drawing:" + drawing);
 	print("Rubbing:" + rubbing);
  
-  if (rubbing)
+  if (drawing)
   {
     drawingUI.style.display = "block";
     rubbingUI.style.display = "none";
-    document.getElementById("toggleUIModeButton").src = "ui/drawing.png";
+    document.getElementById("toggleUIModeButton").src = "ui/rubbing.png";
 
   }
 
-  if (drawing) 
+  if (rubbing) 
     {
     drawingUI.style.display = "none";
     rubbingUI.style.display = "block";
-     document.getElementById("toggleUIModeButton").src = "ui/rubbing.png";
+     document.getElementById("toggleUIModeButton").src = "ui/drawing.png";
+	
   }
 	
 }
