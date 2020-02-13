@@ -22,8 +22,6 @@ h1 {
  padding:1%;
 position: relative;
 	
-clear:both;	
-	
 align-content: center;
     
 }
@@ -33,7 +31,7 @@ align-content: center;
   padding-top:5%;
   margin: 1%;
   padding-bottom:0%;
-  width:60%;
+  width:80%;
 }
 
 .vertical-center
@@ -60,14 +58,16 @@ align-content: center;
 .slidecontainer
 {
   width: 100%; /* Width of the outside container */
-    padding-bottom: 1%;
+   padding-bottom: 1%;
    padding-top: 1%;
 
 }
+
 .panel 
 {
 	background-color: ghostwhite;
 	padding:3%;
+	width:80%
 	
 }
 
@@ -105,6 +105,11 @@ align-content: center;
   background: white;
   cursor: pointer;
   
+}
+
+.button
+{
+	height:5vh;
 }
 
 /*
