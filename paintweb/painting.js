@@ -54,8 +54,9 @@ var horizontalMirror = false;
 var verticalMirror = false;
 var multiMirror = false;
 
-var drawing = true;
-var rubbing = false;
+var drawing = false;
+var rubbing = true;
+
 var brushSize = 15;
 
 var imgs = ["alley", "beach", "mountain", "sea", "tree", "waterfall"];
@@ -80,8 +81,13 @@ var touchDown;
 
 
 
-function preload() 
+function onload() 
 {
+    if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+// This is needed if the user scrolls down during page load and you want to make sure the page is scrolled to the top once it's fully loaded.Cross-browser supported.
+window.scrollTo(0,0);
   
 }
 
@@ -97,11 +103,7 @@ function setup()
     loadImageAndUpdatePreview();
 
 
-  
-		 //this is where drawing happens
 
-//	  canvas.mousePressed(modeSelector);	
-//	  canvas.mouseMoved(modeSelector);
     canvas.mouseReleased(addToUndoStack); // attach listener only for canvas
 	
     canvas.parent('sketch-holder'); 
@@ -113,8 +115,8 @@ function setup()
 
   background(20);
 
-  mirrorTriggerButton = select('#mirrorStateButton');
-  mirrorTriggerButton.mousePressed(toggleMirrorState);
+ // mirrorTriggerButton = select('#mirrorStateButton');
+ // mirrorTriggerButton.mousePressed(toggleMirrorState);
 
 
    clearPageButton = select('#clearPageButton');
@@ -129,22 +131,22 @@ function setup()
     
   //brushModeButton = select('#brushModeToggle')
   //brushModeButton.mousePressed(toggleBrushMode);
-   drawing = true; // this is the default for now
+  
     
-    var shapeRubbingToggle = select('#shapeRubbingToggle');
-    shapeRubbingToggle.mousePressed(toggleRubbingShape);
+   // var shapeRubbingToggle = select('#shapeRubbingToggle');
+   // shapeRubbingToggle.mousePressed(toggleRubbingShape);
   
     var speedAffectsSizeToggleButton = select('#speedAffectsSizeToggle');
     speedAffectsSizeToggleButton.mousePressed(speedAffectsSizeToggled);
 
-     var colourInvertButton = select('#colourInvertToggle');
-    colourInvertButton.mousePressed(colourInvertToggle);
+    // var colourInvertButton = select('#colourInvertToggle');
+    //colourInvertButton.mousePressed(colourInvertToggle);
 
     var undoButton = select('#undoButton');
     undoButton.mouseReleased(undo);
 
     
-  toggleModeInUI();  // this toggles the UI between 'painting mode'
+  toggleModeInUI(false);  // this toggles the UI between 'painting mode'
 
 
   addToUndoStack(); // add the first thing to the undoStac
@@ -156,30 +158,31 @@ function toggleModeInUI()
 {
   var drawingUI = document.getElementById("drawingUI");
   var rubbingUI  =  document.getElementById("rubbingUI");
-  
+ 
     drawing = !drawing;
-    rubbing = !rubbing; 
-    //change UI here
-  
-    
-  if (drawing)
+    rubbing = !rubbing;
+	
+
+	print("Drawing:" + drawing);
+	print("Rubbing:" + rubbing);
+ 
+  if (rubbing)
   {
     drawingUI.style.display = "block";
     rubbingUI.style.display = "none";
-    document.getElementById("toggleUIMode").src = "ui/drawing.png";
+    document.getElementById("toggleUIModeButton").src = "ui/drawing.png";
 
-    
-    
   }
-    
-  if(rubbing) 
+
+  if (drawing) 
     {
     drawingUI.style.display = "none";
     rubbingUI.style.display = "block";
-     document.getElementById("toggleUIMode").src = "ui/rubbing.png";
-
+     document.getElementById("toggleUIModeButton").src = "ui/rubbing.png";
   }
+	
 }
+
 
 
 
@@ -266,9 +269,7 @@ function speedAffectsSizeToggled()
 function colourInvertToggle()
 {
     colourInvert =  !colourInvert;
-
-
-    
+	print("colourInvert: " + colourInvert);
 }
 
 
