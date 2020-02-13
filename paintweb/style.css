@@ -67,14 +67,14 @@ align-content: center;
 {
 	background-color: ghostwhite;
 	padding:3%;
-	width:80%
+	width:25vw;
 	
 }
 
 
 .previewpicture
 {
-    width:60%;
+    width:20vw;
     border-radius: 5px;
 	padding:2%;
 }
