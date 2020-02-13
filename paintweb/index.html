@@ -47,28 +47,28 @@
         <div class="col-md">                                                         
           <center>
         <div class="gui-holder">
-            <input id ="undoButton" type="image" src="ui/undo.png" alt="Undo" height=30px> 
-                <input id ="redoButton" type="image" src="ui/redo.png" alt="Redo" height=30px> <br/>
-               
-                <input id ="downloadImageButton" type="image" src="ui/download.png" alt="Download your creation" height=30px>  <br/> 
-            <input id ="clearPageButton" type="image" src="ui/delete.png" alt="Delete all content" height=30px> 
+			 <input id ="toggleUIModeButton" onclick="toggleModeInUI()" type="image" src="ui/drawing.png" alt="Delete all content" height=40px><br>
+
+           <input id ="undoButton" type="image" src="ui/undo.png" alt="Undo" height=40px> 
+             <input id ="redoButton" type="image" src="ui/redo.png" alt="Redo" height=40px> <br/>
+             <input id ="downloadImageButton" type="image" src="ui/download.png" alt="Download your creation" height=40px>  <br/> 
+            <input id ="clearPageButton" type="image" src="ui/delete.png" alt="Delete all content" height=40px> 
             <br/>
        
-            <input id ="toggleUIModeButton" onclick="toggleModeInUI()" type="image" src="ui/drawing.png" alt="Delete all content" height=30px> 
-     <br>      <br>     <br>
+   
 
             
             
-<input id ="colourInvertToggle" onclick="colourInvertToggle()" type="image" src="ui/invertColour.png" alt="Toggle shape between inverting and not inverting the colour" height=30px> 
+<input id ="colourInvertToggle" onclick="colourInvertToggle()" type="image" src="ui/invertColour.png" alt="Toggle shape between inverting and not inverting the colour" height=40px>  <br>
 
 
 
           <div class="slidecontainer">
-            <p>Brush Thickness <input type="range" min="1" max="300" value="15" class="slider" id="brushThicknessSlider"></p>
+            <p>Thickness <input type="range" min="1" max="300" value="15" class="slider" id="brushThicknessSlider"></p>
             </div>
 
                <div class="slidecontainer">
-           <p>Number of Mirrors <input type="range" min="1" max="24" value="1" class="slider" id="numberOfMirrors"> </p>
+           <p>Mirrors <input type="range" min="0" max="24" value="1" class="slider" id="numberOfMirrors"> </p>
          </div>
 
             
@@ -89,21 +89,13 @@
 			
    <div id = "rubbingUI">
 
-      <!-- <div> <label class="switch" id = "shapeRubbingToggle"> 
-          <p>Rubbing Circles 
-            <input type="checkbox" src = "ui/changeShape.png">
-          Rubbing Squares</p>
-           </label>
-            </div>-->
-
-
               <div class="slidecontainer">
-           <p>Rubbing Dot Size <input type="range" min="1" max="40" value="10" class="slider" id="rubbingDotSizeSlider"> </p>
+           <p> Dot Size <input type="range" min="1" max="40" value="10" class="slider" id="rubbingDotSizeSlider"> </p>
          </div>
 
 
          <div class="slidecontainer">
-           <p>Rubbing Dot Speed <input type="range" min="5" max="200" value="50" class="slider" id="rubbingDotSpeedSlider"> </p>
+           <p>Dot Speed <input type="range" min="5" max="200" value="50" class="slider" id="rubbingDotSpeedSlider"> </p>
          </div>
 
           <input id ="shapeRubbingToggle" onclick="toggleRubbingShape()" type="image" src="ui/changeShape.png" alt="Toggle shape between square and circle" height=30px> 
@@ -113,19 +105,14 @@
 
             
             <div>
-               <input id ="nextImageButton" type="image" src="ui/nextImage.png" alt="Next Image" height=40px> 
-				 <br/>
+				 <hr>
+				<input id ="nextImageButton" type="image" src="ui/nextImage.png" alt="Next Image" height=40px> <br/>
+                <img id = "previewPicture" class="previewpicture"><br/>
+				
 
-                <img id = "previewPicture" class="previewpicture">
 				 
-			</div></div>
-
-
-
-
-
-
-        </label> 
+			</div>
+			  </div>
             </center>
 
       </div>

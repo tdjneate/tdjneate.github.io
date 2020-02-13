@@ -325,7 +325,7 @@ function modeSelector()
       var prevPoints = [pmouseX, pmouseY];
       mirror(mirrorPoint, numberOfMirrors, points, prevPoints);
 }
-}
+
 
 
 
