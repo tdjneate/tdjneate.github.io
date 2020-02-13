@@ -148,8 +148,9 @@ function setup()
     
   toggleModeInUI(false);  // this toggles the UI between 'painting mode'
 
-
+ 
   addToUndoStack(); // add the first thing to the undoStac
+	
 
 }
 
@@ -170,7 +171,7 @@ function toggleModeInUI()
   {
     drawingUI.style.display = "block";
     rubbingUI.style.display = "none";
-    document.getElementById("toggleUIModeButton").src = "ui/rubbing.png";
+    document.getElementById("toggleUIModeButton").src = "ui/drawing.png";
 
   }
 
@@ -178,7 +179,7 @@ function toggleModeInUI()
     {
     drawingUI.style.display = "none";
     rubbingUI.style.display = "block";
-     document.getElementById("toggleUIModeButton").src = "ui/drawing.png";
+     document.getElementById("toggleUIModeButton").src = "ui/rubbing.png";
 	
   }
 	
@@ -251,6 +252,7 @@ function loadImageAndUpdatePreview()
     //updatePreview
     var previewPicture = select('#previewPicture');
     document.getElementById("previewPicture").src = "pics/" + imgs[imageLoaded] + ".jpg", "The preview image";
+	
 
 }
 
@@ -259,11 +261,30 @@ function toggleRubbingShape()
 {
 rubbingCircles = !rubbingCircles;
 rubbingSquares = !rubbingSquares;
+	print("squares:"  + rubbingSquares);
+	print("circles:"  + rubbingCircles);
+	if(rubbingCircles)
+		{
+			     document.getElementById("shapeRubbingToggle").src = "ui/rubbingCircles.png"
+		}
+	if(rubbingSquares)
+		{
+		  document.getElementById("shapeRubbingToggle").src = "ui/rubbingSquares.png";
+	}
 }
 
 function speedAffectsSizeToggled()
 {
   speedAffectsSize = !speedAffectsSize;
+  if(speedAffectsSize)
+		{
+			     document.getElementById("speedAffectsSizeToggle").src = "ui/speedEffectOn.png";
+
+		}
+	else{
+		  document.getElementById("speedAffectsSizeToggle").src = "ui/speedEffectOff.png";
+	}
+
 }
 
 

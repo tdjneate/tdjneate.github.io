@@ -41,11 +41,11 @@
 
           <div id= "sketch-holder", class="sketch-holder">
    			 <input id ="undoButton" type="image" src="ui/undo.png" alt="Undo" height=40px> 
-             <input id ="redoButton" type="image" src="ui/redo.png" alt="Redo" height=40px  style="padding-right: 5%">  
+             <input id ="redoButton" type="image" src="ui/redo.png" alt="Redo" height=40px >  
 			<input id ="colourInvertToggle" onclick="colourInvertToggle()" type="image" src="ui/invertColour.png" alt="Toggle shape between inverting and not inverting the colour" height=40px  style="padding-right: 5%">
 			<input id ="downloadImageButton" type="image" src="ui/download.png" alt="Download your creation" height=40px>
 			  
-			 <input id ="clearPageButton" type="image" src="ui/delete.png" alt="Delete all content" height=40px style="padding-left: 20%"> 
+			 <input id ="clearPageButton" type="image" src="ui/delete.png" alt="Delete all content" height=40px> 
 				
 
 
@@ -61,17 +61,10 @@
 
 				 <hr>
 
+			    <div class="panel">     
 			 <input id ="toggleUIModeButton" onclick="toggleModeInUI()" type="image" src="ui/drawing.png" alt="Toggle UI mode" height=40px><br>
 
-         <br/>
          
-
-            <br/>
-       
-   
-
-            
-            
 
 
 
@@ -86,14 +79,11 @@
             
             <!-- DRAWING ONLY UI GOES HERE-->
 
-			
-			
-			
 <div id = "drawingUI">
   
    
 			
-<input id ="speedAffectsSizeToggle" onclick="speedAffectsSizeToggled()" type="image" src="ui/speedEffect.png" alt="Toggle whether speed affects size of brush" height=40px> 
+<input id ="speedAffectsSizeToggle" onclick="speedAffectsSizeToggled()" type="image" src="ui/speedEffectOff.png" alt="Toggle whether speed affects size of brush" height=40px> 
 
             
 
@@ -103,20 +93,19 @@
 			<div id = "rubbingUI">
 
               <div class="slidecontainer">
-           <p> Dot Size <input type="range" min="1" max="40" value="10" class="slider" id="rubbingDotSizeSlider"> </p>
+           <p>  <img src="ui/smallDots.png" style="width:5%" alt="No mirrors"> <input type="range" min="1" max="40" value="10" class="slider" id="rubbingDotSizeSlider"> <img src="ui/bigDots.png" style="width:5%" alt="No mirrors"> </p>
          </div>
-
 
          <div class="slidecontainer">
-           <p>Dot Speed <input type="range" min="5" max="200" value="50" class="slider" id="rubbingDotSpeedSlider"> </p>
+           <p><img src="ui/slowSpeed.png" style="width:5%" alt="No mirrors">  <input type="range" min="5" max="200" value="50" class="slider" id="rubbingDotSpeedSlider"> <img src="ui/fastSpeed.png" style="width:5%" alt="No mirrors"> </p>
          </div>
 
-          <input id ="shapeRubbingToggle" onclick="toggleRubbingShape()" type="image" src="ui/changeShape.png" alt="Toggle shape between square and circle" height=30px> 
+          <input id ="shapeRubbingToggle" onclick="toggleRubbingShape()" type="image" src="ui/rubbingCircles.png" alt="Toggle shape between square and circle" height=30px> 
 
               
               </div>
 
-        
+			</div>
 				
 				 
 			</div>
