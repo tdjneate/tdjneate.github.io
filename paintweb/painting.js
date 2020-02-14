@@ -318,7 +318,7 @@ function modeSelector()
  
   
      // future
-      var  mirrorPoint = [(canvas.width/2) * 0.6, (canvas.height/2) * 0.4]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
+      var  mirrorPoint = [500,500]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
     
       
       var points  =  [mouseX, mouseY];
