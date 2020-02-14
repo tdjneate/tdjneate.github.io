@@ -222,7 +222,7 @@ function loadImageAndUpdatePreview()
 {
     img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
     
-   img.resize((window.innerWidth *.6), (window.innerWidth * .4));
+   img.resize((window.innerWidth * 0.6), (window.innerWidth * 0.4));
     
     //updatePreview
     var previewPicture = select('#previewPicture');
@@ -318,7 +318,7 @@ function modeSelector()
  
   
      // future
-      var  mirrorPoint = [(window.innerWidth    * mirrorOffset) * .6, (window.innerHeight  * mirrorOffset) * .4]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
+      var  mirrorPoint = [(window.innerWidth * mirrorOffsetX) * .6, (window.innerHeight  * mirrorOffsetY) * .4]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
     
       
       var points  =  [mouseX, mouseY];
