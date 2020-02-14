@@ -323,7 +323,7 @@ function modeSelector()
   }
 }
 else{
-      var  mirrorPoint = [window.innerWidth  , window.innerHeight ]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
+      var  mirrorPoint = [window.innerWidth, window.innerHeight ]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
     
       
       var points  =  [mouseX, mouseY];
