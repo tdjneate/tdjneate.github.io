@@ -318,7 +318,7 @@ function modeSelector()
  
   
      // future
-      var  mirrorPoint = [window.innerWidth  * mirrorOffsetX * .6, window.innerHeight * mirrorOffsetY * .4]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
+      var  mirrorPoint = [(window.innerWidth  * mirrorOffsetX) * .6, (window.innerHeight * mirrorOffsetY) * .4]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
     
       
       var points  =  [mouseX, mouseY];
@@ -380,7 +380,7 @@ function mirror(rotationPoint, totalMirrors,  point, prevPoint)
        
     if (drawing)
     {
-      line(rotatedPoint[0] * .6, rotatedPoint[1] * .4, rotatedPreviousPoint[0] * .6, rotatedPreviousPoint[1] * .4);
+      line(rotatedPoint[0], rotatedPoint[1], rotatedPreviousPoint[0], rotatedPreviousPoint[1]);
     }
     if (rubbing)runPoints(rotatedPoint[0], rotatedPoint[1]);
     }
@@ -394,8 +394,8 @@ function rotatePoint(points,  centre,  angle)
   
   angle = angle * (PI/180); //make it into radians
   
-  var rotatedX = (cos(angle) * (points[0] - centre[0]) - sin(angle) * (points[1]-centre[1]) + centre[0]) * .6;
-  var rotatedY = (sin(angle) * (points[0] - centre[0]) + cos(angle) * (points[1] - centre[1]) + centre[0]) * 4;
+  var rotatedX = cos(angle) * (points[0] - centre[0]) - sin(angle) * (points[1]-centre[1]) + centre[0];
+  var rotatedY = sin(angle) * (points[0] - centre[0]) + cos(angle) * (points[1] - centre[1]) + centre[0]
   
    rotatedPoint = [rotatedX, rotatedY];
    
