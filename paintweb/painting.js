@@ -98,7 +98,7 @@ function setup()
 	frameRate(60);
     undoCounter = 0;
 
-  canvas = createCanvas(window.innerWidth * 0.6,window.innerWidth * 0.4);
+  canvas = createCanvas(window.innerWidth * 0.6, window.innerWidth * 0.4);
    
     loadImageAndUpdatePreview();
     
@@ -221,11 +221,12 @@ function cycleToNextImage()
 function loadImageAndUpdatePreview()
 {
     img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
-   img.resize((window.innerWidth *.6 ), (window.innerWidth * .4));
     
-
+   img.resize((window.innerWidth *.6), (window.innerWidth * .4));
+    
     //updatePreview
     var previewPicture = select('#previewPicture');
+    
     document.getElementById("previewPicture").src = "pics/" + imgs[imageLoaded] + ".jpg", "The preview image";
 	
 
@@ -251,12 +252,14 @@ rubbingSquares = !rubbingSquares;
 function speedAffectsSizeToggled()
 {
   speedAffectsSize = !speedAffectsSize;
+    
+    
   if(speedAffectsSize)
 		{
 			     document.getElementById("speedAffectsSizeToggle").src = "ui/speedEffectOn.png";
-
 		}
-	else{
+	else
+    {
 		  document.getElementById("speedAffectsSizeToggle").src = "ui/speedEffectOff.png";
 	}
 
@@ -352,7 +355,6 @@ function drawWithBrush(x,  y,  prevX,  prevY)
      if (colourInvert)
     {       
             var col = getColourAtPoint(x, y);
-     
             stroke(invertColor(red(col), green(col), blue(col)));
     }
    
@@ -392,8 +394,8 @@ function rotatePoint(points,  centre,  angle)
   
   angle = angle * (PI/180); //make it into radians
   
-  var rotatedX = cos(angle) * (points[0] - centre[0]) - sin(angle) * (points[1]-centre[1]) + centre[0];
-  var rotatedY = sin(angle) * (points[0] - centre[0]) + cos(angle) * (points[1] - centre[1]) + centre[0];
+  var rotatedX = (cos(angle) * (points[0] - centre[0]) - sin(angle) * (points[1]-centre[1]) + centre[0]) * .6;
+  var rotatedY = (sin(angle) * (points[0] - centre[0]) + cos(angle) * (points[1] - centre[1]) + centre[0]) * 4;
   
    rotatedPoint = [rotatedX, rotatedY];
    
