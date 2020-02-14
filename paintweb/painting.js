@@ -380,7 +380,7 @@ function mirror(rotationPoint, totalMirrors,  point, prevPoint)
        
     if (drawing)
     {
-      line(rotatedPoint[0], rotatedPoint[1], rotatedPreviousPoint[0], rotatedPreviousPoint[1]);
+      line(rotatedPoint[0] * .6, rotatedPoint[1] * .4, rotatedPreviousPoint[0] * .6, rotatedPreviousPoint[1] * .4);
     }
     if (rubbing)runPoints(rotatedPoint[0], rotatedPoint[1]);
     }
