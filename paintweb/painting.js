@@ -307,6 +307,12 @@ else
 function modeSelector()
 {
 
+
+  
+    
+    
+  if(numberOfMirrors == 0)
+{
   if (drawing)
   {
     drawWithBrush(mouseX, mouseY, pmouseX, pmouseY);
@@ -315,15 +321,16 @@ function modeSelector()
   {
     runPoints(mouseX, mouseY);
   }
- 
-  
-     // future
+}
+else{
       var  mirrorPoint = [500,500]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
     
       
       var points  =  [mouseX, mouseY];
       var prevPoints = [pmouseX, pmouseY];
       mirror(mirrorPoint, numberOfMirrors, points, prevPoints);
+    }
+    
 }
 
 
