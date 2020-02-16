@@ -349,7 +349,7 @@ function drawWithBrush(x,  y,  prevX,  prevY)
      mouseSpeed =  dist(x, y, prevX, prevY);
 		
 				
-				brushSize = brushSize * mouseSpeed / 30;
+				brushSize = brushSize + mouseSpeed / 30; // this could be log or something
 				print("mouseSpeed" + mouseSpeed);
 				print("brushSize:" + brushSize);
 	
