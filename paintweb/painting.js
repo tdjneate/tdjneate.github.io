@@ -389,7 +389,7 @@ function mirror(rotationPoint, totalMirrors,  point, prevPoint)
     {
     
     var angleToShift = mirrors * mirrorAngle; 
-	circle(rotationPoint[0], rotationPoint[1], 20);
+	//circle(rotationPoint[0], rotationPoint[1], 20);
     var rotatedPoint  = rotatePoint(mousePoints, rotationPoint, angleToShift);
     var rotatedPreviousPoint = rotatePoint(previousMousePoints, rotationPoint, angleToShift);
        
@@ -409,13 +409,12 @@ function rotatePoint(points,  centre,  angle)
   
   angle = angle * (PI/180); //make it into radians
   
- // var rotatedX = cos(angle) * (points[0] - centre[0]) - sin(angle) * (points[1]-centre[1]) + centre[0];
- //var rotatedY = sin(angle) * (points[0] - centre[0]) + cos(angle) * (points[1] - centre[1]) - centre[0];
+
    
-	var rotatedX = Math.cos(angle) * (points[0] - centre[0]) - Math.sin(angle) * (points[1]-centre[1]) + centre[0];
+	var rotatedX = cos(angle) * (points[0] - centre[0]) - sin(angle) * (points[1] - centre[1]) + centre[0];
 
 	
-var rotatedY = Math.sin(angle) * (points[0] - centre[0]) + Math.cos(angle) * (points[1] - centre[1]) + centre[1];  // was plus at end
+var rotatedY = sin(angle) * (points[0] - centre[0]) + cos(angle) * (points[1] - centre[1]) + centre[1]; 
 
    rotatedPoint = [rotatedX, rotatedY];
 	
