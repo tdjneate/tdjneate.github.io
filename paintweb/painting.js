@@ -347,7 +347,12 @@ function drawWithBrush(x,  y,  prevX,  prevY)
   if(speedAffectsSize)
     {
      mouseSpeed =  dist(x, y, prevX, prevY);
-    brushSize = mouseSpeed/20 * brushSize;  // scaling factor added. Gets a bit mad otherwise
+		if(mouseSpeed  <= 300)
+			{ //speed mapping
+				map(mouseSpeed, 0, 300, 0, 20);
+				brushSize = brushSize * mouseSpeed;
+			}//otherwise do not update it.
+	
     }
    
     
