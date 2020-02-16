@@ -126,11 +126,8 @@ function setup()
 
   toggleModeInUI(false);  // this toggles the UI between 'painting mode'
   addToUndoStack(); // add the first thing to the undoStac
-	mirrorPoint = [width/2, height/2];
-	
-	
-	//circle(mirrorPoint[0], mirrorPoint[1], 20);
-//	fill(255);
+	mirrorPoint = [width/2, height/2]; // mirror point is the centre. Can change later.
+
 
 }
 
@@ -389,7 +386,6 @@ function mirror(rotationPoint, totalMirrors,  point, prevPoint)
     {
     
     var angleToShift = mirrors * mirrorAngle; 
-	//circle(rotationPoint[0], rotationPoint[1], 20);
     var rotatedPoint  = rotatePoint(mousePoints, rotationPoint, angleToShift);
     var rotatedPreviousPoint = rotatePoint(previousMousePoints, rotationPoint, angleToShift);
        
@@ -578,14 +574,16 @@ function windowResized()
 
 function undo()
 {
-    if(undos.length  > 1) // if there is more than the blank canvas there...
+    if(undos.length  > 0) // if there is more than the blank canvas there...
     {
       undos.pop();
 
       image(undos[undos.length - 1], 0 ,0);
     }
     else
-      {print("no more undo for you");}
+      {
+		  print("no more undo for you");
+	  }
 
 
 
@@ -599,11 +597,11 @@ function undo()
 function redo()
 {
 
-  /*if(redos.length > 0)
+  if(redos.length > 0)
   {
   redos.pop();
   image(redos[redos.length-1], 0, 0);
-}*/
+}
 
 }
 
