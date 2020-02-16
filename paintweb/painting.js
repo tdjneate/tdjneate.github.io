@@ -333,8 +333,8 @@ else{
       var points  =  [mouseX, mouseY];
       var prevPoints = [pmouseX, pmouseY];
       mirror(mirrorPoint, numberOfMirrors, points, prevPoints);
-	 circle(mirrorPoint[0], mirrorPoint[1], 20);
-	fill(255);
+	// circle(mirrorPoint[0], mirrorPoint[1], 20);
+	//fill()
     }
     
 }
@@ -409,7 +409,7 @@ function rotatePoint(points,  centre,  angle)
   angle = angle * (PI/180); //make it into radians
   
   var rotatedX = cos(angle) * (points[0] - centre[0]) - sin(angle) * (points[1]-centre[1]) + centre[0];
-  var rotatedY = sin(angle) * (points[0] - centre[0]) + cos(angle) * (points[1] - centre[1]) + centre[0]
+  var rotatedY = sin(angle) * (points[0] - centre[0]) + cos(angle) * (points[1] - centre[1]) + centre[0];
   
    rotatedPoint = [rotatedX, rotatedY];
    
