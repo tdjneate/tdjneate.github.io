@@ -76,6 +76,7 @@ var brushModeButton;
 var rubbingSquares = false;
 var rubbingCircles = true;
 var touchDown;
+ var  mirrorPoint;
 
 
 
@@ -98,7 +99,7 @@ function setup()
 	frameRate(60);
     undoCounter = 0;
 
-  canvas = createCanvas(window.innerWidth * 0.6, window.innerWidth * 0.4);
+  canvas = createCanvas(innerWidth/2, innerWidth/3); //makes it 6 by 4
    
     loadImageAndUpdatePreview();
     
@@ -125,7 +126,11 @@ function setup()
 
   toggleModeInUI(false);  // this toggles the UI between 'painting mode'
   addToUndoStack(); // add the first thing to the undoStac
+	mirrorPoint = [width/2, height/2];
 	
+	
+	//circle(mirrorPoint[0], mirrorPoint[1], 20);
+//	fill(255);
 
 }
 
@@ -323,7 +328,6 @@ function modeSelector()
   }
 }
 else{
-      var  mirrorPoint = [500,500]; // mirroroffset is currently 0 - 1. Could be weighted otherwise
     
       
       var points  =  [mouseX, mouseY];
