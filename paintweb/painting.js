@@ -347,7 +347,7 @@ function drawWithBrush(x,  y,  prevX,  prevY)
   if(speedAffectsSize)
     {
      mouseSpeed =  dist(x, y, prevX, prevY);
-    brushSize = mouseSpeed * brushSize; 
+    brushSize = mouseSpeed/20 * brushSize;  // scaling factor added. Gets a bit mad otherwise
     }
    
     
