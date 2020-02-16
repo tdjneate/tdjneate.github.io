@@ -347,11 +347,11 @@ function drawWithBrush(x,  y,  prevX,  prevY)
   if(speedAffectsSize)
     {
      mouseSpeed =  dist(x, y, prevX, prevY);
-		if(mouseSpeed  <= 300)
-			{ //speed mapping
-				map(mouseSpeed, 1, 300, 1, 5);
-				brushSize = brushSize * mouseSpeed;
-			}//otherwise do not update it.
+		
+				
+				brushSize = brushSize * mouseSpeed / 100;
+				print("mouseSpeed" + mouseSpeed);
+				print("brushSize:" + brushSize);
 	
     }
    
