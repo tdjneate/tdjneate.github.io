@@ -414,9 +414,9 @@ function rotatePoint(points,  centre,  angle)
 	var rotatedX = Math.cos(angle) * (points[0] - centre[0]) - Math.sin(angle) * (points[1]-centre[1]) + centre[0];
 
 	
-var rotatedY = Math.sin(angle) * (points[0] - centre[0]) + Math.cos(angle) * (points[1]-centre[1]) - centre[1];  // was plus at end
+var rotatedY = Math.sin(angle) * (points[0] - centre[0]) + Math.cos(angle) * (points[1]-centre[1]) + centre[1];  // was plus at end
 
-   rotatedPoint = [rotatedX, rotatedY];
+   rotatedPoint = [rotatedX, rotatedY - 200];
 
    //
    return rotatedPoint;
