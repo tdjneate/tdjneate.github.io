@@ -347,7 +347,7 @@ function drawWithBrush(x,  y,  prevX,  prevY)
   if(speedAffectsSize)
     {
      mouseSpeed =  dist(x, y, prevX, prevY);
-    brushSize = mouseSpeed/10 * brushSize;  // scaling factor added. Gets a bit mad otherwise
+    brushSize = mouseSpeed/20 * brushSize;  // scaling factor added. Gets a bit mad otherwise
     }
    
     
@@ -362,6 +362,7 @@ function drawWithBrush(x,  y,  prevX,  prevY)
     {
         stroke(getColourAtPoint(x, y));
     }
+	
      if (colourInvert)
     {       
             var col = getColourAtPoint(x, y);
