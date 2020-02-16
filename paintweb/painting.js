@@ -314,7 +314,7 @@ function modeSelector()
 
 
   
-    
+   
     
   if(numberOfMirrors == 0)
 {
@@ -333,6 +333,8 @@ else{
       var points  =  [mouseX, mouseY];
       var prevPoints = [pmouseX, pmouseY];
       mirror(mirrorPoint, numberOfMirrors, points, prevPoints);
+	 circle(mirrorPoint[0], mirrorPoint[1], 20);
+	fill(255);
     }
     
 }
@@ -386,13 +388,13 @@ function mirror(rotationPoint, totalMirrors,  point, prevPoint)
     {
     
     var angleToShift = mirrors * mirrorAngle; 
+	print(rotationPoint);
     var rotatedPoint  = rotatePoint(mousePoints, rotationPoint, angleToShift);
     var rotatedPreviousPoint = rotatePoint(previousMousePoints, rotationPoint, angleToShift);
        
     if (drawing)
     {
 		drawWithBrush(rotatedPoint[0], rotatedPoint[1], rotatedPreviousPoint[0], rotatedPreviousPoint[1]);
-      //line(rotatedPoint[0], rotatedPoint[1], rotatedPreviousPoint[0], rotatedPreviousPoint[1]);
     }
     if (rubbing)runPoints(rotatedPoint[0], rotatedPoint[1]);
     }
