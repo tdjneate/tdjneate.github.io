@@ -189,6 +189,7 @@ function clearScreen()
 function draw()
 {
 
+	
 if(touchingCanvas() && mouseIsPressed)
     {
         modeSelector();
@@ -216,20 +217,28 @@ function cycleToNextImage()
     }
     
     loadImageAndUpdatePreview();
-
-
 }
 
 function loadImageAndUpdatePreview()
 {
-    img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
-    
-   img.resize(width, height);
-    
-    //updatePreview
+ 
+	img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");   
+	
+	//img.resize(50,50);
+	
     var previewPicture = select('#previewPicture');
     
     document.getElementById("previewPicture").src = "pics/" + imgs[imageLoaded] + ".jpg", "The preview image";
+ 	
+
+
+	
+	 //image(img, 0.5*width, 0.5*height, scale*width, scale*img.height*width/img.width); // to fit width
+
+		
+	
+	 //
+
 	
 
 }
@@ -429,10 +438,12 @@ var rotatedY = sin(angle) * (points[0] - centre[0]) + cos(angle) * (points[1] - 
 
 function getColourAtPoint(xPos,  yPos)
 {
-  
-  var pix = img.get(xPos, yPos); 
- // print("color: " + pix);
-
+	//this bit of maths is done because the resize function does not work. It might be less expensive too.
+    xPos = xPos * (img.width/width);
+	yPos = yPos * (img.height/height);
+	
+  var pix = img.get(xPos, yPos);
+	
   return pix;
 }
 
@@ -573,7 +584,8 @@ function randomizeAllColours()
 
 function windowResized()
 {
-  resizeCanvas((window.innerWidth * .6)/2, (window.innerWidth * .4)/2);
+  resizeCanvas(window.innerWidth/2, window.innerWidth/3);
+
 
 }
 
