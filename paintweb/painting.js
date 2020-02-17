@@ -224,7 +224,7 @@ function loadImageAndUpdatePreview()
 {
     img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
     
-   img.resize(innerWidth/2, innerWidth/3;
+   img.resize(innerWidth/2, innerWidth/3);
     
     //updatePreview
     var previewPicture = select('#previewPicture');
