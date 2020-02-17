@@ -59,7 +59,7 @@ var rubbing = true;
 
 var brushSize = 15;
 
-var imgs = ["alley", "beach", "mountain", "sea", "tree", "waterfall"];
+var imgs = ["tim", "mat", "alley"];
 var imageLoaded = 0;
 
 var brushSizeSlider;
@@ -349,9 +349,9 @@ function drawWithBrush(x,  y,  prevX,  prevY)
      mouseSpeed =  dist(x, y, prevX, prevY);
 		
 				
-				brushSize = brushSize + mouseSpeed ; // this could be log or something
-				print("mouseSpeed" + mouseSpeed);
-				print("brushSize:" + brushSize);
+				brushSize = brushSize + mouseSpeed/4 ; // this could be log or something
+				//print("mouseSpeed" + mouseSpeed);
+			//	print("brushSize:" + brushSize);
 	
     }
    
