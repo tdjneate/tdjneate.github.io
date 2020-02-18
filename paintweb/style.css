@@ -137,7 +137,7 @@ hr
 {
     padding:1%;
     color:black;
-    width:70%;
+    width:100%;
 }
 
 .switch input[type="checkbox"]:checked::before 
@@ -194,15 +194,18 @@ hr
 
 .sketchColumn {
   float: left;
-  width: 55%;
-    padding:5%
+  width: 70%;
+  padding-left:5%;
+    
+    
 }
 
 .guiColumn {
-  float: center;
-  width: 40%;
-  padding-left: 10%;
-   padding-top:10%;
+  float: right;
+  width: 15%;
+ padding-left: 5%;
+    padding-right:5%;
+
 }
 
 
