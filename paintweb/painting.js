@@ -7,7 +7,6 @@ var img;
 
 var undos = [];
 var redos = [];
-var undoCounter;
 
 var canvas; //for the main canvas
 
@@ -59,7 +58,8 @@ var rubbing = true;
 
 var brushSize = 15;
 
-var imgs = ["tim", "mat", "alley"];
+var imgs = ["Derek", "Tim", "Joan", "Michael", "Elaine", "Paul", "Bryan", "Nial", "alley"]
+
 var imageLoaded = 0;
 
 var brushSizeSlider;
@@ -76,7 +76,7 @@ var brushModeButton;
 var rubbingSquares = false;
 var rubbingCircles = true;
 var touchDown;
- var  mirrorPoint;
+var  mirrorPoint;
 
 
 
@@ -85,48 +85,48 @@ var touchDown;
 function onload() 
 {
     if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
-// This is needed if the user scrolls down during page load and you want to make sure the page is scrolled to the top once it's fully loaded.Cross-browser supported.
-window.scrollTo(0,0);
-  
+        history.scrollRestoration = 'manual';
+    }
+    // This is needed if the user scrolls down during page load and you want to make sure the page is scrolled to the top once it's fully loaded.Cross-browser supported.
+    window.scrollTo(0,0);
+
 }
 
 
 function setup() 
 {
-    
-	frameRate(60);
-    undoCounter = 0;
 
-  canvas = createCanvas(innerWidth/2, innerWidth/3); //makes it 6 by 4
-   
+    frameRate(60);
+
+    //canvas = createCanvas(innerWidth/2, innerWidth/3); //makes it 6 by 4
+    canvas = createCanvas(innerWidth/1.75, innerWidth/2.625); 
+    
     loadImageAndUpdatePreview();
-    
-	canvas.mouseReleased(addToUndoStack); // attach listener only for canvas
-	
+
+    canvas.mouseReleased(addToUndoStack); // attach listener only for canvas
+
     canvas.parent('sketch-holder'); 
-    
-
-  background(20);
-
-   clearPageButton = select('#clearPageButton');
-   clearPageButton.mousePressed(clearScreen);
 
 
-   var downloadImageButton = select('#downloadImageButton');
-   downloadImageButton.mouseReleased(downloadImage);
+    background(20);
 
-   var nextImageButton = select('#nextImageButton');
-   nextImageButton.mouseReleased(cycleToNextImage);
+    clearPageButton = select('#clearPageButton');
+    clearPageButton.mousePressed(clearScreen);
+
+
+    var downloadImageButton = select('#downloadImageButton');
+    downloadImageButton.mouseReleased(downloadImage);
+
+    var nextImageButton = select('#nextImageButton');
+    nextImageButton.mouseReleased(cycleToNextImage);
 
 
     var undoButton = select('#undoButton');
     undoButton.mouseReleased(undo);
 
-  toggleModeInUI(false);  // this toggles the UI between 'painting mode'
-  addToUndoStack(); // add the first thing to the undoStac
-	mirrorPoint = [width/2, height/2]; // mirror point is the centre. Can change later.
+    toggleModeInUI(false);  // this toggles the UI between 'painting mode'
+    addToUndoStack(); // add the first thing to the undoStac
+    mirrorPoint = [width/2, height/2]; // mirror point is the centre. Can change later.
 
 
 }
@@ -134,32 +134,32 @@ function setup()
 
 function toggleModeInUI() 
 {
-  var drawingUI = document.getElementById("drawingUI");
-  var rubbingUI  =  document.getElementById("rubbingUI");
- 
+    var drawingUI = document.getElementById("drawingUI");
+    var rubbingUI  =  document.getElementById("rubbingUI");
+
     drawing = !drawing;
     rubbing = !rubbing;
-	
 
-	print("Drawing:" + drawing);
-	print("Rubbing:" + rubbing);
- 
-  if (drawing)
-  {
-    drawingUI.style.display = "block";
-    rubbingUI.style.display = "none";
-    document.getElementById("toggleUIModeButton").src = "ui/drawing.png";
 
-  }
+    print("Drawing:" + drawing);
+    print("Rubbing:" + rubbing);
 
-  if (rubbing) 
+    if (drawing)
     {
-    drawingUI.style.display = "none";
-    rubbingUI.style.display = "block";
-     document.getElementById("toggleUIModeButton").src = "ui/rubbing.png";
-	
-  }
-	
+        drawingUI.style.display = "block";
+        rubbingUI.style.display = "none";
+        document.getElementById("toggleUIModeButton").src = "ui/drawing.png";
+
+    }
+
+    if (rubbing) 
+    {
+        drawingUI.style.display = "none";
+        rubbingUI.style.display = "block";
+        document.getElementById("toggleUIModeButton").src = "ui/rubbing.png";
+
+    }
+
 }
 
 
@@ -167,21 +167,21 @@ function toggleModeInUI()
 
 function clearScreen()
 {
-    
+
     var deleteCheck = confirm("Delete everything?");
     if(deleteCheck)
-        {
-   clear();
-    print("clearing");
-    background(20); 
-     
- // touchingCanvas = false; // prevent drawing when we come back to the screen
-        }
+    {
+        clear();
+        print("clearing");
+        background(20); 
+
+        // touchingCanvas = false; // prevent drawing when we come back to the screen
+    }
     else
     {
-    print("user did not delete artwork");    
+        print("user did not delete artwork");    
     }
-  
+
 }
 
 
@@ -189,90 +189,79 @@ function clearScreen()
 function draw()
 {
 
-	
-if(touchingCanvas() && mouseIsPressed)
+
+    if(touchingCanvas() && mouseIsPressed)
     {
         modeSelector();
     }
 
     //only do every 10 frames - if this gets slow, we can give each slider an 'on move' function
-   if(frameCount % 10 == 0)
-   {
+    if(frameCount % 10 == 0)
+    {
 
-  brushSize = select('#brushThicknessSlider').value();
-  numberOfMirrors = select('#numberOfMirrors').value();
-  dotSize = select('#rubbingDotSizeSlider').value();
-  dotSpeed = select('#rubbingDotSpeedSlider').value();
-   }
+        brushSize = select('#brushThicknessSlider').value();
+        numberOfMirrors = select('#numberOfMirrors').value();
+        dotSize = select('#rubbingDotSizeSlider').value();
+        dotSpeed = select('#rubbingDotSpeedSlider').value();
+    }
 }
 
 function cycleToNextImage()
 {
     if (imageLoaded < imgs.length - 1)
     {
-      imageLoaded++;
+        imageLoaded++;
     } else
     {
-      imageLoaded = 0;
+        imageLoaded = 0;
     }
-    
+
     loadImageAndUpdatePreview();
 }
 
 function loadImageAndUpdatePreview()
 {
- 
-	img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");   
-	
-	//img.resize(50,50);
-	
+
+    img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");   
+
+    //img.resize(50,50);
+
     var previewPicture = select('#previewPicture');
-    
+
     document.getElementById("previewPicture").src = "pics/" + imgs[imageLoaded] + ".jpg", "The preview image";
- 	
 
 
-	
-	 //image(img, 0.5*width, 0.5*height, scale*width, scale*img.height*width/img.width); // to fit width
-
-		
-	
-	 //
-
-	
 
 }
 
 
 function toggleRubbingShape()
 {
-rubbingCircles = !rubbingCircles;
-rubbingSquares = !rubbingSquares;
-	print("squares:"  + rubbingSquares);
-	print("circles:"  + rubbingCircles);
-	if(rubbingCircles)
-		{
-			     document.getElementById("shapeRubbingToggle").src = "ui/rubbingCircles.png"
-		}
-	if(rubbingSquares)
-		{
-		  document.getElementById("shapeRubbingToggle").src = "ui/rubbingSquares.png";
-	}
+    rubbingCircles = !rubbingCircles;
+    rubbingSquares = !rubbingSquares;
+    print("squares:"  + rubbingSquares);
+    print("circles:"  + rubbingCircles);
+    if(rubbingCircles)
+    {
+        document.getElementById("shapeRubbingToggle").src = "ui/rubbingCircles.png"
+    }
+    if(rubbingSquares)
+    {
+        document.getElementById("shapeRubbingToggle").src = "ui/rubbingSquares.png";
+    }
 }
 
 function speedAffectsSizeToggled()
 {
-  speedAffectsSize = !speedAffectsSize;
-    
-    
-  if(speedAffectsSize)
-		{
-			     document.getElementById("speedAffectsSizeToggle").src = "ui/speedEffectOn.png";
-		}
-	else
+    speedAffectsSize = !speedAffectsSize;
+    if(speedAffectsSize)
     {
-		  document.getElementById("speedAffectsSizeToggle").src = "ui/speedEffectOff.png";
-	}
+        document.getElementById("speedAffectsSizeToggle").src = "ui/speedEffectOn.png";
+    }
+    else
+    {
+        document.getElementById("speedAffectsSizeToggle").src = "ui/speedEffectOff.png";
+    }
 
 }
 
@@ -280,7 +269,14 @@ function speedAffectsSizeToggled()
 function colourInvertToggle()
 {
     colourInvert =  !colourInvert;
-	print("colourInvert: " + colourInvert);
+    if(colourInvert)
+    {
+        document.getElementById("colourInvertToggle").src = "ui/invertColourOn.png";
+    }
+    else
+    {
+        document.getElementById("colourInvertToggle").src = "ui/invertColourOff.png";
+    }
 }
 
 
@@ -293,9 +289,9 @@ function toggleBrushMode()
 
 function toggleRandomColours()
 {
-  randomColours = !randomColours;
-  
-  
+    randomColours = !randomColours;
+
+
 }
 
 
@@ -303,14 +299,14 @@ function toggleRandomColours()
 function touchingCanvas()
 {
 
-if ((mouseX <= width) &&  (mouseX >= 0) &&   (mouseY <= height) && (mouseY >= 0)) 
-{
-  return true;
-} 
-else
-{
-    return false;
-} 
+    if ((mouseX <= width) &&  (mouseX >= 0) &&   (mouseY <= height) && (mouseY >= 0)) 
+    {
+        return true;
+    } 
+    else
+    {
+        return false;
+    } 
 }
 
 
@@ -319,30 +315,30 @@ function modeSelector()
 {
 
 
-  
-   
-    
-  if(numberOfMirrors == 0)
-{
-  if (drawing)
-  {
-    drawWithBrush(mouseX, mouseY, pmouseX, pmouseY);
-  }
-  if (rubbing)
-  {
-    runPoints(mouseX, mouseY);
-  }
-}
-else{
-    
-      
-      var points  =  [mouseX, mouseY];
-      var prevPoints = [pmouseX, pmouseY];
-      mirror(mirrorPoint, numberOfMirrors, points, prevPoints);
-	// circle(mirrorPoint[0], mirrorPoint[1], 20);
-	//fill()
+
+
+
+    if(numberOfMirrors == 0)
+    {
+        if (drawing)
+        {
+            drawWithBrush(mouseX, mouseY, pmouseX, pmouseY);
+        }
+        if (rubbing)
+        {
+            runPoints(mouseX, mouseY);
+        }
     }
-    
+    else{
+
+
+        var points  =  [mouseX, mouseY];
+        var prevPoints = [pmouseX, pmouseY];
+        mirror(mirrorPoint, numberOfMirrors, points, prevPoints);
+        // circle(mirrorPoint[0], mirrorPoint[1], 20);
+        //fill()
+    }
+
 }
 
 
@@ -352,37 +348,31 @@ else{
 function drawWithBrush(x,  y,  prevX,  prevY)
 { 
     var mouseSpeed;
-    
-  if(speedAffectsSize)
+    if(speedAffectsSize)
     {
-     mouseSpeed =  dist(x, y, prevX, prevY);
-		
-				
-				brushSize = brushSize + mouseSpeed/4 ; // this could be log or something
-				//print("mouseSpeed" + mouseSpeed);
-			//	print("brushSize:" + brushSize);
-	
-    }
-   
-    
-    strokeWeight(brushSize);
-    
-    if(randomColours)
-    {
-      stroke(randomizeAllColours());
+        mouseSpeed =  dist(x, y, prevX, prevY);
+        brushSize = brushSize + mouseSpeed/10 ; // this could be log or something
     }
 
-     if(matchColours)
+
+    strokeWeight(brushSize);
+
+    if(randomColours)
+    {
+        stroke(randomizeAllColours());
+    }
+
+    if(matchColours)
     {
         stroke(getColourAtPoint(x, y));
     }
-	
-     if (colourInvert)
+
+    if (colourInvert)
     {       
-            var col = getColourAtPoint(x, y);
-            stroke(invertColor(red(col), green(col), blue(col)));
+        var col = getColourAtPoint(x, y);
+        stroke(invertColor(red(col), green(col), blue(col)));
     }
-   
+
     line(x, y, prevX, prevY);
 }
 
@@ -394,145 +384,145 @@ function mirror(rotationPoint, totalMirrors,  point, prevPoint)
 {
     var  mousePoints = [point[0], point[1]];
     var  previousMousePoints = [prevPoint[0], prevPoint[1]];
-    
+
     var mirrorAngle = 360/totalMirrors;
-	
+
     for(var mirrors = 1; mirrors <= totalMirrors; mirrors++)
     {
-    
-    var angleToShift = mirrors * mirrorAngle; 
-    var rotatedPoint  = rotatePoint(mousePoints, rotationPoint, angleToShift);
-    var rotatedPreviousPoint = rotatePoint(previousMousePoints, rotationPoint, angleToShift);
-       
-    if (drawing)
-    {
-		drawWithBrush(rotatedPoint[0], rotatedPoint[1], rotatedPreviousPoint[0], rotatedPreviousPoint[1]);
+
+        var angleToShift = mirrors * mirrorAngle; 
+        var rotatedPoint  = rotatePoint(mousePoints, rotationPoint, angleToShift);
+        var rotatedPreviousPoint = rotatePoint(previousMousePoints, rotationPoint, angleToShift);
+
+        if (drawing)
+        {
+            drawWithBrush(rotatedPoint[0], rotatedPoint[1], rotatedPreviousPoint[0], rotatedPreviousPoint[1]);
+        }
+        if (rubbing)runPoints(rotatedPoint[0], rotatedPoint[1]);
     }
-    if (rubbing)runPoints(rotatedPoint[0], rotatedPoint[1]);
-    }
-    
+
 
 }
 
 
 function rotatePoint(points,  centre,  angle)
 {
-  
-  angle = angle * (PI/180); //make it into radians
-  
 
-   
-	var rotatedX = cos(angle) * (points[0] - centre[0]) - sin(angle) * (points[1] - centre[1]) + centre[0];
+    angle = angle * (PI/180); //make it into radians
 
-	
-var rotatedY = sin(angle) * (points[0] - centre[0]) + cos(angle) * (points[1] - centre[1]) + centre[1]; 
 
-   rotatedPoint = [rotatedX, rotatedY];
-	
 
-   //
-   return rotatedPoint;
+    var rotatedX = cos(angle) * (points[0] - centre[0]) - sin(angle) * (points[1] - centre[1]) + centre[0];
+
+
+    var rotatedY = sin(angle) * (points[0] - centre[0]) + cos(angle) * (points[1] - centre[1]) + centre[1]; 
+
+    rotatedPoint = [rotatedX, rotatedY];
+
+
+    //
+    return rotatedPoint;
 }
 
 
 
 function getColourAtPoint(xPos,  yPos)
 {
-	//this bit of maths is done because the resize function does not work. It might be less expensive too.
+    //this bit of maths is done because the resize function does not work. It might be less expensive too.
     xPos = xPos * (img.width/width);
-	yPos = yPos * (img.height/height);
-	
-  var pix = img.get(xPos, yPos);
-	
-  return pix;
+    yPos = yPos * (img.height/height);
+
+    var pix = img.get(xPos, yPos);
+
+    return pix;
 }
 
 
 
 function getRandomPointInCircle( xPos,  yPos,  w,  h)
 {
-  var randX=random(w);
-  var randY=random(h);
-  var  angle= random(359);
+    var randX=random(w);
+    var randY=random(h);
+    var  angle= random(359);
 
-  var  circleX = randX*cos(radians(angle)) + xPos;
-  var circleY = randY*sin(radians(angle)) + yPos;
+    var  circleX = randX*cos(radians(angle)) + xPos;
+    var circleY = randY*sin(radians(angle)) + yPos;
 
-  var randomCirclePoint = [circleX, circleY];
-  return randomCirclePoint;
+    var randomCirclePoint = [circleX, circleY];
+    return randomCirclePoint;
 }
 
 
 function getRandomPointInSquare(xPos, yPos,  w,  h)
 {
-  var cursorMinX = xPos - w / 2;
-  var cursorMaxX = xPos + w / 2;
-  var cursorMinY = yPos - h / 2;
-  var cursorMaxY = yPos + h / 2;
+    var cursorMinX = xPos - w / 2;
+    var cursorMaxX = xPos + w / 2;
+    var cursorMinY = yPos - h / 2;
+    var cursorMaxY = yPos + h / 2;
 
-  var pointX = random(cursorMinX, cursorMaxX);
-  var pointY = random(cursorMinY, cursorMaxY);
-  var randomSquarePoint  = [pointX, pointY];
-  return randomSquarePoint;
+    var pointX = random(cursorMinX, cursorMaxX);
+    var pointY = random(cursorMinY, cursorMaxY);
+    var randomSquarePoint  = [pointX, pointY];
+    return randomSquarePoint;
 }
 
 
 function runPoints(xPos, yPos)
 {
-  for (var i=0; i < dotSpeed; i++) 
-  {
-    var randomPoint = new Array (2); //load as blank for now
-    
+    for (var i=0; i < dotSpeed; i++) 
+    {
+        var randomPoint = new Array (2); //load as blank for now
 
-      
-    if (circleBrush)
-    {
-      randomPoint = getRandomPointInCircle(xPos, yPos, brushSize, brushSize);// if circle
-    } else if (rectBrush)
-    {
-      randomPoint = getRandomPointInSquare(xPos, yPos, brushSize, brushSize);
-    }
 
-       pix = getColourAtPoint(randomPoint[0], randomPoint[1]);
-  
-    if (colourInvert)
-    {
-      pix = invertColor(red(pix), green(pix), blue(pix));
-    }
-    if (randomColours)
-    {
-      pix = randomizeAllColours();
-    }
-    if (slightlyRandomColours)
-    {
-      pix = randomR(red(pix), green(pix), blue(pix));
-    }
 
-    fill(pix, 128);
-    //  fill(233,233,233);
-      
-    noStroke();
-
-    if (randomDotShape)
-    {
-      xDotVariation = random(-10, 10);
-      yDotVariation = random(-10, 10);
-    } else
-    {
-      xDotVariation = 0;
-      yDotVariation = 0;
-    }
-
-    var randomCircleSize = random(1 * dotSize, 4 * dotSize);
-    if(rubbingSquares)
-    {   
-        rect(randomPoint[0], randomPoint[1], randomCircleSize + xDotVariation, randomCircleSize + yDotVariation);
-}
-      if(rubbingCircles)
+        if (circleBrush)
         {
-    ellipse(randomPoint[0], randomPoint[1], randomCircleSize + xDotVariation, randomCircleSize + yDotVariation);
-  }
-  }
+            randomPoint = getRandomPointInCircle(xPos, yPos, brushSize, brushSize);// if circle
+        } else if (rectBrush)
+        {
+            randomPoint = getRandomPointInSquare(xPos, yPos, brushSize, brushSize);
+        }
+
+        pix = getColourAtPoint(randomPoint[0], randomPoint[1]);
+
+        if (colourInvert)
+        {
+            pix = invertColor(red(pix), green(pix), blue(pix));
+        }
+        if (randomColours)
+        {
+            pix = randomizeAllColours();
+        }
+        if (slightlyRandomColours)
+        {
+            pix = randomR(red(pix), green(pix), blue(pix));
+        }
+
+        fill(pix, 128);
+        //  fill(233,233,233);
+
+        noStroke();
+
+        if (randomDotShape)
+        {
+            xDotVariation = random(-10, 10);
+            yDotVariation = random(-10, 10);
+        } else
+        {
+            xDotVariation = 0;
+            yDotVariation = 0;
+        }
+
+        var randomCircleSize = random(1 * dotSize, 4 * dotSize);
+        if(rubbingSquares)
+        {   
+            rect(randomPoint[0], randomPoint[1], randomCircleSize + xDotVariation, randomCircleSize + yDotVariation);
+        }
+        if(rubbingCircles)
+        {
+            ellipse(randomPoint[0], randomPoint[1], randomCircleSize + xDotVariation, randomCircleSize + yDotVariation);
+        }
+    }
 }
 
 
@@ -543,35 +533,35 @@ function runPoints(xPos, yPos)
 
 
 function mutateColor(c) {
-  var mr = 10; // mutation rate
-  var r = red(c);
-  var g = green(c);
-  var b = blue(c);
-  r += random(-mr, mr);
-  r = constrain(r, 0, 255);
-  g += random(-mr, mr);
-  g = constrain(g, 0, 255);
-  b += random(-mr, mr);
-  b = constrain(b, 0, 255);
-  return color(r, g, b);
+    var mr = 10; // mutation rate
+    var r = red(c);
+    var g = green(c);
+    var b = blue(c);
+    r += random(-mr, mr);
+    r = constrain(r, 0, 255);
+    g += random(-mr, mr);
+    g = constrain(g, 0, 255);
+    b += random(-mr, mr);
+    b = constrain(b, 0, 255);
+    return color(r, g, b);
 }
 
 function invertColor( r,  g,  b) 
 {
-  return color(255 - r, 255 - g, 255 - b);
+    return color(255 - r, 255 - g, 255 - b);
 }
 
 
 function randomR(r, g, b) {
 
-  return color(random(0, 255), 255 - g, 255 - b);//randomize one channel
+    return color(random(0, 255), 255 - g, 255 - b);//randomize one channel
 }
 
 
 function slightlyRandomizeAllColours( r,  g,  b) {
 
-  var slightVariation = random(-40, 40); 
-  return color(r + slightVariation, g + slightVariation, b + slightVariation);//randomize one channel
+    var slightVariation = random(-40, 40); 
+    return color(r + slightVariation, g + slightVariation, b + slightVariation);//randomize one channel
 }
 
 
@@ -579,12 +569,12 @@ function slightlyRandomizeAllColours( r,  g,  b) {
 function randomizeAllColours() 
 {
 
-  return color(random(0, 255), random(0, 255), random(0, 255));//randomize one channel
+    return color(random(0, 255), random(0, 255), random(0, 255));//randomize one channel
 }
 
 function windowResized()
 {
-  resizeCanvas(window.innerWidth/2, window.innerWidth/3);
+    resizeCanvas(window.innerWidth/2, window.innerWidth/3);
 
 
 }
@@ -592,52 +582,43 @@ function windowResized()
 
 function undo()
 {
-    if(undos.length  > 0) // if there is more than the blank canvas there...
+    if(undos.length > 1) // if there is more than the blank canvas there...
     {
-      undos.pop();
-
-      image(undos[undos.length - 1], 0 ,0);
+        undos.pop();
+        
+        image(undos[undos.length - 1], 0 ,0); // set to last img in array
     }
-    else
-      {
-		  print("no more undo for you");
-	  }
-
-
-
-
-
-
-    
-
+    else if (undos.length == 0)
+    {
+        print("no more undo for you");
+    }
 }
 
+
+
+/*
 function redo()
 {
 
-  if(redos.length > 0)
-  {
-  redos.pop();
-  image(redos[redos.length-1], 0, 0);
+    if(redos.length > 0)
+    {
+        redos.pop();
+        image(redos[redos.length + 1 ], 0, 0);
+    }
 }
-
-}
-
+*/
 
 function addToUndoStack()
-{
-   undos.push(get());
-
-
-
- 
+{   
+    
+    undos.push(get());
 }
 
 
 function downloadImage ()
 {
-    
- saveCanvas('myCreation', 'png');
+
+    saveCanvas('myCreation' , 'png');
 
 }
 
@@ -662,87 +643,86 @@ function printImage(path)
 
 function keyPressed()
 {
-  if (key == 's')
-  {
-    stop = !stop;
-  }
-  if (key == 'r') // for random dot shapes
-  {
-    randomDotShape = !randomDotShape;
-  }
-  if (key == 'i')
-  {
-    colourInvert = !colourInvert;
-  }
-  if (key == ',')
-  {
-    randomColours = !randomColours;
-    matchColours = !matchColours;
-  }
-  if (key == 'z')
-  {
-    slightlyRandomColours = !slightlyRandomColours;
-  }
-  if (key == 'p')
-  {
-    save("data/picture.png");
-
-    var picturePath = dataPath("");
-    print(dataPath(""));
-
-    printImage(picturePath + "picture.png");
-  }
- 
-
-  if (key == 'g') //undo
-  {
-    undo.undo();
-  }
-  if (key == 'f')
-  {
-    undo.redo();
-  }
-  if (key == 'c')
-  {
-    clearScreen();
-  }
-  if(key == 'a')
-  {
-    multiMirror = !multiMirror;
-    
-  }
-  if(key == 'k')
-  {
-    speedAffectsSize = !speedAffectsSize;
-  }
-
-  if (key == 'l')
-  {
-    if (imageLoaded < imgs.length - 1)
+    if (key == 's')
     {
-      imageLoaded++;
-    } else
-    {
-      imageLoaded = 0;
+        stop = !stop;
     }
-    img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
-  }
+    if (key == 'r') // for random dot shapes
+    {
+        randomDotShape = !randomDotShape;
+    }
+    if (key == 'i')
+    {
+        colourInvert = !colourInvert;
+    }
+    if (key == ',')
+    {
+        randomColours = !randomColours;
+        matchColours = !matchColours;
+    }
+    if (key == 'z')
+    {
+        slightlyRandomColours = !slightlyRandomColours;
+    }
+    if (key == 'p')
+    {
+        save("data/picture.png");
 
-  if (key == 'q') //switch the brush
-  {
-    rectBrush = !rectBrush;
-    circleBrush = !circleBrush;
-  }
-  if (key == 'm')
-  {
-    drawing = !drawing;
-    rubbing = !rubbing; 
-  }
-  if ('0' <= key && key <= '9')
-  {
-    dotSize = int(key) - 48;
-    print("brush: " + dotSize + "\n");
-  }
+        var picturePath = dataPath("");
+        print(dataPath(""));
+        printImage(picturePath + "picture.png");
+    }
+
+
+    if (key == 'g') //undo
+    {
+        undo.undo();
+    }
+    if (key == 'f')
+    {
+        undo.redo();
+    }
+    if (key == 'c')
+    {
+        clearScreen();
+    }
+    if(key == 'a')
+    {
+        multiMirror = !multiMirror;
+
+    }
+    if(key == 'k')
+    {
+        speedAffectsSize = !speedAffectsSize;
+    }
+
+    if (key == 'l')
+    {
+        if (imageLoaded < imgs.length - 1)
+        {
+            imageLoaded++;
+        } else
+        {
+            imageLoaded = 0;
+        }
+        img = loadImage("pics/" + imgs[imageLoaded] + ".jpg");
+    }
+
+    if (key == 'q') //switch the brush
+    {
+        rectBrush = !rectBrush;
+        circleBrush = !circleBrush;
+    }
+    if (key == 'm')
+    {
+        drawing = !drawing;
+        rubbing = !rubbing; 
+    }
+    if ('0' <= key && key <= '9')
+    {
+        dotSize = int(key) - 48;
+        print("brush: " + dotSize + "\n");
+    }
 }
 
 
@@ -766,35 +746,40 @@ function mousePressed()
     */
 function mouseReleased()
 {
- 
- touchDown = false;
+    touchDown = false;
+    
+    if(touchingCanvas() == true)
+    {
+        addToUndoStack();
+
+    }
 }
 
 
 function touchMoved()
 {
-     if(touchingCanvas() == true)
-        {
-            return false;
-        }
+    if(touchingCanvas() == true)
+    {
+        return false;
+    }
 }
 
 function mouseMoved()
 {
     if(touchingCanvas() == true)
-        {
-            return false;
-        }
+    {
+        return false;
+    }
 
 }
 function mousePressed()
 {
 
-if(touchingCanvas() == true)
-{
-    return false;
-}
-   // return false;
+    if(touchingCanvas() == true)
+    {
+        return false;
+    }
+    // return false;
 }
 
 

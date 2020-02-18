@@ -19,7 +19,7 @@ h1 {
 
 .sketch-holder 
 {
- padding:1%;
+ padding:0%;
 position: relative;
 	
 align-content: center;
@@ -29,20 +29,21 @@ align-content: center;
 .gui-holder {
     
   padding-top:5%;
-  margin: 1%;
+  margin: 0%;
   padding-bottom:0%;
   width:80%;
 }
 
 .vertical-center
 {
-  margin: 3%;
+  margin: 2%;
   position: absolute;
 
   top: 40%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
  p {
 
  
