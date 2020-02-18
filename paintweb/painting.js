@@ -99,7 +99,9 @@ function setup()
     frameRate(60);
 
     //canvas = createCanvas(innerWidth/2, innerWidth/3); //makes it 6 by 4
-    canvas = createCanvas(innerWidth/1.75, innerWidth/2.625); 
+    //canvas = createCanvas(innerWidth/1.75, innerWidth/2.625); 
+    
+    canvas = createCanvas(innerWidth/1.5, innerWidth/2.25); 
     
     loadImageAndUpdatePreview();
 
