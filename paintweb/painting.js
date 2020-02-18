@@ -105,7 +105,7 @@ function setup()
     
     loadImageAndUpdatePreview();
 
-    canvas.mouseReleased(addToUndoStack); // attach listener only for canvas
+  //  canvas.mouseReleased(addToUndoStack); // attach listener only for canvas
 
     canvas.parent('sketch-holder'); 
     background(20);
