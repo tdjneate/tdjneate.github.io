@@ -21,7 +21,7 @@ h3
 
 .sketch-holder 
 {
-    padding-left:5%;
+    margin-left:3%;
     position: relative;
     width = 100%;
     align-content: center;
@@ -33,7 +33,7 @@ h3
 
 .image-holder
 {
-      margin: 0 auto;
+    margin: 0 auto;
     align-content: center;
 
 }
@@ -43,10 +43,9 @@ h3
     padding-top:5%;
     margin: 0%;
     padding-bottom:0%;
-  
-
-
     width:100%;
+    padding-right:5%;
+
 }
 
 .vertical-center
@@ -54,7 +53,7 @@ h3
     margin: 1%;
     position: absolute;
 
-    top: 40%;
+    top: 60%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
@@ -79,6 +78,7 @@ p {
 {
     background-color: ghostwhite;
     padding:3%;
+    margin-right: 1%;
     width:25vw;
 }
 
@@ -203,37 +203,3 @@ hr
 }
 
 
-
-
-
-
-
-
-
-
-
-
-/* ----------- iPad Pro ----------- */
-/* Portrait and Landscape */
-@media only screen 
-  and (min-width: 1024px) 
-  and (max-height: 1366px) 
-  and (-webkit-min-device-pixel-ratio: 1.5) {
-}
-
-/* Portrait */
-@media only screen 
-  and (min-width: 1024px) 
-  and (max-height: 1366px) 
-  and (orientation: portrait) 
-  and (-webkit-min-device-pixel-ratio: 1.5) {
-}
-
-/* Landscape */
-@media only screen 
-  and (min-width: 1024px) 
-  and (max-height: 1366px) 
-  and (orientation: landscape) 
-  and (-webkit-min-device-pixel-ratio: 1.5) {
-
-}
