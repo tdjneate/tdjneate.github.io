@@ -21,7 +21,7 @@ h1 {
 {
  padding:0%;
 position: relative;
-	
+width = 100%;
 align-content: center;
     
 }
@@ -31,7 +31,7 @@ align-content: center;
   padding-top:5%;
   margin: 0%;
   padding-bottom:0%;
-  width:80%;
+  width:70%;
 }
 
 .vertical-center
