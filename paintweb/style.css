@@ -118,7 +118,7 @@ align-content: center;
 
 .button-holder
 {
-	width:100%;
+	width:80%;
 }
 
 /*
@@ -194,7 +194,7 @@ hr
 
 .sketchColumn {
   float: left;
-  width: 60%;
+  width: 55%;
     padding:5%
 }
 
