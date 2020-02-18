@@ -184,3 +184,17 @@ hr
 @-ms-viewport{
   width: device-width;
 }
+
+
+.column {
+  float: left;
+  width: 50%;
+    padding:2%
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
