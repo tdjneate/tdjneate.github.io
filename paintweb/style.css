@@ -21,7 +21,7 @@ h3
 
 .sketch-holder 
 {
-    margin-left:3%;
+    padding-left:5%;
     position: relative;
     width = 100%;
     align-content: center;
@@ -45,7 +45,6 @@ h3
     padding-bottom:0%;
     width:100%;
     padding-right:5%;
-
 }
 
 .vertical-center
@@ -53,7 +52,7 @@ h3
     margin: 1%;
     position: absolute;
 
-    top: 60%;
+    top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
@@ -76,9 +75,8 @@ p {
 
 .panel 
 {
-    background-color: white;
+    background-color: ghostwhite;
     padding:3%;
-    margin-right: 1%;
     width:25vw;
 }
 
@@ -201,5 +199,6 @@ hr
 {
     width: device-width;
 }
+
 
 
