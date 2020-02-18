@@ -31,7 +31,7 @@ align-content: center;
   padding-top:5%;
   margin: 0%;
   padding-bottom:0%;
-  width:70%;
+  width:60%;
 }
 
 .vertical-center
@@ -68,18 +68,18 @@ align-content: center;
 {
 	background-color: ghostwhite;
 	padding:3%;
-	width:30vw;
+	width:25vw;
 	
 }
 
 
-.previewpicture
+.previewPicture
 {
-    width:20vw;
-    border-radius: 5px;
-    
-	padding:2%;
-    align-content: center;
+    width:25vh;
+    align-content: right;
+     display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .slider {
@@ -113,6 +113,12 @@ align-content: center;
 .button
 {
 	height:5vh;
+    align-content: center;
+}
+
+.button-holder
+{
+	width:100%;
 }
 
 /*
@@ -186,11 +192,21 @@ hr
 }
 
 
-.column {
+.sketchColumn {
   float: left;
-  width: 50%;
-    padding:2%
+  width: 60%;
+    padding:5%
 }
+
+.guiColumn {
+  float: center;
+  width: 40%;
+  padding-left: 5%;
+   padding-top:10%;
+}
+
+
+
 
 /* Clear floats after the columns */
 .row:after {
