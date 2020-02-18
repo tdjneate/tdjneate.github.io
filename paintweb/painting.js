@@ -108,8 +108,6 @@ function setup()
     canvas.mouseReleased(addToUndoStack); // attach listener only for canvas
 
     canvas.parent('sketch-holder'); 
-§
-
     background(20);
 
     clearPageButton = select('#clearPageButton');
