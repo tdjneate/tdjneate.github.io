@@ -58,7 +58,7 @@ var rubbing = true;
 
 var brushSize = 15;
 
-var imgs = ["Derek",  "Joan", "Andy", "Richard", "Michael", "Elaine", "Paul", "Bryan", "Nial", "alley"];
+var imgs = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "Derek",  "Joan", "Andy", "Richard", "Michael", "Elaine", "Paul", "Bryan", "Nial", "alley"];
 
 var imageLoaded = 0;
 
