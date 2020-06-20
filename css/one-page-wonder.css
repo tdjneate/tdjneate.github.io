@@ -284,6 +284,18 @@ img
 	vertical-align: center;
 }
 
+.paperbox
+{
+	background-color:whitesmoke;
+	width:100%;
+	border-radius: 15px;
+	padding:2%; 
+    margin-bottom:2%;
+	margin-top: %2;
+	vertical-align: center;
+}
+
+
 .btn-white
 {
 	background-color:#fff;color: #000;
