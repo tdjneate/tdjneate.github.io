@@ -61,15 +61,16 @@ p {
     font-size: 16px; 
     font-style: normal; 
     font-variant: normal; 
-    font-weight: 800; 
-    line-height: 20px; 
+    font-weight: 500; 
+    line-height: 8px; 
 } 
 
 .slidecontainer
 {
     width: 100%; /* Width of the outside container */
-    padding-bottom: 1%;
-    padding-top: 1%;
+    padding-bottom: 0%;
+    padding-top: 4%;
+	margin: 0%;
 }
 
 .panel 
