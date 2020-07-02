@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <!--- CACHE 
+<meta http-equiv=“Pragma” content=”no-cache”>
+<meta http-equiv=“Expires” content=”-1″>
+<meta http-equiv=“CACHE-CONTROL” content=”NO-CACHE”>-->
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" />
+        <link href="./style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div class="vertical-center">
+
+            <div class="row">
+                <div class="col-md-9">       
+                    <div class="sketchColumn">
+                        <div id= "sketch-holder", class="sketch-holder">
+                            <div id="button-holder">
+                                <input id ="undoButton"  class ="button" type="image" src="ui/undo.png" alt="Undo" > 
+                                <!--<input id ="redoButton" type="image" class ="button" src="ui/redo.png" alt="Redo" > --> <!-- REDO REMOVED FOR NOW -->  
+                                <input id ="colourInvertToggle"  class ="button" onclick="colourInvertToggle()" type="image" src="ui/invertColourOff.png" alt="Toggle shape between inverting and not inverting the colour" >
+                                <input id ="downloadImageButton"  class ="button" type="image" src="ui/download.png" alt="Download your creation" style="height:5vh  ">
+                                <input id ="clearPageButton"  class ="button" type="image" src="ui/delete.png" alt="Delete all content" style="height:5vh"> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 gui-holder">  
+                    <center>
+                        <div class="image-holder">   
+                            <img id = "previewPicture" class="previewPicture"><br/>
+
+                            <input id ="nextImageButton" type="image" src="ui/nextImage.png" alt="Next Image"  class ="button">
+                            <hr>
+                                 
+                                <input id ="toggleUIModeButton" onclick="toggleModeInUI()" type="image" src="ui/drawing.png" alt="Toggle UI mode"  style="height:4vh">
+                                <div class="slidecontainer">
+									<br>
+									<p> Brush Size</p>
+                                    <p><img src="ui/brush.png" style="width:4%" alt="A thin brush"> <input type="range" min="1" max="300" value="15" class="slider" id="brushThicknessSlider"> <img src="ui/brush.png" alt="A thick brush" style="width:8%"></p>
+                                </div>
+
+                                <div class="slidecontainer">
+									<p> Number of Mirrors</p>
+                                    <p><img src="ui/noMirrors.png" style="width:5%" alt="No mirrors"> <input type="range" min="0" max="20" value="0" class="slider" id="numberOfMirrors"><img src="ui/manyMirrors.png" style="width:5%" alt="Many mirrors"> </p>
+                                </div>
+                               
+							<!-- DRAWING ONLY UI GOES HERE-->
+
+                                <div id = "drawingUI">
+                                 <!--   <input id ="speedAffectsSizeToggle" onclick="speedAffectsSizeToggled()" type="image" src="ui/speedEffectOff.png" alt="Toggle whether speed affects size of brush" class ="button">  -->
+
+                                </div>
+                                <div id = "rubbingUI">
+									
+                                    <div class="slidecontainer">
+										<p> Rubbing Dot Size</p>
+                                        <p>  <img src="ui/smallDots.png" style="width:5%"alt="No mirrors"> <input type="range" min="1" max="40" value="10" class="slider" id="rubbingDotSizeSlider"> <img src="ui/bigDots.png" style="width:5%" alt="No mirrors"> </p>
+                                    </div>
+                                    <div class="slidecontainer">
+																				
+									  <p> Rubbing Speed </p>
+                                        <p><img src="ui/slowSpeed.png" style="width:5%" alt="No mirrors">  <input type="range" min="5" max="200" value="50" class="slider" id="rubbingDotSpeedSlider"> <img src="ui/fastSpeed.png" style="width:5%" alt="No mirrors"> </p>
+                                    </div>
+									<br>
+                                    <input id ="shapeRubbingToggle" onclick="toggleRubbingShape()" type="image" src="ui/rubbingCircles.png" alt="Toggle shape between square and circle" style="height:4vh"> 
+                                </div>
+                            </div>
+
+                    </center>  
+                </div>
+
+            </div>
+        </div>
+
+            <!-- JS -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+            <script src = "p5/p5.js"></script>
+            <script src="painting.js"></script>
+            </body>
+        </html>
