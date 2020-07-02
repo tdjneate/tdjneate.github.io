@@ -135,10 +135,6 @@ function toggleModeInUI()
     drawing = !drawing;
     rubbing = !rubbing;
 
-
-    print("Drawing:" + drawing);
-    print("Rubbing:" + rubbing);
-
     if (drawing)
     {
         drawingUI.style.display = "block";
