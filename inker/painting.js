@@ -98,14 +98,11 @@ function setup()
 
     frameRate(60);
 
-    //canvas = createCanvas(innerWidth/2, innerWidth/3); //makes it 6 by 4
-    //canvas = createCanvas(innerWidth/1.75, innerWidth/2.625); 
+
     
     canvas = createCanvas(innerWidth/1.5, innerWidth/2.25); //bigggg
     
     loadImageAndUpdatePreview();
-
-  //  canvas.mouseReleased(addToUndoStack); // attach listener only for canvas
 
     canvas.parent('sketch-holder'); 
     background(20);
@@ -113,13 +110,11 @@ function setup()
     clearPageButton = select('#clearPageButton');
     clearPageButton.mousePressed(clearScreen);
 
-
     var downloadImageButton = select('#downloadImageButton');
     downloadImageButton.mouseReleased(downloadImage);
 
     var nextImageButton = select('#nextImageButton');
     nextImageButton.mouseReleased(cycleToNextImage);
-
 
     var undoButton = select('#undoButton');
     undoButton.mouseReleased(undo);
@@ -175,7 +170,6 @@ function clearScreen()
         print("clearing");
         background(20); 
 
-        // touchingCanvas = false; // prevent drawing when we come back to the screen
     }
     else
     {
