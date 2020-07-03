@@ -2,8 +2,10 @@
 
 <!- Inker: Assets 2020 Version-->
 
-<html>
+<html lang="en">
     <head>
+		  <title>Inker: ASSETS 2020 Version</title>
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -12,7 +14,6 @@
     </head>
     <body>
         <div class="vertical-center">
-
             <div class="row">
                 <div class="col-md-9">       
                     <div class="sketchColumn">
@@ -30,7 +31,7 @@
                 <div class="col-md-3 gui-holder">  
                     <center>
                         <div class="image-holder">   
-                            <img id = "previewPicture" class="previewPicture"><br/>
+                            <img id = "previewPicture" class="previewPicture" alt="The preview picture. This is a piece of art."><br/>
 
                             <input id ="nextImageButton" type="image" src="ui/nextImage.png" alt="Next Image"  class ="button">
                             <hr>
@@ -39,12 +40,12 @@
                                 <div class="slidecontainer">
 									<br>
 									<p> Brush Size</p>
-                                    <p><img src="ui/brush.png" style="width:4%" alt="A thin brush"> <input type="range" min="1" max="300" value="15" class="slider" id="brushThicknessSlider"> <img src="ui/brush.png" alt="A thick brush" style="width:8%"></p>
+									<p><img src="ui/brush.png" style="width:4%" alt="A thin brush"><label>Brush thickness slider <input type="range" min="1" max="300" value="15" class="slider" id="brushThicknessSlider"> <img src="ui/brush.png" alt="A thick brush" style="width:8%"></label></p>
                                 </div>
 
                                 <div class="slidecontainer">
 									<p> Number of Mirrors</p>
-                                    <p><img src="ui/noMirrors.png" style="width:5%" alt="No mirrors"> <input type="range" min="0" max="20" value="0" class="slider" id="numberOfMirrors"><img src="ui/manyMirrors.png" style="width:5%" alt="Many mirrors"> </p>
+									<p><img src="ui/noMirrors.png" style="width:5%" alt="No mirrors"><label>Number of mirrors slider  <input type="range" min="0" max="20" value="0" class="slider" id="numberOfMirrors"><img src="ui/manyMirrors.png" style="width:5%" alt="Many mirrors"> </label></p>
                                 </div>
                            
 							<!-- DRAWING ONLY UI GOES HERE-->
@@ -54,11 +55,11 @@
 									
                                     <div class="slidecontainer">
 										<p> Rubbing Dot Size</p>
-                                        <p>  <img src="ui/smallDots.png" style="width:5%"alt="No mirrors"> <input type="range" min="1" max="40" value="10" class="slider" id="rubbingDotSizeSlider"> <img src="ui/bigDots.png" style="width:5%" alt="No mirrors"> </p>
+										<p>  <img src="ui/smallDots.png" style="width:5%"alt="No mirrors"><label>Rubbing dot slider <input type="range" min="1" max="40" value="10" class="slider" id="rubbingDotSizeSlider"> <img src="ui/bigDots.png" style="width:5%" alt="No mirrors"></label> </p>
                                     </div>
                                     <div class="slidecontainer">											
 									  <p> Rubbing Speed </p>
-                                        <p><img src="ui/slowSpeed.png" style="width:5%" alt="No mirrors">  <input type="range" min="5" max="200" value="50" class="slider" id="rubbingDotSpeedSlider"> <img src="ui/fastSpeed.png" style="width:5%" alt="No mirrors"> </p>
+										<p><img src="ui/slowSpeed.png" style="width:5%" alt="No mirrors"> <label>Rubbing speed slider <input type="range" min="5" max="200" value="50" class="slider" id="rubbingDotSpeedSlider"> <img src="ui/fastSpeed.png" style="width:5%" alt="No mirrors"></label> </p>
                                     </div>
 									<br>
                                     <input id ="shapeRubbingToggle" onclick="toggleRubbingShape()" type="image" src="ui/rubbingCircles.png" alt="Toggle shape between square and circle" style="height:4vh"> 
