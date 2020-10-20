@@ -35,7 +35,10 @@ h3 {
 }
 
 .about-text-holder {
-    padding: 15%;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 15%;
+    
 }
 
 .gui-holder {
@@ -164,9 +167,6 @@ hr {
     border-radius: 50%;
     border: 2px solid #000000;
 
-    /* -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);*/
 }
 
 .switch input[type="checkbox"]::after {
