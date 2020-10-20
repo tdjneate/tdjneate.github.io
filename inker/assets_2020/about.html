@@ -5,6 +5,7 @@
 <head>
 
 
+  <title>About Inker</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -23,15 +24,22 @@
                 Inker is a prototype tool designed as part of the INCA project. This version is for demonstration purposes for the <a href="https://assets20.sigaccess.org/">ASSETS 2020</a>
                 conference, where the work is presented as a poster. The paper related to the poster, 'Painting a Picture of Accessible Digital Art' is available via the <a href="https://doi.org/10.1145/3373625.3418019">ACM</a> and via <a href="https://openaccess.city.ac.uk/id/eprint/24769/1/">City's Open Access portal</a>. A video summarising is embedded below.
                 <center><br>
-                  
+
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/UrYhmO3vKu8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                
+
                 </center>
-                
-                <h2>Usage Instructions</h2>
-                
-                Inker has two modes: inking and rubbing. In inking, the user paints on the canvas...
-                
+                <br>
+                <h2>Explainer and Usage Instructions</h2>
+
+                Inker uses the colour information from a selected picture to support visual creativity. When using Inker, a user presses down a fnger or stylus on the drawing canvas. The colour of the brush is then matched to the colour at the same position in the selected picture. Drawing with this colour is then done in one of two ways: 
+                <ul>
+
+                    <li><b> Inking</b> uses a standard drawing algorithm, with a circular brush. Brush thickness is controlled
+                        with a slider.</li>
+                    <li><b> Rubbing</b>: An area (depending on brush size) is populated with shapes (circles or squares) of
+                        a size and speed specifed by a slider. This efect is analogous to spray painting with specifc
+                        shapes, whose colour is determined by the original artwork. Sliders control the size of the shapes which are placed on the canves (Rubbing Shape Size) and the speed at which they are placed (Rubbing Speed)</li>
+                </ul>
 
 
             </div>
