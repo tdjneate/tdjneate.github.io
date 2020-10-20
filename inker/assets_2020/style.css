@@ -1,89 +1,85 @@
-h1 
-{ 
+h1 {
     font-family: Nunito;
-    font-size: 24px; 
+    font-size: 24px;
     font-style: normal;
     font-variant: normal;
-    font-weight: 700; 
-    line-height: 26.4px; 
-} 
+    font-weight: 700;
+    line-height: 26.4px;
+}
 
 
-h3 
-{ 
+h3 {
     font-family: Nunito;
     font-size: 14px;
     font-style: normal;
     font-variant: normal;
-    font-weight: 700; 
-    line-height: 15.4px; 
+    font-weight: 700;
+    line-height: 15.4px;
 }
 
-.sketch-holder 
-{
-    padding-left:5%;
+.sketch-holder {
+    padding-left: 5%;
     position: relative;
-    width = 100%;
+    width=100%;
     align-content: center;
-    
+
     /* Clear floats after the columns */
     display: table;
     clear: both;
 }
 
-.image-holder
-{
+.image-holder {
     margin: 0 auto;
     align-content: center;
 
 }
 
-.gui-holder 
-{
-    padding-top:5%;
-    margin: 0%;
-    padding-bottom:0%;
-    width:100%;
-    padding-right:5%;
+.about-text-holder {
+    padding: 15%;
 }
 
-.vertical-center
-{
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+.gui-holder {
+    padding-top: 5%;
+    margin: 0%;
+    padding-bottom: 0%;
+    width: 100%;
+    padding-right: 5%;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 p {
-    font-family: Nunito; 
-    font-size: 16px; 
-    font-style: normal; 
-    font-variant: normal; 
-    font-weight: 500; 
-    line-height: 8px; 
-} 
+    font-family: Nunito;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 8px;
+}
 
-.slidecontainer
-{
-    width: 100%; /* Width of the outside container */
+.slidecontainer {
+    width: 100%;
+    /* Width of the outside container */
     padding-bottom: 0%;
     padding-top: 4%;
-	margin: 0%;
+    margin: 0%;
 }
 
-.panel 
-{
+.panel {
     background-color: ghostwhite;
-    padding:3%;
-    width:25vw;
+    padding: 3%;
+    width: 25vw;
 }
 
 
-.previewPicture
-{
-    width:25vh;
+.previewPicture {
+    width: 25vh;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -93,7 +89,7 @@ p {
     -webkit-appearance: none;
     width: 70%;
     height: 2px;
-    border-radius: 10px;  
+    border-radius: 10px;
     background: gray;
     outline: none;
     opacity: 1;
@@ -108,26 +104,24 @@ p {
     border: 3px solid #000000;
 
     width: 30px;
-    background-color:black;
+    background-color: black;
     height: 30px;
-    border-radius: 50%; 
+    border-radius: 50%;
 
     background: white;
     cursor: pointer;
 }
 
-.button
-{
-    height:5vh;
+.button {
+    height: 5vh;
     align-content: center;
     margin: 5px;
 
-    
+
 }
 
-.button-holder
-{
-    width:80%;
+.button-holder {
+    width: 80%;
 }
 
 /*
@@ -142,18 +136,16 @@ outline: pink solid 4px;
 
 /*SWITCH*/
 
-hr
-{
-    padding:1%;
-    color:black;
-    width:100%;
+hr {
+    padding: 1%;
+    color: black;
+    width: 100%;
 }
 
-.switch input[type="checkbox"]:checked::before 
-{
+.switch input[type="checkbox"]:checked::before {
     left: 10px;
     background-color: #67C8CF;
-    padding-bottom:2%;
+    padding-bottom: 2%;
 
 }
 
@@ -195,10 +187,6 @@ hr
     background-color: ivory;
 }
 
-@-ms-viewport
-{
+@-ms-viewport {
     width: device-width;
 }
-
-
-
