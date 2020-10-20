@@ -1,24 +1,14 @@
 <!DOCTYPE html>
 
-<!- Inker: Assets 2020 Version-->
+<html>
 
-<html lang="en">
     <head>
-		  <title>Inker: ASSETS 2020 Version</title>
-        
-<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128906214-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
+        <!--- CACHE 
+<meta http-equiv=“Pragma” content=”no-cache”>
+<meta http-equiv=“Expires” content=”-1″>
+<meta http-equiv=“CACHE-CONTROL” content=”NO-CACHE”>-->
 
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
 
-		gtag('config', 'UA-128906214-1');
-	</script>
-        
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -31,13 +21,14 @@
             <div class="row">
                 <div class="col-md-9">       
                     <div class="sketchColumn">
-                        <div id= "sketch-holder", class="sketch-holder"alt="This is the main canvas">
+                        <div id= "sketch-holder", class="sketch-holder">
                             <div id="button-holder">
                                 <input id ="undoButton"  class ="button" type="image" src="ui/undo.png" alt="Undo" > 
-                                <!--<input id ="redoButton" type="image" class ="button" src="ui/redo.png" alt="Redo" > --> <!-- REDO REMOVED FOR NOW -->  
+                                 <!--<input id ="redoButton" type="image" class ="button" src="ui/redo.png" alt="Redo" > --> <!-- REDO REMOVED FOR NOW -->  
                                 <input id ="colourInvertToggle"  class ="button" onclick="colourInvertToggle()" type="image" src="ui/invertColourOff.png" alt="Toggle shape between inverting and not inverting the colour" >
                                 <input id ="downloadImageButton"  class ="button" type="image" src="ui/download.png" alt="Download your creation" style="height:5vh  ">
                                 <input id ="clearPageButton"  class ="button" type="image" src="ui/delete.png" alt="Delete all content" style="height:5vh"> 
+                                <input id ="aboutButton"  class ="button" style="  float: right" type="image" src="ui/about.png" onclick="location.href='about.html';"  alt="About button" style="height:5vh"> 
                             </div>
                         </div>
                     </div>
@@ -45,7 +36,7 @@
                 <div class="col-md-3 gui-holder">  
                     <center>
                         <div class="image-holder">   
-                            <img id = "previewPicture" class="previewPicture" alt="The preview picture. This is a piece of art"><br/>
+                            <img id = "previewPicture" class="previewPicture"><br/>
 
                             <input id ="nextImageButton" type="image" src="ui/nextImage.png" alt="Next Image"  class ="button">
                             <hr>
@@ -61,9 +52,11 @@
 									<p> Number of Mirrors</p>
                                     <p><img src="ui/noMirrors.png" style="width:5%" alt="No mirrors"> <input type="range" min="0" max="20" value="0" class="slider" id="numberOfMirrors"><img src="ui/manyMirrors.png" style="width:5%" alt="Many mirrors"> </p>
                                 </div>
-                           
+                               
 							<!-- DRAWING ONLY UI GOES HERE-->
-                                <div id = "drawingUI">                
+
+                                <div id = "drawingUI">
+
                                 </div>
                                 <div id = "rubbingUI">
 									
@@ -71,7 +64,8 @@
 										<p> Rubbing Dot Size</p>
                                         <p>  <img src="ui/smallDots.png" style="width:5%"alt="No mirrors"> <input type="range" min="1" max="40" value="10" class="slider" id="rubbingDotSizeSlider"> <img src="ui/bigDots.png" style="width:5%" alt="No mirrors"> </p>
                                     </div>
-                                    <div class="slidecontainer">											
+                                    <div class="slidecontainer">
+																				
 									  <p> Rubbing Speed </p>
                                         <p><img src="ui/slowSpeed.png" style="width:5%" alt="No mirrors">  <input type="range" min="5" max="200" value="50" class="slider" id="rubbingDotSpeedSlider"> <img src="ui/fastSpeed.png" style="width:5%" alt="No mirrors"> </p>
                                     </div>
@@ -85,6 +79,7 @@
 
             </div>
         </div>
+
             <!-- JS -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
