@@ -1,3 +1,5 @@
+
+
 h1 {
     font-family: Nunito;
     font-size: 24px;
@@ -18,10 +20,11 @@ h3 {
 }
 
 .sketch-holder {
-    padding-left: 5%;
+    padding-left: 10%;
+        
     position: relative;
     width=100%;
-    align-content: center;
+    align-content: left;
 
     /* Clear floats after the columns */
     display: table;
@@ -42,6 +45,7 @@ h3 {
 
 .gui-holder {
     padding-top: 5%;
+    
     margin: 0%;
     padding-bottom: 0%;
     width: 100%;
@@ -189,3 +193,5 @@ hr {
 @-ms-viewport {
     width: device-width;
 }
+
+/* Media queries to go here...*/
