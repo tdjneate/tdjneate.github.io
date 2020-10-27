@@ -117,8 +117,8 @@ function setup()
     undoButton.mouseReleased(undo);
 
     toggleModeInUI(false);  // this toggles the UI between 'painting mode'
-    addToUndoStack(); // add the first thing to the undoStac
-    mirrorPoint = [width/2, height/2]; // mirror point is the centre. Can change later.
+    addToUndoStack(); // add the first thing to the undoStack
+    mirrorPoint = [width/2, height/2]; // mirror point is the centre. 
 }
 
 
@@ -154,7 +154,8 @@ function clearScreen()
     {
         clear();
         print("clearing");
-        background(20); 
+     //   background(20); 
+        background(255); 
 	}
     else
     {
