@@ -24,7 +24,7 @@ span {
      max-height: 100%;
     max-width:100%;
     text-align: center;
-	background-image: url('bg.jpg');    
+	background-image: url('bg.jpg');  
     -webkit-background-size: cover;
     moz-background-size: cover;
     background-size: cover;
@@ -32,6 +32,21 @@ span {
 
     
 }
+
+.header-image-ca11y {
+    display: block;
+     max-height: 100%;
+    max-width:100%;
+    text-align: center;
+	background-image: url('colourful.jpg');  
+    -webkit-background-size: cover;
+    moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover
+
+    
+}
+
 
 .boxed {
   border: 1px solid green ;
