@@ -1,14 +1,13 @@
 /*!
- * Start Bootstrap - One Page Wonder HTML Template (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ one page wonder, adapted by tdjn
  */
 
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 
 body {
-    margin-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    margin-top: 50px;
+    /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 /* To keep things verically aligned in div*/
@@ -21,36 +20,32 @@ span {
 
 .header-image {
     display: block;
-     max-height: 100%;
-    max-width:100%;
+    max-height: 100%;
+    max-width: 100%;
     text-align: center;
-	background-image: url('bg.jpg');  
+    background-image: url('bg.jpg');
     -webkit-background-size: cover;
     moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover
-
-    
 }
 
 .header-image-ca11y {
     display: block;
-     max-height: 100%;
-    max-width:100%;
+    max-height: 100%;
+    max-width: 100%;
     text-align: center;
-	background-image: url('colourful.jpg');  
+    background-image: url('colourful.jpg');
     -webkit-background-size: cover;
     moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover
-
-    
 }
 
 
 .boxed {
-  border: 1px solid green ;
-  padding:3%;
+    border: 1px solid green;
+    padding: 3%;
 }
 
 .headline {
@@ -59,21 +54,21 @@ span {
 
 .headline h1 {
     font-size: 600%;
-	color: white;
-    background: rgba(0,0,0,0.0);
+    color: white;
+    background: rgba(0, 0, 0, 0.0);
 }
 
 .headline h2 {
-   font-size: 200%;
+    font-size: 200%;
 
-    
+
     color: white;
-    background: rgba(0,0,0,0.0);
+    background: rgba(0, 0, 0, 0.0);
 }
 
 .featurette-divider {
     margin: 30px 0;
-	width:30px;
+    width: 30px;
 }
 
 .featurette {
@@ -176,19 +171,19 @@ footer {
     }
 
     .featurette-divider {
-       display: block;
-	   position: relative;
-	   padding: 0;
-	   margin: 8px auto;
-	   height: 5;
-	   width: 100%;
-	   max-height: 0;
-	   font-size: 10px;
-	   line-height: 0;
-	   clear: both;
-	   border: none;
-	   border-top: 1px solid #aaaaaa;
-	   border-bottom: 1px solid #ffffff;
+        display: block;
+        position: relative;
+        padding: 0;
+        margin: 8px auto;
+        height: 5;
+        width: 100%;
+        max-height: 0;
+        font-size: 10px;
+        line-height: 0;
+        clear: both;
+        border: none;
+        border-top: 1px solid #aaaaaa;
+        border-bottom: 1px solid #ffffff;
     }
 }
 
@@ -215,8 +210,7 @@ footer {
         max-width: 100%;
     }
 
-    .featurette-image.p
-ull-left {
+    .featurette-image.p ull-left {
         margin-right: 0;
         margin-bottom: 10px;
     }
@@ -227,97 +221,106 @@ ull-left {
     }
 }
 
-#full-size{
+#full-size {
 
-  overflow:hidden; /* or overflow:auto; if you want scrollbars */
-  position:relative;
-  margin:0;
-  padding:0;
-  width:100%;
-  background:black;
-  background-color: rgba(0, 0, 0, 1);
-  color:white;
+    overflow: hidden;
+    /* or overflow:auto; if you want scrollbars */
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: black;
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
 }
 
-h1
-{
-    font-family: 'Nunito', sans-serif;
-    font-weight: bold;
-  
-
-}
-
-
-h2
-{
+h1 {
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
 
 
 }
 
-body 
-{
-        font-family: 'Nunito', sans-serif;
-        font-weight: lighter;
-    
-}
 
-
-.video-container{
-  position: relative;
-  
-  padding-bottom: 60%; 
-  height: 0;width: 100%;
-margin: 0 auto;
- width: 80%;
+h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
 
 
 }
-.video-container iframe{
-  position: absolute;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: lighter;
+
 }
 
 
-img
-{
+.video-container {
+    position: relative;
+
+    padding-bottom: 60%;
+    height: 0;
+    width: 100%;
+    margin: 0 auto;
+    width: 80%;
+
+
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+img {
     border-radius: 10%;
 }
 
-.greybox
-{
-	background-color:whitesmoke;
-	width:100%;
-	border-radius: 15px;
-	padding:5%; 
-    margin-bottom:10%;
-	margin-top: 10%;
-	vertical-align: center;
+.greybox {
+    background-color: whitesmoke;
+    width: 100%;
+    border-radius: 15px;
+    padding: 5%;
+    margin-bottom: 10%;
+    margin-top: 10%;
+    vertical-align: center;
 }
 
-.paperbox
-{
-	background-color:whitesmoke;
-	width:100%;
-	border-radius: 15px;
-	padding:2%; 
-    margin-bottom:2%;
-	margin-top: %2;
-	vertical-align: center;
+.paperbox {
+    background-color: whitesmoke;
+    width: 100%;
+    border-radius: 15px;
+    padding: 2%;
+    margin-bottom: 2%;
+    margin-top: %2;
+    vertical-align: center;
+}
+
+#alertbox {
+
+    background-color: #cfc;
+    padding: 10px;
+    border: 2px solid green;
+    width: 80%;
+    text-align: center;
+        font-weight: bold;
+
+    margin: 5%;
+    font-weight: 900;
 }
 
 
-.btn-white
-{
-	background-color:#fff;color: #000;
-	font-size:20px;
+.btn-white {
+    background-color: #fff;
+    color: #000;
+    font-size: 20px;
 }
 
-.btn-white:hover
-{
-	color: gray;
+.btn-white:hover {
+    color: gray;
 }

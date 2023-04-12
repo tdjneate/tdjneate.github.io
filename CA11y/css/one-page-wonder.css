@@ -316,8 +316,8 @@ h2
 
 p 
 {
-        font-family: 'Raleway-Light', sans-serif;
-        font-weight: 100;
+        font-family: 'Poppins-Light', sans-serif;
+        font-weight: 150;
        
         background-color: white;
         font-size: 15pt;
@@ -326,10 +326,20 @@ p
 
 
 
-
 img
 {
     border-radius: 10%;
+}
+
+ol
+{
+        font-family: 'Poppins-Light', sans-serif;
+        font-weight: 150;
+       
+        background-color: white;
+        font-size: 15pt;
+         margin-bottom: 20px; 
+
 }
 
 
