@@ -56,7 +56,11 @@ span {
     font-size: 600%;
     color: white;
     background: rgba(0, 0, 0, 0.0);
+    
+    
+    text-underline-position: auto;
 }
+
 
 .headline h2 {
     font-size: 200%;
@@ -73,6 +77,7 @@ span {
 
 .featurette {
     overflow: hidden;
+  
 }
 
 .featurette-image.pull-left {
@@ -235,7 +240,7 @@ footer {
 }
 
 h1 {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
 
 
@@ -243,15 +248,15 @@ h1 {
 
 
 h2 {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
 
 
 }
 
 body {
-    font-family: 'Nunito', sans-serif;
-    font-weight: lighter;
+    font-family: 'Poppins', sans-serif;
+    font-weight: light;
 
 }
 
@@ -311,6 +316,15 @@ img {
 
     margin: 5%;
     font-weight: 900;
+}
+
+bpAward
+{
+    font-weight: 400;
+    color: palevioletred;
+    text-decoration: underline;
+
+    
 }
 
 
