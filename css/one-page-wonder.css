@@ -41,7 +41,10 @@ span {
     background-size: cover;
     -o-background-size: cover
 }
-
+/*get rid of bullets*/
+ul {
+  list-style-type: none;
+}
 
 .boxed {
     border: 1px solid green;

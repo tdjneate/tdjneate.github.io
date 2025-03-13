@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Timothy Neate</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../../css/one-page-wonder.css" rel="stylesheet">
+    <style>
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header-container img {
+            height: 100px; 
+        }
+    </style>
+</head>
+
+<body>
+    <!--Analytics-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128906214-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-128906214-1');
+    </script>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Timothy Neate</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../publications.html">Publications</a></li>
+                    <li><a href="../../team.html">Team and Joining</a></li>
+                    <li><a href="../../videos.html">Videos</a></li>
+                    <li><a href="../../honours_and_service.html">Honours and Service</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="featurette">
+            <div class="row">
+                <div class="col-sm-12">
+                    <br><br>
+                    <div class="header-container">
+                        <h2 id="wearableaac-coverage">CHI 2025 Paper Stats</h2>
+                        <a href = "https://chi2025.acm.org/"><img  src="chi2025Logo.svg" alt="Logo"></a>
+                    </div>
+                    <br><br>
+                    <p class="lead">Below are some potentially interesting statistics I have generated from the JSON file from the <a href="https://programs.sigchi.org/chi/2025/program">CHI 2025 program</a>. I consider only 'full papers' here. There were a total of 1,249 accepted full papers, from a total of 5,014 submitted (24.9% accept rate). Presenting statistics like this is an idea I borrowed (stole) from <a href="https://www.whatthehci.com/">whatthehci.com</a>, which seems to no longer be updated. You can also check out some cool statistics for the conference <a href="https://chi2025.acm.org/chi-2025-papers-track-post-pc-outcomes-report/">on the official blog</a>.</p>
+                    <ul>
+                        <li><p class="lead"><a href="all_kings_papers.html">All King's College London CHI Papers</a></p></li>
+                        <li><p class="lead"><a href="all_british_papers.html">All British CHI papers</a></p></li>
+                        <li><p class="lead"><a href="all_london_papers.html">All London CHI papers</a></p></li>
+                        <li><p class="lead"><a href="papers_by_%20institution.html">CHI papers by institution (rank)</a></p></li>
+                        <li><p class="lead"><a href="papers_by_country.html">CHI papers by country (rank)</a></p></li>
+                        <li><p class="lead"><a href="papers_by_city.html">CHI papers by city (rank)</a></p></li>
+                        <li><p class="lead"><a href="papers_by_author.html">CHI papers by author (rank)</a></p></li>
+                        <li><p class="lead"><a href="keywords_*accessibility*_*disability*.html">Papers with *accessibility* and/or *disability* in the title or abstract</a></p></li>
+                        <li><p class="lead"><a href="keywords_*aphasia*.html">Papers with *aphasia* in the title or abstract</a></p></li>
+                        <li><p class="lead"><a href="keywords_*large%20language_model*.html">Papers with *large language model* in the title or abstract</a>
+                        </p></li>
+                
+                    </ul><br>
+                     <p class="lead"> <strong>Note:</strong> All files are static HTML,  generated with some simple python scripts.  There are issues with the original data -- e.g., data includes both "King's College London" and "Kings College London". There were other decisions made for ease of understanding/implementation. In short, do not use it as any kind of definitive source.</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <br>
+    <div id="full-size"></div>
+
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="../../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+
+
+
