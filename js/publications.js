@@ -72,7 +72,7 @@ function displayPublications(publications) {
         listItem.classList.add("publication-item");
         listItem.innerHTML = `
             <div class="row align-items-left">
-                <div class="col-sm-1 text-left;" style="font-size: 1.7em; font-weight: 800;">
+                <div class="col-sm-1 text-left;" style="font-size: 2em; font-weight: 800; color:slategray;">
                     ${pub.Identifier}
                 </div>
                 <div class="col-sm-11">
