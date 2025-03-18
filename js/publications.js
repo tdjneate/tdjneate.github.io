@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("data/publications.csv") // Adjust the file path if necessary
+    fetch("data/publications.csv") 
         .then(response => response.text())
         .then(data => {
-            const publications = parseCSV(data);
+            let publications = parseCSV(data);
             console.log("Parsed Publications:", publications); // Log parsed publications
+            publications = publications.filter(pub => pub.Show.toLowerCase() !== "no"); // Filter out publications with Show = No
             publications.sort((a, b) => parseInt(a.Year) - parseInt(b.Year)); // Sort by year in ascending order
             addPublicationIdentifiers(publications);
             publications.reverse(); // Reverse again to display newest first
@@ -25,8 +26,9 @@ function parseCSV(data) {
     });
 }
 
+
 function addPublicationIdentifiers(publications) {
-    let typeCounts = { conference: 0, journal: 0, demo: 0, poster: 0 };
+    let typeCounts = { conference: 0, journal: 0, demo: 0, poster: 0, bookchapter:0};
     
     publications.forEach(pub => {
         let typeShort = "";
@@ -35,6 +37,7 @@ function addPublicationIdentifiers(publications) {
             case "journal": typeShort = "J"; break;
             case "demo": typeShort = "D"; break;
             case "poster": typeShort = "P"; break;
+            case "bookchapter": typeShort = "BC"; break;
         }
         if (typeShort) {
             typeCounts[pub.Type.toLowerCase()] += 1;
@@ -56,25 +59,22 @@ function displayPublications(publications) {
         let authorsFormatted = pub.Authors.split(";").map(name => {
             let parts = name.trim().split(", ");
             let formattedName = parts.length === 2 ? `${parts[1]} ${parts[0]}` : name;
-            return formattedName.includes("Timothy Neate") ? `<b>${formattedName}</b>` : formattedName;
-        }).join(", "); // Change separator to comma + space
+            return formattedName.includes("Timothy Neate") ? `<u>${formattedName}</u>` : formattedName;
+        }).join(", "); 
         
         let awardIcon = getAwardIcon(pub.Award);
         let awardText = pub.Award.split(";")[1] || "";
         
         let listItem = document.createElement("li");
         listItem.innerHTML = `
-            <div class="row">
-                <div class="col-sm-2 text-right font-weight-bold" style="font-size: 1.5em;">
+            <div class="row align-items-left">
+                <div class="col-sm-1 text-left;" style="font-size: 1.7em; font-weight: 800;">
                     ${pub.Identifier}
                 </div>
-                <div class="col-sm-10">
-                    <p class="lead">
-                        ${authorsFormatted}, <i>${pub.Title}</i>, ${pub.Publication}, ${pub.Year}.
-                        <span style="color: red;">${awardIcon} ${awardText}</span>
-                        &nbsp;<a href="${pub.Link}" target="_blank" class="pdf-icon">
-                            <i class="fa-solid fa-file-pdf"></i>
-                        </a>
+                <div class="col-sm-11">
+                    <p class="lead" style="display: inline;">
+                        ${authorsFormatted} <i class="paper-title">${pub.Title}</i>, ${pub.Publication}, ${pub.Year}.
+                        &nbsp; <p class="lead" style="display: inline; color: goldenRod;"> <u>${awardIcon} ${awardText}</u></p><p class="lead" style="display: inline;"> <a href="${pub.Link}" target="_blank" class="pdf-icon ">&nbsp;&nbsp;<i class="fa-solid fa-file-pdf" style="color:royalBlue;"></i></a></p>
                     </p>
                 </div>
             </div>
@@ -92,5 +92,5 @@ function getAwardIcon(award) {
     else if (type === "2") icon = "fa-solid fa-medal";
     else if (type === "3") icon = "fa-solid fa-star";
     
-    return icon ? `<i class="${icon}" style="color: red;" title="${text}"></i>` : "";
+    return icon ? `<i class="${icon}" style="color: goldenRod; margin-right: 2px;" title="${text}"></i>` : "";
 }

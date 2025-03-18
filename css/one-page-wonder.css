@@ -51,6 +51,11 @@ ul {
     padding: 3%;
 }
 
+.paper-title {
+    font-style: italic;
+    font-weight: 350; /* Ensures it remains the same thickness as the main text */
+}
+
 .headline {
     padding: 150px 0;
 }
