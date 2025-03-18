@@ -26,7 +26,6 @@ function parseCSV(data) {
     });
 }
 
-
 function addPublicationIdentifiers(publications) {
     let typeCounts = { conference: 0, journal: 0, demo: 0, poster: 0, bookchapter:0};
     
@@ -65,7 +64,12 @@ function displayPublications(publications) {
         let awardIcon = getAwardIcon(pub.Award);
         let awardText = pub.Award.split(";")[1] || "";
         
-        let listItem = document.createElement("li");
+        let pdfIcon = pub.Link ? `<a href="${pub.Link}" target="_blank" class="pdf-icon" style="margin-left: 15px;"><i class="fa fa-file-pdf fa-xl"  style="color:royalBlue;"></i></a>` : "";
+       
+        let videoIcon = pub.VideoLink ? `<a href="${pub.VideoLink}" target="_blank" class="video-icon" style="margin-left: 15px;"><i class="fa-solid fa-film fa-xl" style="color:red;"></i></a>` : "";
+        
+        let listItem = document.createElement("div");
+        listItem.classList.add("publication-item");
         listItem.innerHTML = `
             <div class="row align-items-left">
                 <div class="col-sm-1 text-left;" style="font-size: 1.7em; font-weight: 800;">
@@ -74,7 +78,8 @@ function displayPublications(publications) {
                 <div class="col-sm-11">
                     <p class="lead" style="display: inline;">
                         ${authorsFormatted} <i class="paper-title">${pub.Title}</i>, ${pub.Publication}, ${pub.Year}.
-                        &nbsp; <p class="lead" style="display: inline; color: goldenRod;"> <u>${awardIcon} ${awardText}</u></p><p class="lead" style="display: inline;"> <a href="${pub.Link}" target="_blank" class="pdf-icon ">&nbsp;&nbsp;<i class="fa-solid fa-file-pdf" style="color:royalBlue;"></i></a></p>
+                        &nbsp; <p class="lead" style="display: inline; color: goldenRod;"><u>${awardIcon} ${awardText}</u></p>${pdfIcon}
+                        ${videoIcon}
                     </p>
                 </div>
             </div>
@@ -88,9 +93,9 @@ function getAwardIcon(award) {
     if (!award) return "";
     const [type, text] = award.split(";").map(item => item.trim()); // Adjusted parsing for new format
     let icon = "";
-    if (type === "1") icon = "fa-solid fa-trophy";
-    else if (type === "2") icon = "fa-solid fa-medal";
-    else if (type === "3") icon = "fa-solid fa-star";
+    if (type === "1") icon = "fa fa-trophy fa-lg";
+    else if (type === "2") icon = "fa fa-medal fa-lg";
+    else if (type === "3") icon = "fa fa-star fa-lg" ;
     
     return icon ? `<i class="${icon}" style="color: goldenRod; margin-right: 2px;" title="${text}"></i>` : "";
 }
