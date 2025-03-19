@@ -44,6 +44,22 @@ span {
 /*get rid of bullets*/
 ul {
   list-style-type: none;
+    
+}
+ 
+.pub-list {
+  list-style-position: inside;
+  padding-left: 1em;
+    list-style-type: none;
+
+}
+
+
+publication-container
+{
+     list-style-position: inside;
+  padding-left: 0;
+    list-style-type: none; 
 }
 
 .boxed {

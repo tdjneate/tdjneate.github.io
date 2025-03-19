@@ -12,16 +12,12 @@
     <title>Timothy Neate</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/one-page-wonder.css" rel="stylesheet">
+
+
 
 </head>
 
@@ -84,31 +80,33 @@
 
         <h1> Publications</h1>
         <br>
-
-        <!-- PUBLICATIONS -->
-        <div class="featurette" id="publications">
-
-            <p class="lead" font size="6"> Below you can find selected peer-reviewed work. Not all papers are here, but the key HCI/access ones are. 'J' indicates journal, 'C' conference, 'P' poster, 'BC' book chapter and 'D' demo. My <a href="https://scholar.google.co.uk/citations?user=M8h1g84AAAAJ&hl=en">Google Scholar </a> and <a href="https://www.researchgate.net/profile/Timothy_Neate">ResearchGate </a> will provide more information. All of these should be publically accessible, either here, or via my institution. If you have any issues finding a paper, drop me an email.
+     
+            <!-- PUBLICATIONS -->
+            <div class="featurette" id="publications">
                 
-<div id="publication-container">
-    <ul id="publication-list">
-    <script src="js/publications.js" defer></script>
-</ul>
+                <p class="lead" font size="6"> Below you can find selected peer-reviewed work. Not all papers are here, but the key HCI/access ones are. 'J' indicates journal, 'C' conference, 'P' poster, 'BC' book chapter and 'D' demo. My <a href="https://scholar.google.co.uk/citations?user=M8h1g84AAAAJ&hl=en">Google Scholar </a> and <a href="https://www.researchgate.net/profile/Timothy_Neate">ResearchGate </a> will provide more information. All of these should be publically accessible, either here, or via my institution. If you have any issues finding a paper, drop me an email.</p>
+
+                <!-- Generate paper list from data/publications.csv -->
+                
+                <div id="publication-container">
+                    <ul class ="pub-list" id="publication-list">
+                        <script src="js/publications.js" defer></script> 
+                    </ul>
+
+                </div>
+            </div>
+
+            </div>
+            <br><br><br>
+
     
-</div>
+        <!-- /.container -->
 
-    </div>
-    <br><br><br>
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
 
-    </div>
-
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
 
 </body>
 

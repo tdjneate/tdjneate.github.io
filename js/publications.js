@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
             publications.reverse(); // Reverse again to display newest first
             displayPublications(publications);
         })
-        .catch(error => console.error("Error loading the CSV file:", error));
+        .catch(error => console.error("Error loading CSV file:", error));
 });
 
 function parseCSV(data) {
@@ -42,7 +42,7 @@ function addPublicationIdentifiers(publications) {
             typeCounts[pub.Type.toLowerCase()] += 1;
             pub.Identifier = `${typeShort}${typeCounts[pub.Type.toLowerCase()]}`;
         } else {
-            pub.Identifier = "";
+            pub.Identifier = ""; // leave it blank
         }
     });
 }
@@ -71,14 +71,15 @@ function displayPublications(publications) {
         let listItem = document.createElement("div");
         listItem.classList.add("publication-item");
         listItem.innerHTML = `
-            <div class="row align-items-left">
-                <div class="col-sm-1 text-left;" style="font-size: 2em; font-weight: 800; color:slategray;">
+            <div class="row align-items-left">   
+ 
+                <div class="col-sm-1 text-left;" style="font-size: 2em; -webkit-text-fill-color: lightgray; -webkit-text-stroke:1px; font-weight: 800; margin-left:0px; color:black;">
                     ${pub.Identifier}
                 </div>
                 <div class="col-sm-11">
                     <p class="lead" style="display: inline;">
                         ${authorsFormatted} <i class="paper-title">${pub.Title}</i>, ${pub.Publication}, ${pub.Year}.
-                        &nbsp; <p class="lead" style="display: inline; color: goldenRod;"><u>${awardIcon} ${awardText}</u></p>${pdfIcon}
+                        &nbsp; <p class="lead" style="display: inline; color: green;"><u>${awardIcon} ${awardText}</u></p>${pdfIcon}
                         ${videoIcon}
                     </p>
                 </div>
