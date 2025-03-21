@@ -73,7 +73,7 @@ function displayPublications(publications) {
         listItem.innerHTML = `
             <div class="row align-items-left">   
  
-                <div class="col-sm-1 text-left;" style="font-size: 2em; -webkit-text-fill-color: lightgray; -webkit-text-stroke:1px; font-weight: 800; margin-left:0px; color:black;">
+                <div class="col-sm-1 text-left;" style="font-size: 2em; -webkit-text-fill-color: lightgray; -webkit-text-stroke:.5px; font-weight: 800; margin-left:0px; color:black;">
                     ${pub.Identifier}
                 </div>
                 <div class="col-sm-11">
