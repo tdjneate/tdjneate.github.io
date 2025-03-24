@@ -64,16 +64,16 @@ function displayPublications(publications) {
         let awardIcon = getAwardIcon(pub.Award);
         let awardText = pub.Award.split(";")[1] || "";
         
-        let pdfIcon = pub.Link ? `<a href="${pub.Link}" target="_blank" class="pdf-icon" style="margin-left: 15px;"><i class="fa fa-file-pdf fa-xl"  style="color:royalBlue;"></i></a>` : "";
+        let pdfIcon = pub.Link ? `<a href="${pub.Link}" target="_blank" class="pdf-icon" style="margin-left: 15px;"><i class="fa fa-file-pdf fa-xl"  style="color:royalBlue; title="pdf"></i></a>` : "";
        
-        let videoIcon = pub.VideoLink ? `<a href="${pub.VideoLink}" target="_blank" class="video-icon" style="margin-left: 15px;"><i class="fa-solid fa-film fa-xl" style="color:red;"></i></a>` : "";
+        let videoIcon = pub.VideoLink ? `<a  href="${pub.VideoLink}" target="_blank" class="video-icon" style="margin-left: 15px;"><i class="fa-solid fa-film fa-xl" style="color:red;"></i></a>` : "";
         
         let listItem = document.createElement("div");
         listItem.classList.add("publication-item");
         listItem.innerHTML = `
             <div class="row align-items-left">   
  
-                <div class="col-sm-1 text-left;" style="font-size: 2em; -webkit-text-fill-color: lightgray; -webkit-text-stroke:.5px; font-weight: 800; margin-left:0px; color:black;">
+                <div class="col-sm-1 text-left;" style="font-size: 2em; -webkit-text-fill-color: lightgray; -webkit-text-stroke:.5px; font-weight: 600; margin-left:0px; color:black;">
                     ${pub.Identifier}
                 </div>
                 <div class="col-sm-11">
