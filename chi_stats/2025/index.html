@@ -18,8 +18,9 @@
             align-items: center;
             justify-content: space-between;
         }
+
         .header-container img {
-            height: 100px; 
+            height: 100px;
         }
     </style>
 </head>
@@ -30,7 +31,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128906214-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
         gtag('config', 'UA-128906214-1');
     </script>
@@ -69,30 +73,60 @@
                     <br><br>
                     <div class="header-container">
                         <h2 id="wearableaac-coverage">CHI 2025 Paper Stats</h2>
-                        <a href = "https://chi2025.acm.org/"><img  src="chi2025Logo.svg" alt="Logo"></a>
+                        <a href="https://chi2025.acm.org/"><img src="chi2025Logo.svg" alt="Logo"></a>
                     </div>
                     <br><br>
                     <p class="lead">Below are some potentially interesting statistics I have generated from the JSON file from the <a href="https://programs.sigchi.org/chi/2025/program">CHI 2025 program</a>. I consider only 'full papers' here. There were a total of 1,249 accepted full papers, from a total of 5,014 submitted (24.9% accept rate). Presenting statistics like this is an idea I borrowed (stole) from <a href="https://www.whatthehci.com/">whatthehci.com</a>, which seems to no longer be updated. You can also check out some cool statistics for the conference <a href="https://chi2025.acm.org/chi-2025-papers-track-post-pc-outcomes-report/">on the official blog</a>.</p>
                     <ul>
-                        <li><p class="lead"><a href="all_kings_papers.html">All King's College London CHI Papers</a></p></li>
-                        <li><p class="lead"><a href="all_british_papers.html">All British CHI papers</a></p></li>
-                        <li><p class="lead"><a href="all_london_papers.html">All London CHI papers</a></p></li>
-                        <li><p class="lead"><a href="papers_by_%20institution.html">CHI papers by institution (rank)</a></p></li>
-                        <li><p class="lead"><a href="papers_by_country.html">CHI papers by country (rank)</a></p></li>
-                        <li><p class="lead"><a href="papers_by_city.html">CHI papers by city (rank)</a></p></li>
-                        <li><p class="lead"><a href="papers_by_author.html">CHI papers by author (rank)</a></p></li>
-                        <li><p class="lead"><a href="keywords_*accessibility*_*disability*.html">Papers with *accessibility* and/or *disability* in the title or abstract</a></p></li>
-                        <li><p class="lead"><a href="keywords_*aphasia*.html">Papers with *aphasia* in the title or abstract</a></p></li>
-                        <li><p class="lead"><a href="keywords_*large%20language_model*.html">Papers with *large language model* in the title or abstract</a>
-                        </p></li>
-                
-                    </ul><br>
-                     <p class="lead"> <strong>Note:</strong> All files are static HTML,  generated with some simple python scripts.  There are issues with the original data -- e.g., data includes both "King's College London" and "Kings College London". There were other decisions made for ease of understanding/implementation. In short, do not use it as any kind of definitive source.</p>
+                        <li>
+                            <p class="lead"><a href="all_kings_papers.html">All King's College London CHI Papers</a></p>
+                        </li>
+                        <li>
+                            <p class="lead"><a href="all_british_papers.html">All British CHI papers</a></p>
+                        </li>
+                        <li>
+                            <p class="lead"><a href="all_london_papers.html">All London CHI papers</a></p>
+                        </li>
+                        <li>
+                            <p class="lead"><a href="papers_by_%20institution.html">CHI papers by institution (rank)</a></p>
+                        </li>
+                        <li>
+                            <p class="lead"><a href="papers_by_country.html">CHI papers by country (rank)</a></p>
+                        </li>
+                        <li>
+                            <p class="lead"><a href="papers_by_city.html">CHI papers by city (rank)</a></p>
+                        </li>
+                        <li>
+                            <p class="lead"><a href="papers_by_author.html">CHI papers by author (rank)</a></p>
+                        </li>
+                        <li>
+                            <p class="lead"><a href="keywords_*accessibility*_*disability*.html">Papers with *accessibility* and/or *disability* in the title or abstract</a></p>
+                        </li>
+                        <li>
+                            <p class="lead"><a href="keywords_*aphasia*.html">Papers with *aphasia* in the title or abstract</a></p>
+                        </li>
+                        <li>
+                            <p class="lead"><a href="keywords_*large%20language_model*.html">Papers with *large language model* in the title or abstract</a>
+                            </li>
+                            <p class="lead"><a href="best_paper_rank.html">Ranking of insitutions by Best Paper Awards</a>
+                        <li>
+                            <p class="lead"><a href="honourable_mention_rank.html">Ranking of insitutions by Honourable Mention Awards</a>
+                         </li>
+                                <li>
+                            <p class="lead"><a href="all_awards_rank.html">Ranking of insitutions by awards (all)</a>
+                            </p>
+                        </li>
+                    </ul>
+                            
                     
+                                
+                                <br>
+<p class="lead"> <strong>Note:</strong> All files are static HTML, generated with some simple Python scripts. There are issues with the original data—e.g., the data includes both "King's College London" and "Kings College London." Other decisions were made for ease of understanding and implementation. In short, do not use this as any kind of definitive source. It is also important to note that many of the above numbers are mostly meaningless, and you should not take them too seriously. <a href="https://interactions.acm.org/archive/view/january-february-2025/chis-greatest-hits-analyzing-the-100-most-cited-papers-in-43-years-of-research-at-acm-chi">This article  </a>summarizes well that many of these metrics are somewhat unimportant. For instance "<i>none of the top 100 CHI papers received a Best Paper award, and only two received an honorable mention</i>".</p>
+
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 
     <br>
     <div id="full-size"></div>
@@ -107,7 +141,3 @@
 </body>
 
 </html>
-
-
-
-
