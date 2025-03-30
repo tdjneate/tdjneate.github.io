@@ -64,23 +64,22 @@ function displayPublications(publications) {
         let awardIcon = getAwardIcon(pub.Award);
         let awardText = pub.Award.split(";")[1] || "";
         
-        let pdfIcon = pub.Link ? `<a href="${pub.Link}" target="_blank" class="pdf-icon" style="margin-left: 15px;"><i class="fa fa-file-pdf fa-xl"  style="color:royalBlue; title="pdf"></i></a>` : "";
+        let pdfIcon = pub.Link ? `<a href="${pub.Link}" target="_blank" class="pdf-icon" style="margin-left: 5px; color: royalBlue; text-decoration: none; display: inline;"><i class="fa fa-file-pdf fa-lg"></i> <span style="text-decoration: underline; color: royalBlue; display: inline;">pdf</span></a>` : "";
        
-        let videoIcon = pub.VideoLink ? `<a  href="${pub.VideoLink}" target="_blank" class="video-icon" style="margin-left: 15px;"><i class="fa-solid fa-film fa-xl" style="color:red;"></i></a>` : "";
+        let videoIcon = pub.VideoLink ? `<a href="${pub.VideoLink}" target="_blank" class="video-icon" style="margin-left: 5px; color: tomato; text-decoration: none; display: inline;"><i class="fa-solid fa-film fa-lg"></i> <span style="text-decoration: underline; color: tomato; display: inline;">Video</span></a>` : "";
         
         let listItem = document.createElement("div");
         listItem.classList.add("publication-item");
         listItem.innerHTML = `
             <div class="row align-items-left">   
  
-                <div class="col-sm-1 text-left;" style="font-size: 2em; -webkit-text-fill-color: lightgray; -webkit-text-stroke:.5px; font-weight: 600; margin-left:0px; color:black;">
+                <div class="col-sm-1 text-left;" style="font-size: 2em; -webkit-text-fill-color: darkgray; font-weight: 600; margin-left:0px; color:black;">
                     ${pub.Identifier}
                 </div>
                 <div class="col-sm-11">
                     <p class="lead" style="display: inline;">
                         ${authorsFormatted} <i class="paper-title">${pub.Title}</i>, ${pub.Publication}, ${pub.Year}.
-                        &nbsp; <p class="lead" style="display: inline; color: green;"><u>${awardIcon} ${awardText}</u></p>${pdfIcon}
-                        ${videoIcon}
+                        &nbsp; <span class="lead" style="display: inline; color: green;"><u>${awardIcon} ${awardText}</u></span> ${pdfIcon} ${videoIcon} <br><br>
                     </p>
                 </div>
             </div>
