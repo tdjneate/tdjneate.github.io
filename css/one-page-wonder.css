@@ -92,10 +92,13 @@ publication-container
     font-size: 600%;
     color: white;
     background: rgba(0, 0, 0, 0.0);
-    
-    
+
     text-underline-position: auto;
+  margin-bottom: 1em; /* adds space after each paragraph */
 }
+}
+
+
 
 
 .headline h2 {
@@ -209,6 +212,8 @@ footer {
 
     .headline h2 {
         font-size: 200%;
+          margin-bottom: 1em; /* adds space after each paragraph */
+
     }
 
     .featurette-divider {
@@ -239,6 +244,8 @@ footer {
 
     .headline h2 {
         font-size: 200%;
+          margin-bottom: 1em; /* adds space after each paragraph */
+
     }
 }
 
@@ -286,6 +293,9 @@ h1 {
 h2 {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
+      margin-bottom: 1em; /* adds space after each paragraph */
+
+    
 
 
 }
@@ -293,6 +303,7 @@ h2 {
 body {
     font-family: 'Poppins', sans-serif;
     font-weight: light;
+    
 
 }
 
@@ -386,4 +397,8 @@ a:hover {
 
 .btn-white:hover {
     color: gray;
+}
+
+p {
+  margin-bottom: 1.5em; /* adds space after each paragraph */
 }
