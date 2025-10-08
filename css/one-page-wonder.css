@@ -359,10 +359,10 @@ img {
     border: 2px solid green;
     width: 80%;
     text-align: center;
-    font-weight: bold;
     margin: 5%;
-    font-weight: 900;
+    font-weight:300
 }
+
 
 bpAward
 {
