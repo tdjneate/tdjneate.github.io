@@ -26,8 +26,9 @@ function parseCSV(data) {
     });
 }
 
+// Creates prefixes for counts of conferences, journals, etc.
 function addPublicationIdentifiers(publications) {
-    let typeCounts = { conference: 0, journal: 0, demo: 0, poster: 0, bookchapter:0};
+    let typeCounts = { conference: 0, journal: 0, demo: 0, poster: 0, bookchapter:0, magazine: 0};
     
     publications.forEach(pub => {
         let typeShort = "";
@@ -37,6 +38,7 @@ function addPublicationIdentifiers(publications) {
             case "demo": typeShort = "D"; break;
             case "poster": typeShort = "P"; break;
             case "bookchapter": typeShort = "BC"; break;
+            case "magazine": typeShort = "M"; break;
         }
         if (typeShort) {
             typeCounts[pub.Type.toLowerCase()] += 1;
