@@ -17,6 +17,62 @@
 
     <!-- Custom CSS -->
     <link href="css/one-page-wonder.css" rel="stylesheet">
+
+    <!-- Styling for the placeholder link boxes -->
+    <style>
+        .link-boxes {
+            margin: 40px 0 60px;
+            text-align: center;
+        }
+
+        .link-boxes .link-box {
+            display: inline-block;
+            vertical-align: top;
+            width: 280px;
+            max-width: 90%;
+            margin: 10px 12px;
+            padding: 28px 20px;
+            border: 2px dashed #bbb;
+            border-radius: 6px;
+            background-color: #f7f7f7;
+            color: #777;
+            text-decoration: none;
+            cursor: not-allowed;
+            transition: background-color 0.2s ease;
+        }
+
+        .link-boxes .link-box:hover,
+        .link-boxes .link-box:focus {
+            text-decoration: none;
+            color: #777;
+            background-color: #f0f0f0;
+        }
+
+        .link-boxes .link-box .box-title {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .link-boxes .link-box .box-note {
+            display: inline-block;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 10px;
+            background-color: #ddd;
+            color: #555;
+        }
+
+        .link-boxes .boxes-intro {
+            margin-bottom: 20px;
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -57,15 +113,36 @@
                 <a class="navbar-brand" href="mars_workshop.html">MARS CSP Workshop Resource Page</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            
+
         </div>
         <!-- /.container -->
     </nav>
     <!-- Page Content -->
     <div class="container">
-<br><br>
-<h2> Links to come below for CSP annual conference</h2>
-       
+        <br><br>
+
+        <!-- ================= PLACEHOLDER LINK BOXES =================
+             To make these live: replace href="#" with the real URL and
+             delete both onclick="return false;" and the class "link-box"
+             styling hooks you no longer want (or just remove the dashed
+             border / "coming soon" note in the CSS above).
+        -->
+        <div class="link-boxes">
+
+            <p class="boxes-intro">These links aren't active yet &mdash; they'll go live for the conference.</p>
+
+            <a class="link-box" href="#" onclick="return false;">
+                <span class="box-title">Link to mentimeter</span>
+                <span class="box-note">Coming soon</span>
+            </a>
+
+            <a class="link-box" href="#" onclick="return false;">
+                <span class="box-title">Link to app demo</span>
+                <span class="box-note">Coming soon</span>
+            </a>
+
+        </div>
+        <!-- =============== END PLACEHOLDER LINK BOXES =============== -->
 
     </div>
 
