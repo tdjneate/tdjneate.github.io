@@ -695,7 +695,8 @@ img.profile-photo {
     background: #1f2328;
     color: #e6e6e6;
     padding: 28px 0 24px;
-    margin-top: 2em;
+    /* the older footer rule above adds 50px below, which left a strip under the footer */
+    margin: 2em 0 0;
 }
 
 .site-footer .footer-links {
@@ -715,6 +716,24 @@ img.profile-photo {
 
 .site-footer a:hover {
     color: #bfe3e1;
+}
+
+/* small icon before each footer link, drawn in the link colour */
+.footer-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-icon {
+    width: 1.05em;
+    height: 1.05em;
+    flex: 0 0 auto;
+    fill: #a4cdc8;
+}
+
+.footer-links a:hover .footer-icon {
+    fill: #bfe3e1;
 }
 
 .site-footer a:focus-visible {
@@ -789,23 +808,26 @@ img.profile-photo {
     margin: 1.8em 0 1em;
 }
 
-/* honours: awards as small tiles, tables in a frame */
-.award-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
-    gap: 12px;
-    padding: 0 6px 0 0;
+/* honours: awards as a plain list, venue and year in bold */
+.award-list {
+    padding-left: 0;
+    margin-top: 0.8em;
 }
 
-.award-grid li {
-    border: 1px solid var(--hairline);
-    border-radius: 6px;
-    box-shadow: 4px 4px 0 var(--block-soft);
-    padding: 10px 14px;
-    font-size: 0.9em;
-    line-height: 1.4;
+.award-list li {
+    padding: 7px 0;
+    border-bottom: 1px solid var(--hairline);
 }
 
+.award-list li:last-child {
+    border-bottom: none;
+}
+
+.list-note {
+    margin-top: 1em;
+}
+
+/* honours: tables in a frame */
 .table-frame {
     border: 1px solid var(--hairline);
     border-radius: 6px;
