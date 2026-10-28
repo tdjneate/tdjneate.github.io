@@ -376,9 +376,11 @@ bpAward
 
 /* unvisited link */
 
-a:link 
+/* darker teal than cadetblue so links meet WCAG AA contrast (5.8:1 on white) */
+a:link,
+a:visited
 {
-  color: cadetblue;
+  color: #2a6f72;
   
 }
 
@@ -386,7 +388,7 @@ a:link
 
 /* mouse over link */
 a:hover {
-  color: cadetblue;
+  color: #1d4e50;
   text-decoration: underline;
 }
 
@@ -396,10 +398,16 @@ a:hover {
     background-color: #fff;
     color: #000;
     font-size: 20px;
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-.btn-white:hover {
-    color: gray;
+.btn-white:hover,
+.btn-white:focus {
+    color: #333;
+    background-color: #e6e6e6;
 }
 
 p {
@@ -426,3 +434,91 @@ p {
   tr:nth-child(even) {
     background-color: #f9f9f9;
   }
+
+
+
+/* ---------- Accessibility ---------- */
+
+/* skip link: hidden until focused with the keyboard */
+.skip-link {
+    position: absolute;
+    left: 8px;
+    top: -100px;
+    z-index: 2000;
+    padding: 10px 16px;
+    background: #fff;
+    color: #000 !important;
+    font-weight: bold;
+    border: 3px solid #1a5fb4;
+}
+
+.skip-link:focus {
+    top: 8px;
+}
+
+/* keep headings and the skip target clear of the fixed navbar */
+main,
+h1, h2, h3 {
+    scroll-margin-top: 70px;
+}
+
+main:focus {
+    outline: none;
+}
+
+/* visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+iframe:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid #1a5fb4;
+    outline-offset: 2px;
+}
+
+.navbar a:focus-visible,
+.navbar button:focus-visible {
+    outline-color: #fff;
+}
+
+/* links in body text should not rely on colour alone */
+main a:not(.btn-white):not(.link-box) {
+    text-decoration: underline;
+}
+
+/* news items on the home page */
+.news-list {
+    padding-left: 0;
+}
+
+.news-list li {
+    margin-bottom: 1em;
+}
+
+.news-list time {
+    font-weight: bold;
+    margin-right: 1em;
+}
+
+.publication-item {
+    list-style: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* emoji are decorative; this resets the global span rule above */
+span.emoji {
+    display: inline;
+    height: auto;
+}
+
+a.btn-white:link,
+a.btn-white:visited {
+    color: #000;
+    text-decoration: none;
+}

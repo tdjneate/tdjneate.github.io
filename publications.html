@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Selected peer-reviewed publications by Timothy Neate on human–computer interaction and accessibility.">
+    <meta name="author" content="Timothy Neate">
 
-    <title>Timothy Neate</title>
+    <title>Publications – Timothy Neate</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -22,6 +22,7 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <!--Analytics-->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128906214-1"></script>
@@ -36,15 +37,15 @@
         gtag('config', 'UA-128906214-1');
     </script>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" aria-label="Main navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar" aria-hidden="true"></span>
+                    <span class="icon-bar" aria-hidden="true"></span>
+                    <span class="icon-bar" aria-hidden="true"></span>
                 </button>
                 <a class="navbar-brand" href="index.html">Timothy Neate</a>
             </div>
@@ -53,7 +54,7 @@
                 <ul class="nav navbar-nav">
 
                     <li>
-                        <a href="publications.html">Publications</a>
+                        <a href="publications.html" aria-current="page">Publications</a>
                     </li>
 
 
@@ -70,8 +71,12 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
+    </main>
+
         <!-- /.container -->
     </nav>
+
+    <main id="main-content" tabindex="-1">
 
 
     <!-- Page Content -->
@@ -84,15 +89,16 @@
             <!-- PUBLICATIONS -->
             <div class="featurette" id="publications">
                 
-                <p class="lead" font size="6"> Below you can find selected peer-reviewed work. Not all papers are here, but the key HCI/access ones are. 'J' indicates journal, 'C' conference, 'P' poster, 'BC' book chapter and 'D' demo. My <a href="https://scholar.google.co.uk/citations?user=M8h1g84AAAAJ&hl=en">Google Scholar </a> and <a href="https://www.researchgate.net/profile/Timothy_Neate">ResearchGate </a> will provide more information. All of these should be publically accessible, either here, or via my institution. If you have any issues finding a paper, drop me an email.</p>
+                <p class="lead"> Below you can find selected peer-reviewed work. Not all papers are here, but the key HCI/access ones are. 'J' indicates journal, 'C' conference, 'P' poster, 'BC' book chapter and 'D' demo. My <a href="https://scholar.google.co.uk/citations?user=M8h1g84AAAAJ&hl=en">Google Scholar </a> and <a href="https://www.researchgate.net/profile/Timothy_Neate">ResearchGate </a> will provide more information. All of these should be publically accessible, either here, or via my institution. If you have any issues finding a paper, drop me an email.</p>
 
                 <!-- Generate paper list from data/publications.csv -->
                 
                 <div id="publication-container">
-                    <ul class ="pub-list" id="publication-list">
-                        <script src="js/publications.js" defer></script> 
+                    <h2 class="sr-only">Publication list</h2>
+                    <ul class="pub-list" id="publication-list" aria-busy="true">
+                        <li>Loading publications…</li>
                     </ul>
-
+                    <script src="js/publications.js" defer></script>
                 </div>
             </div>
 

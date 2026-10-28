@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Resource page for the MARS CSP workshop.">
+    <meta name="author" content="Timothy Neate">
 
 
-    <title>MARS Workshop Landing Page</title>
+    <title>MARS CSP Workshop Resources</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -35,7 +35,7 @@
             border: 2px dashed #bbb;
             border-radius: 6px;
             background-color: #f7f7f7;
-            color: #777;
+            color: #555;
             text-decoration: none;
             cursor: not-allowed;
             transition: background-color 0.2s ease;
@@ -44,7 +44,7 @@
         .link-boxes .link-box:hover,
         .link-boxes .link-box:focus {
             text-decoration: none;
-            color: #777;
+            color: #555;
             background-color: #f0f0f0;
         }
 
@@ -68,7 +68,7 @@
 
         .link-boxes .boxes-intro {
             margin-bottom: 20px;
-            color: #888;
+            color: #595959;
             font-style: italic;
         }
     </style>
@@ -83,6 +83,7 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <!--Analytics-->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -100,15 +101,15 @@
 
 
 
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" aria-label="Main navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar" aria-hidden="true"></span>
+                    <span class="icon-bar" aria-hidden="true"></span>
+                    <span class="icon-bar" aria-hidden="true"></span>
                 </button>
                 <a class="navbar-brand" href="mars_workshop.html">MARS CSP Workshop Resource Page</a>
             </div>
@@ -117,26 +118,29 @@
         </div>
         <!-- /.container -->
     </nav>
+
+    <main id="main-content" tabindex="-1">
     <!-- Page Content -->
     <div class="container">
         <br><br>
+        <h1 class="text-center">MARS CSP Workshop Resources</h1>
 
         <!-- ================= PLACEHOLDER LINK BOXES =================
-             To make these live: replace href="#" with the real URL and
-             delete both onclick="return false;" and the class "link-box"
-             styling hooks you no longer want (or just remove the dashed
-             border / "coming soon" note in the CSS above).
+             To make these live: add href="<real URL>", delete
+             aria-disabled="true" and the "Coming soon" note, and drop the
+             "link-box" class (or just remove the dashed border / "coming
+             soon" note in the CSS above).
         -->
         <div class="link-boxes">
 
             <p class="boxes-intro">These links aren't active yet &mdash; they'll go live for the conference.</p>
 
-            <a class="link-box" href="#" onclick="return false;">
+            <a class="link-box" aria-disabled="true">
                 <span class="box-title">Link to mentimeter</span>
                 <span class="box-note">Coming soon</span>
             </a>
 
-            <a class="link-box" href="#" onclick="return false;">
+            <a class="link-box" aria-disabled="true">
                 <span class="box-title">Link to app demo</span>
                 <span class="box-note">Coming soon</span>
             </a>
@@ -148,7 +152,9 @@
 
 
     <br>
-    <div id="full-size">
+    </main>
+
+    <div id="full-size" aria-hidden="true">
     </div>
 
     <!-- /.container -->

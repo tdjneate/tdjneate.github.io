@@ -10,7 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
             publications.reverse(); // Reverse again to display newest first
             displayPublications(publications);
         })
-        .catch(error => console.error("Error loading CSV file:", error));
+        .catch(error => {
+            console.error("Error loading CSV file:", error);
+            const list = document.getElementById("publication-list");
+            if (list) {
+                list.removeAttribute("aria-busy");
+                list.innerHTML = "<li>Sorry, the publication list could not be loaded.</li>";
+            }
+        });
 });
 
 function parseCSV(data) {
@@ -55,6 +62,7 @@ function displayPublications(publications) {
     
     const list = document.getElementById("publication-list");
     list.innerHTML = "";
+    list.removeAttribute("aria-busy");
     
     publications.forEach(pub => {
         let authorsFormatted = pub.Authors.split(";").map(name => {
@@ -66,22 +74,25 @@ function displayPublications(publications) {
         let awardIcon = getAwardIcon(pub.Award);
         let awardText = pub.Award.split(";")[1] || "";
         
-        let pdfIcon = pub.Link ? `<a href="${pub.Link}" target="_blank" class="pdf-icon" style="margin-left: 5px; color: royalBlue; text-decoration: none; display: inline;"><i class="fa fa-file-pdf fa-lg"></i> <span style="text-decoration: underline; color: royalBlue; display: inline;">pdf</span></a>` : "";
+        // Screen-reader-only text says which paper each link is for and that it opens a new tab
+        let newTab = `<span class="sr-only"> for “${pub.Title}” (opens in a new tab)</span>`;
+
+        let pdfIcon = pub.Link ? `<a href="${pub.Link}" target="_blank" rel="noopener" class="pdf-icon" style="margin-left: 5px; color: royalBlue; text-decoration: none; display: inline;"><i class="fa fa-file-pdf fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: royalBlue; display: inline;">PDF</span>${newTab}</a>` : "";
        
-        let videoIcon = pub.VideoLink ? `<a href="${pub.VideoLink}" target="_blank" class="video-icon" style="margin-left: 5px; color: tomato; text-decoration: none; display: inline;"><i class="fa-solid fa-film fa-lg"></i> <span style="text-decoration: underline; color: tomato; display: inline;">Video</span></a>` : "";
+        let videoIcon = pub.VideoLink ? `<a href="${pub.VideoLink}" target="_blank" rel="noopener" class="video-icon" style="margin-left: 5px; color: #b83a26; text-decoration: none; display: inline;"><i class="fa-solid fa-film fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #b83a26; display: inline;">Video</span>${newTab}</a>` : "";
         
-        let listItem = document.createElement("div");
+        let listItem = document.createElement("li");
         listItem.classList.add("publication-item");
         listItem.innerHTML = `
             <div class="row align-items-left">   
  
-                <div class="col-sm-1 text-left;" style="font-size: 2em; -webkit-text-fill-color: darkgray; font-weight: 600; margin-left:0px; color:black;">
+                <div class="col-sm-1 text-left" style="font-size: 2em; color: #6b6b6b; font-weight: 600; margin-left:0px;">
                     ${pub.Identifier}
                 </div>
                 <div class="col-sm-11">
                     <p class="lead" style="display: inline;">
                         ${authorsFormatted} <i class="paper-title">${pub.Title}</i>, ${pub.Publication}, ${pub.Year}.
-                        &nbsp; <span class="lead" style="display: inline; color: green;"><u>${awardIcon} ${awardText}</u></span> ${pdfIcon} ${videoIcon} <br><br>
+                        &nbsp; ${awardText ? `<span class="lead" style="display: inline; color: green;"><u>${awardIcon} ${awardText}</u></span>` : ""} ${pdfIcon} ${videoIcon} <br><br>
                     </p>
                 </div>
             </div>
@@ -99,5 +110,5 @@ function getAwardIcon(award) {
     else if (type === "2") icon = "fa fa-medal fa-lg";
     else if (type === "3") icon = "fa fa-star fa-lg" ;
     
-    return icon ? `<i class="${icon}" style="color: goldenRod; margin-right: 2px;" title="${text}"></i>` : "";
+    return icon ? `<i class="${icon}" style="color: goldenRod; margin-right: 2px;" aria-hidden="true"></i>` : "";
 }
