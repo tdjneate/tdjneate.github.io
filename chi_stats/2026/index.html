@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Timothy Neate</title>
+    <meta name="description" content="Statistics on accepted full papers at ACM CHI 2026: by institution, country, city, author, keyword and award.">
+    <meta name="author" content="Timothy Neate">
+    <title>CHI 2026 Paper Statistics – Timothy Neate</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
@@ -27,9 +27,10 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
 
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" aria-label="Main navigation">
         <div class="container">
 
             <div class="navbar-header">
@@ -50,6 +51,7 @@
         </div>
     </nav>
 
+    <main id="main-content" tabindex="-1">
     <div class="container">
         <div class="featurette">
             <div class="row">
@@ -59,7 +61,7 @@
 
                     <div class="header-container">
                         <h1 id="chistats">CHI 2026 Paper Stats</h1>
-                        <a href="https://chi2026.acm.org/"><img src="chi2026.png" alt="Logo"></a>
+                        <a href="https://chi2026.acm.org/"><img src="chi2026.png" alt="CHI 2026 conference website"></a>
                     </div>
 
                     <br><br>
@@ -68,81 +70,36 @@
 
                     <p class="lead">I consider only 'full papers' here. There were a total of 1,705 accepted full papers, from a total of  6,730 submitted (25.3% accept rate). Presenting statistics like this is an idea I borrowed (stole) from <a href="https://www.whatthehci.com/">whatthehci.com</a>, which seems to no longer be updated. You can also check out some cool statistics for the conference <a href="https://chi2026.acm.org/2026/02/06/insights-into-the-papers-track-post-pc-meeting-outcomes/">on the official blog</a>.</p>
 
-                    <ul>
-                        <h2>Places 🌏 </h2>
-
-                        <li>
-                            <p class="lead"><a href="all_kings_papers.html">All King's College London CHI Papers</a></p>
-                        </li>
-
-                        <li>
-                            <p class="lead"><a href="all_british_papers.html">All British CHI papers</a></p>
-                        </li>
-
-                        <li>
-                            <p class="lead"><a href="all_london_papers.html">All London CHI papers</a></p>
-                        </li>
-
-                        <h2> Ranks 📊</h2>
-
-                        <li>
-                            <p class="lead"><a href="papers_by_%20institution.html">CHI papers by institution (rank)</a></p>
-                        </li>
-
-                        <li>
-                            <p class="lead"><a href="papers_by_country.html">CHI papers by country (rank)</a></p>
-                        </li>
-
-                        <li>
-                            <p class="lead"><a href="papers_by_city.html">CHI papers by city (rank)</a></p>
-                        </li>
-
-                        <li>
-                            <p class="lead"><a href="papers_by_author.html">CHI papers by author (rank)</a></p>
-                        </li>
-
-                        <h2> Keywords ⌨️</h2>
-
-                        <li>
-                            <p class="lead"><a href="keywords_*accessibility*_*disability*.html">Papers with *accessibility* and/or *disability* in the title or abstract</a></p>
-                        </li>
-
-                        <li>
-                            <p class="lead"><a href="keywords_*aphasia*.html">Papers with *aphasia* in the title or abstract</a></p>
-                        </li>
-
-                        <li>
-                            <p class="lead"><a href="keywords_*large%20language_model*_*LLM*_ChatGPT.html">Papers with *large language model* or *LLM* or *ChatGPT* in the title or abstract</a></p>
-                        </li>
-
-                        <h2> Quirks 🙃</h2>
-
-                        <li>
-                            <p class="lead"><a href="title_*beyond*.html">Papers with "beyond" in title</a></p>
-                        </li>
-
-                        <li>
-                            <p class="lead"><a href="title_*colon*.html">Papers with a colon (":") in the title</a></p>
-                        </li>
-
-                        <li>
-                            <p class="lead"><a href="title_*from_x_to_y*.html">Papers a title that follows the structure "from x to y"</a></p>
-                        </li>
-
-                        <h2> Awards 🥇 </h2>
-
-                        <li>
-                            <p class="lead"><a href="best_paper_rank.html">Ranking of institutions by Best Paper Awards</a></p>
-                        </li>
-
-                        <li>
-                            <p class="lead"><a href="honourable_mention_rank.html">Ranking of insitutions by Honourable Mention Awards</a></p>
-                        </li>
-
-                        <li>
-                            <p class="lead"><a href="all_awards_rank.html">Ranking of insitutions by awards (all)</a></p>
-                        </li>
-
+                    <h2>Places <span class="emoji" aria-hidden="true">🌏</span></h2>
+                    <ul class="chi-links">
+                        <li><a href="all_kings_papers.html">All King's College London CHI Papers</a></li>
+                        <li><a href="all_british_papers.html">All British CHI papers</a></li>
+                        <li><a href="all_london_papers.html">All London CHI papers</a></li>
+                    </ul>
+                    <h2>Ranks <span class="emoji" aria-hidden="true">📊</span></h2>
+                    <ul class="chi-links">
+                        <li><a href="papers_by_%20institution.html">CHI papers by institution (rank)</a></li>
+                        <li><a href="papers_by_country.html">CHI papers by country (rank)</a></li>
+                        <li><a href="papers_by_city.html">CHI papers by city (rank)</a></li>
+                        <li><a href="papers_by_author.html">CHI papers by author (rank)</a></li>
+                    </ul>
+                    <h2>Keywords <span class="emoji" aria-hidden="true">⌨️</span></h2>
+                    <ul class="chi-links">
+                        <li><a href="keywords_*accessibility*_*disability*.html">Papers with *accessibility* and/or *disability* in the title or abstract</a></li>
+                        <li><a href="keywords_*aphasia*.html">Papers with *aphasia* in the title or abstract</a></li>
+                        <li><a href="keywords_*large%20language_model*_*LLM*_ChatGPT.html">Papers with *large language model* or *LLM* or *ChatGPT* in the title or abstract</a></li>
+                    </ul>
+                    <h2>Quirks <span class="emoji" aria-hidden="true">🙃</span></h2>
+                    <ul class="chi-links">
+                        <li><a href="title_*beyond*.html">Papers with "beyond" in title</a></li>
+                        <li><a href="title_*colon*.html">Papers with a colon (":") in the title</a></li>
+                        <li><a href="title_*from_x_to_y*.html">Papers a title that follows the structure "from x to y"</a></li>
+                    </ul>
+                    <h2>Awards <span class="emoji" aria-hidden="true">🥇</span></h2>
+                    <ul class="chi-links">
+                        <li><a href="best_paper_rank.html">Ranking of institutions by Best Paper Awards</a></li>
+                        <li><a href="honourable_mention_rank.html">Ranking of insitutions by Honourable Mention Awards</a></li>
+                        <li><a href="all_awards_rank.html">Ranking of insitutions by awards (all)</a></li>
                     </ul>
 
                     <br>
@@ -155,6 +112,8 @@
     </div>
 
     <br>
+    </main>
+
     <footer class="site-footer">
         <div class="container">
             <h2 class="sr-only">Find me elsewhere</h2>

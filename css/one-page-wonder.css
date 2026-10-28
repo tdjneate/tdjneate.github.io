@@ -827,41 +827,81 @@ img.profile-photo {
     margin-top: 1em;
 }
 
-/* honours: tables in a frame */
-.table-frame {
-    border: 1px solid var(--hairline);
-    border-radius: 6px;
-    box-shadow: 5px 5px 0 var(--block-soft);
-    overflow-x: auto;
-    margin-bottom: 1.5em;
+/* honours: funding as a list, title and source on the left, amount on the right */
+.grant-list {
+    padding-left: 0;
+    margin: 0.8em 0 1.2em;
 }
 
-.table-frame table {
-    margin: 0;
-}
-
-.table-frame th,
-.table-frame td {
-    border: none;
+.grant {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 24px;
+    align-items: baseline;
+    padding: 12px 0;
     border-bottom: 1px solid var(--hairline);
 }
 
-.table-frame tr:last-child td {
+.grant:last-child {
     border-bottom: none;
 }
 
-.table-frame th {
-    background: var(--block-soft);
+.grant p {
+    margin: 0;
 }
 
-/* name in the navbar: a muted teal at a lighter weight */
+.grant-title {
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.grant-meta {
+    margin-top: 4px !important;
+    font-size: 0.85em;
+    color: #5b6167;
+}
+
+.grant-sep {
+    margin: 0 0.5em;
+}
+
+.grant-role {
+    display: inline-block;
+    padding: 0 7px;
+    border: 1px solid var(--ink);
+    border-radius: 3px;
+    font-size: 0.9em;
+    font-weight: 700;
+    color: var(--ink);
+    box-shadow: 2px 2px 0 var(--block);
+}
+
+.grant-amount {
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    text-align: right;
+}
+
+/* phones: amount moves under the title */
+@media (max-width: 600px) {
+    .grant {
+        grid-template-columns: 1fr;
+    }
+
+    .grant-amount {
+        text-align: left;
+    }
+}
+
+/* name in the navbar: a light yellow-green, distinct from the site's blue-leaning teal */
 .navbar-inverse .navbar-brand,
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
     font-size: 19px;
     font-weight: 500;
     letter-spacing: 0.01em;
-    color: #a4cdc8;
+    color: #c6e7a5;
     text-decoration: none;
 }
 
@@ -1011,4 +1051,16 @@ img.profile-photo {
         font-weight: 700;
         text-decoration: none;
     }
+}
+
+/* ---------- CHI statistics index ---------- */
+
+.chi-links {
+    padding-left: 0;
+    margin-bottom: 1.5em;
+}
+
+.chi-links li {
+    padding: 6px 0;
+    font-size: 1.1em;
 }
