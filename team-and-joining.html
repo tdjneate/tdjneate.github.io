@@ -27,20 +27,6 @@
 
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
-    <!--Analytics-->
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128906214-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-128906214-1');
-    </script>
 
 
 
@@ -48,11 +34,8 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar" aria-hidden="true"></span>
-                    <span class="icon-bar" aria-hidden="true"></span>
-                    <span class="icon-bar" aria-hidden="true"></span>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="toggle-label">Menu</span>
                 </button>
                 <a class="navbar-brand" href="index.html">Timothy Neate</a>
             </div>
@@ -65,9 +48,6 @@
                     </li>
                     <li>
                         <a href="team-and-joining.html" aria-current="page">Team and Joining</a>
-                    </li>
-                    <li>
-                        <a href="videos.html">Videos</a>
                     </li>
                     <li>
                         <a href="honours_and_service.html">Honours and Service</a>
@@ -92,24 +72,56 @@
     <!-- Page Content -->
     <div class="container">
         <br> <br>
-        <h1>Team and Joining</h1><br>
+        <h1>Team and Joining</h1>
 
         <h2>Current Researchers</h2>
-        <div class="lead">
 
-            <ul class="dashed">
+        <h3>Postdoctoral Researchers</h3>
+        <ul class="person-grid">
+                <li class="person-card">
+                    <h4 class="person-name"><a href="https://kclpure.kcl.ac.uk/portal/en/persons/filip.bircanin">Filip Bircanin</a></h4>
+                    <p class="person-role">Postdoctoral Researcher</p>
+                    <p class="person-note"><a href="https://tactproject.uk/">TACT Project</a></p>
+                </li>
+                <li class="person-card">
+                    <h4 class="person-name"><a href="https://www.kcl.ac.uk/people/alexandre-nevsky">Alexandre Nevsky</a></h4>
+                    <p class="person-role">Postdoctoral Researcher</p>
+                    <p class="person-note">With <a href="https://www.kcl.ac.uk/people/ulrike-hammerbeck">Ulrike Hammerbeck</a>. Completed PhD with <a href="https://www.kcl.ac.uk/people/elena-simperl">Elena Simperl</a></p>
+                </li>
+        </ul>
 
-                <li> <strong><a href="https://kclpure.kcl.ac.uk/portal/en/persons/filip.bircanin"> Filip Bircanin</a></strong> – Postdoctoral Researcher on <a href="https://tactproject.uk/">TACT Project</a>.</li>
-                <li> <strong><a href="https://www.kcl.ac.uk/people/alexandre-nevsky"> Alexandre Nevsky</a></strong> - Postdoctoral Researcher (supervised with <a href="https://www.kcl.ac.uk/people/ulrike-hammerbeck">Ulrike Hammerbeck</a>) and viva-ed PhD student (supervised w/ Elena Simperl)</li>
-
-                <li> <strong><a href="https://kclpure.kcl.ac.uk/portal/en/persons/vinkki-zhu/"> Wenqi Zhu</a></strong> –  PhD Student (supervised with Siobhán O'Connor)</li>
-                <li> <strong><a href="https://kclpure.kcl.ac.uk/portal/en/persons/defne-eken"> Defne Eken</a></strong> –  PhD Student (supervised w/ Letizia Gionfrida)</li>
-                <li> <strong><a href="https://www.kcl.ac.uk/people/xi-hu"> Xi Hu</a></strong> – PhD Student (supervised w/ Rita Borgo and Mike Cook)</li>
-                <li> <strong><a href="https://www.kcl.ac.uk/people/carlota-vazquez-gonzalez">Carlota Vazquez Gonzalez</a></strong> – PhD Student (supervised w/ Rita Borgo)</li>
-
-
-            </ul>
-        </div>
+        <h3>PhD Students</h3>
+        <ul class="person-grid">
+                <li class="person-card">
+                    <h4 class="person-name"><a href="https://kclpure.kcl.ac.uk/portal/en/persons/vinkki-zhu/">Wenqi Zhu</a></h4>
+                    <p class="person-role">PhD Student</p>
+                    <p class="person-note">Co-supervised with <a href="https://www.kcl.ac.uk/people/siobhan-oconnor">Siobhán O'Connor</a></p>
+                </li>
+                <li class="person-card">
+                    <h4 class="person-name"><a href="https://kclpure.kcl.ac.uk/portal/en/persons/defne-eken">Defne Eken</a></h4>
+                    <p class="person-role">PhD Student</p>
+                    <p class="person-note">Co-supervised with <a href="https://www.kcl.ac.uk/people/letizia-gionfrida">Letizia Gionfrida</a></p>
+                </li>
+                <li class="person-card">
+                    <h4 class="person-name"><a href="https://www.kcl.ac.uk/people/xi-hu">Xi Hu</a></h4>
+                    <p class="person-role">PhD Student</p>
+                    <p class="person-note">Co-supervised with <a href="https://www.kcl.ac.uk/people/rita-borgo">Rita Borgo</a> and <a href="https://www.kcl.ac.uk/people/michael-cook">Mike Cook</a></p>
+                </li>
+                <li class="person-card">
+                    <h4 class="person-name"><a href="https://www.kcl.ac.uk/people/carlota-vazquez-gonzalez">Carlota Vazquez Gonzalez</a></h4>
+                    <p class="person-role">PhD Student</p>
+                    <p class="person-note">Co-supervised with <a href="https://www.kcl.ac.uk/people/rita-borgo">Rita Borgo</a></p>
+                </li>
+                <li class="person-card">
+                    <h4 class="person-name">Adrian Heffelman</h4>
+                    <p class="person-role">PhD Student</p>
+                </li>
+                <li class="person-card">
+                    <h4 class="person-name">Marci Talbot</h4>
+                    <p class="person-role">PhD Student</p>
+                    <p class="person-note">Co-supervised with <a href="https://www.kcl.ac.uk/people/seray-ibrahim">Seray Ibrahim</a> and <a href="https://www.kcl.ac.uk/people/georgia-panagiotidou">Georgia Panagiotidou</a></p>
+                </li>
+        </ul>
 
         <h2>PhD Projects with Me</h2>
 
@@ -148,21 +160,27 @@
 
         <h2>Alumni</h2>
 
+        <ul class="person-grid">
+                <li class="person-card">
+                    <h4 class="person-name"><a href="https://www.kcl.ac.uk/people/humphrey-curtis">Humphrey Curtis</a></h4>
+                    <p class="person-role">PhD (2026) and Postdoctoral Researcher on Advokit</p>
+                    <p class="person-note">Winner of the <a href="https://medium.com/sigchi/2026-acm-sigchi-awards-and-special-recognitions-d942983d9228">ACM SIGCHI Outstanding Dissertation Award</a> and several best paper awards</p>
+                </li>
+                <li class="person-card">
+                    <h4 class="person-name"><a href="https://www.kcl.ac.uk/people/zhiqiang-huo">Zhiqiang Huo</a></h4>
+                    <p class="person-role">Postdoctoral Researcher, Population Health</p>
+                    <p class="person-note">Collaborator on the NIHR-funded <a href="https://www.nihr.ac.uk/documents/pgfar-diverse-programmes-improving-the-lives-of-stroke-survivors-with-data/29046">Improving the Lives of Stroke Survivors with Data</a> project</p>
+                </li>
+        </ul>
 
-        <div class="lead">
-
-            <ul class="dashed">
-                <li> Humphrey Curtis -- PhD student (Passed viva 2026) and postdoc on the Advokit. Winner of the <a href="https://medium.com/sigchi/2026-acm-sigchi-awards-and-special-recognitions-d942983d9228">ACM SIGCHI Outstanding Dissertation Award</a>, various best paper awards, etc.</li>
-
-                <li> Zhiqiang Huo (postdoctoral researcher in Population Health) -- collaborating on NIHR funded <a href="https://www.nihr.ac.uk/documents/pgfar-diverse-programmes-improving-the-lives-of-stroke-survivors-with-data/29046">Improving the lives of stroke survivors with data project</a> .</li>
-                <li> Joshua Susak (undergraduate intern) -- created page for showcasing smartwatch apps.</li>
-                <li> Vedeesh Bali (undergraduate intern) -- created dashboard for AAC dataset.</li>
-                <li> Miruna Tudoreanu (undergraduate intern) -- Supporting user interface design work of accessible portal and dashboard for NIHR funded <a href="https://www.nihr.ac.uk/documents/pgfar-diverse-programmes-improving-the-lives-of-stroke-survivors-with-data/29046">Improving the lives of stroke survivors with data project</a> .</li>
-                <li> Anderson You (undergraduate intern) -- Supporting experiment into mid-air haptics.</li>
-
-                <li> Shehzmani Shams (undergraduate intern) -- supporting HCI project on understanding videoconferencing for people with aphasia. Resulted in CHI '22 paper.</li>
-            </ul>
-        </div>
+        <h3>Undergraduate Interns</h3>
+        <ul class="intern-list">
+                <li><strong>Joshua Susak</strong> – built a page showcasing smartwatch apps</li>
+                <li><strong>Vedeesh Bali</strong> – built a dashboard for an AAC dataset</li>
+                <li><strong>Miruna Tudoreanu</strong> – user interface design for the accessible portal and dashboard on the NIHR-funded <a href="https://www.nihr.ac.uk/documents/pgfar-diverse-programmes-improving-the-lives-of-stroke-survivors-with-data/29046">stroke survivors project</a></li>
+                <li><strong>Anderson You</strong> – supported an experiment on mid-air haptics</li>
+                <li><strong>Shehzmani Shams</strong> – supported research on videoconferencing for people with aphasia, resulting in a CHI '22 paper</li>
+        </ul>
 
         <br> <br> <br> <br>
 

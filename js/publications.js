@@ -8,14 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
             publications.sort((a, b) => parseInt(a.Year) - parseInt(b.Year)); // Sort by year in ascending order
             addPublicationIdentifiers(publications);
             publications.reverse(); // Reverse again to display newest first
-            displayPublications(publications);
+            setUpFilters(publications);
         })
         .catch(error => {
             console.error("Error loading CSV file:", error);
-            const list = document.getElementById("publication-list");
-            if (list) {
-                list.removeAttribute("aria-busy");
-                list.innerHTML = "<li>Sorry, the publication list could not be loaded.</li>";
+            const results = document.getElementById("publication-results");
+            if (results) {
+                results.removeAttribute("aria-busy");
+                results.innerHTML = '<p class="lead">Sorry, the publication list could not be loaded.</p>';
             }
         });
 });
@@ -56,15 +56,78 @@ function addPublicationIdentifiers(publications) {
     });
 }
 
+// Readable names for the Type column, used in the filter menu
+const TYPE_LABELS = {
+    conference: "Conference paper",
+    journal: "Journal article",
+    poster: "Poster",
+    demo: "Demo",
+    bookchapter: "Book chapter",
+    magazine: "Magazine article"
+};
+
+// Fills the year and type menus, then redraws the list whenever they change
+function setUpFilters(publications) {
+    const form = document.getElementById("pub-filters");
+    const yearSelect = document.getElementById("filter-year");
+    const typeSelect = document.getElementById("filter-type");
+    const count = document.getElementById("filter-count");
+
+    [...new Set(publications.map(pub => pub.Year))].forEach(year => {
+        yearSelect.add(new Option(year, year));
+    });
+    [...new Set(publications.map(pub => pub.Type.toLowerCase()))]
+        .sort((a, b) => publications.filter(p => p.Type.toLowerCase() === b).length - publications.filter(p => p.Type.toLowerCase() === a).length)
+        .forEach(type => typeSelect.add(new Option(TYPE_LABELS[type] || type, type)));
+
+    function update() {
+        const year = yearSelect.value;
+        const type = typeSelect.value;
+        const shown = publications.filter(pub =>
+            (!year || pub.Year === year) && (!type || pub.Type.toLowerCase() === type));
+        displayPublications(shown);
+        count.textContent = (year || type)
+            ? `Showing ${shown.length} of ${publications.length} publications`
+            : `${publications.length} publications`;
+    }
+
+    yearSelect.addEventListener("change", update);
+    typeSelect.addEventListener("change", update);
+    // the reset button clears the menus; redraw once the values have changed
+    form.addEventListener("reset", () => setTimeout(update, 0));
+    form.addEventListener("submit", event => event.preventDefault());
+
+    // browsers can restore old menu choices on reload, so always start with everything shown
+    form.reset();
+    form.hidden = false;
+    update();
+}
+
 function displayPublications(publications) {
-    const container = document.getElementById("publication-container");
+    const container = document.getElementById("publication-results");
     if (!container) return;
-    
-    const list = document.getElementById("publication-list");
-    list.innerHTML = "";
-    list.removeAttribute("aria-busy");
-    
+
+    // One heading and list per year
+    container.innerHTML = "";
+    container.removeAttribute("aria-busy");
+    if (publications.length === 0) {
+        container.innerHTML = '<p class="lead">No publications match these filters.</p>';
+        return;
+    }
+    let list = null;
+    let currentYear = null;
+
     publications.forEach(pub => {
+        if (pub.Year !== currentYear) {
+            currentYear = pub.Year;
+            let heading = document.createElement("h3");
+            heading.className = "pub-year";
+            heading.textContent = currentYear;
+            list = document.createElement("ul");
+            list.className = "pub-list";
+            container.append(heading, list);
+        }
+
         let authorsFormatted = pub.Authors.split(";").map(name => {
             let parts = name.trim().split(", ");
             let formattedName = parts.length === 2 ? `${parts[1]} ${parts[0]}` : name;
@@ -86,13 +149,13 @@ function displayPublications(publications) {
         listItem.innerHTML = `
             <div class="row align-items-left">   
  
-                <div class="col-sm-1 text-left" style="font-size: 2em; color: #6b6b6b; font-weight: 600; margin-left:0px;">
+                <div class="col-sm-1 text-left" style="font-size: 1.6em; color: #6b6b6b; font-weight: 600; margin-left:0px;">
                     ${pub.Identifier}
                 </div>
                 <div class="col-sm-11">
                     <p class="lead" style="display: inline;">
-                        ${authorsFormatted} <i class="paper-title">${pub.Title}</i>, ${pub.Publication}, ${pub.Year}.
-                        &nbsp; ${awardText ? `<span class="lead" style="display: inline; color: green;"><u>${awardIcon} ${awardText}</u></span>` : ""} ${pdfIcon} ${videoIcon} <br><br>
+                        ${authorsFormatted}. <i class="paper-title">${pub.Title}</i>, ${pub.Publication}, ${pub.Year}.
+                        &nbsp; ${awardText ? `<span class="award" style="color: green;"><u>${awardIcon} ${awardText}</u></span>` : ""} ${pdfIcon} ${videoIcon} <br><br>
                     </p>
                 </div>
             </div>

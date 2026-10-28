@@ -23,29 +23,13 @@
 
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
-    <!--Analytics-->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128906214-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-128906214-1');
-    </script>
 
     <nav class="navbar navbar-inverse navbar-fixed-top" aria-label="Main navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar" aria-hidden="true"></span>
-                    <span class="icon-bar" aria-hidden="true"></span>
-                    <span class="icon-bar" aria-hidden="true"></span>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="toggle-label">Menu</span>
                 </button>
                 <a class="navbar-brand" href="index.html">Timothy Neate</a>
             </div>
@@ -62,17 +46,12 @@
                         <a href="team-and-joining.html">Team and Joining</a>
                     </li>
                     <li>
-                        <a href="videos.html">Videos</a>
-                    </li>
-                    <li>
                         <a href="honours_and_service.html">Honours and Service</a>
                     </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
-    </main>
-
         <!-- /.container -->
     </nav>
 
@@ -84,7 +63,6 @@
         <br><br>
 
         <h1> Publications</h1>
-        <br>
      
             <!-- PUBLICATIONS -->
             <div class="featurette" id="publications">
@@ -94,18 +72,35 @@
                 <!-- Generate paper list from data/publications.csv -->
                 
                 <div id="publication-container">
+                    <form class="pub-filters" id="pub-filters" aria-label="Filter publications" autocomplete="off" hidden>
+                        <div class="filter-field">
+                            <label for="filter-year">Year</label>
+                            <select id="filter-year">
+                                <option value="">All years</option>
+                            </select>
+                        </div>
+                        <div class="filter-field">
+                            <label for="filter-type">Type</label>
+                            <select id="filter-type">
+                                <option value="">All types</option>
+                            </select>
+                        </div>
+                        <button type="reset" class="filter-reset">Clear filters</button>
+                        <p class="filter-count" id="filter-count" role="status"></p>
+                    </form>
+
                     <h2 class="sr-only">Publication list</h2>
-                    <ul class="pub-list" id="publication-list" aria-busy="true">
-                        <li>Loading publications…</li>
-                    </ul>
-                    <script src="js/publications.js" defer></script>
+                    <div id="publication-results" aria-busy="true">
+                        <p class="lead">Loading publications…</p>
+                    </div>
+                    <script src="js/publications.js?v=3" defer></script>
                 </div>
             </div>
 
             </div>
             <br><br><br>
+    </main>
 
-    
         <!-- /.container -->
 
         <!-- jQuery -->

@@ -2,7 +2,8 @@
  one page wonder, adapted by tdjn
  */
 
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+/* Atkinson Hyperlegible Next: designed by the Braille Institute for low-vision legibility */
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,300..800;1,300..800&display=swap');
 
 
 body {
@@ -10,12 +11,6 @@ body {
     /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
-/* To keep things verically aligned in div*/
-span {
-    height: 100px;
-    display: table-cell;
-    vertical-align: middle;
-}
 
 
 .header-image {
@@ -67,7 +62,7 @@ content: "–";
 }
 
 
-publication-container
+#publication-container
 {
      list-style-position: inside;
   padding-left: 0;
@@ -95,7 +90,6 @@ publication-container
 
     text-underline-position: auto;
   margin-bottom: 1em; /* adds space after each paragraph */
-}
 }
 
 
@@ -221,7 +215,7 @@ footer {
         position: relative;
         padding: 0;
         margin: 8px auto;
-        height: 5;
+        height: 5px;
         width: 100%;
         max-height: 0;
         font-size: 10px;
@@ -282,29 +276,76 @@ footer {
     color: white;
 }
 
-h1 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-
-
+body {
+    font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #1f2328;
+    background-color: #fff;
 }
 
+h1, h2, h3, h4,
+.navbar-brand {
+    font-family: inherit;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #14171a;
+}
+
+h1 {
+    font-size: 2.3em;
+    margin-bottom: 0.4em;
+}
 
 h2 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-      margin-bottom: 1em; /* adds space after each paragraph */
-
-    
-
-
+    font-size: 1.6em;
+    margin-top: 1.4em;
+    margin-bottom: 0.4em;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: light;
-    
+h3 {
+    font-size: 1.25em;
+    margin-top: 1.2em;
+    margin-bottom: 0.3em;
+}
 
+/* award notes on the publications list sit at the same size as the citation */
+.award {
+    font-size: inherit;
+    display: inline;
+}
+
+.lead {
+    font-size: 1.15em;
+    font-weight: 400;
+    line-height: 1.65;
+}
+
+.navbar-inverse {
+    background-color: #1f2328;
+    border-color: #1f2328;
+}
+
+/* Bootstrap's grey nav links are too faint on the dark bar */
+.navbar-inverse .navbar-nav > li > a,
+.navbar-inverse .navbar-brand {
+    color: #e6e6e6;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a[aria-current="page"],
+.navbar-inverse .navbar-brand:hover {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a[aria-current="page"] {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+hr {
+    border-top-color: #ddd;
+    margin: 2.5em 0;
 }
 
 
@@ -370,7 +411,7 @@ img {
 bpAward
 {
     font-weight: 400;
-    color: palevioletred;
+    color: #a3375c;
     text-decoration: underline;
 }
 
@@ -390,6 +431,10 @@ a:visited
 a:hover {
   color: #1d4e50;
   text-decoration: underline;
+}
+
+main a {
+  text-underline-offset: 2px;
 }
 
 
@@ -494,9 +539,19 @@ main a:not(.btn-white):not(.link-box) {
     margin-bottom: 1em;
 }
 
+/* hanging indent so wrapped lines align after the date */
+.news-list li {
+    padding-left: 6em;
+    text-indent: -6em;
+}
+
 .news-list time {
-    font-weight: bold;
+    display: inline-block;
+    width: 5em;
     margin-right: 1em;
+    text-indent: 0;
+    font-weight: 700;
+    color: #2a6f72;
 }
 
 .publication-item {
@@ -521,4 +576,410 @@ a.btn-white:link,
 a.btn-white:visited {
     color: #000;
     text-decoration: none;
+}
+
+/* home page photo: floated so the intro text wraps around and below it,
+   leaving no empty column under the picture at any width */
+img.profile-photo {
+    float: right;
+    width: 34%;
+    max-width: 300px;
+    min-width: 170px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin: 0.3em 0 1em 1.5em;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* phones: photo on its own, centred above the text */
+@media (max-width: 540px) {
+    img.profile-photo {
+        float: none;
+        display: block;
+        width: 65%;
+        max-width: 240px;
+        margin: 0 auto 1.5em;
+    }
+}
+
+/* on phones, put each news date on its own line instead of a hanging indent */
+@media (max-width: 767px) {
+    .news-list li {
+        padding-left: 0;
+        text-indent: 0;
+    }
+
+    .news-list time {
+        display: block;
+        width: auto;
+    }
+}
+
+/* ---------- Team page ---------- */
+
+.person-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+    gap: 22px;
+    padding: 0 8px 0 0;
+    margin: 0 0 1.5em;
+}
+
+/* print-style cards: dark outline with a solid offset block behind */
+.person-card {
+    background: #fff;
+    border: 1.5px solid #1f2328;
+    border-radius: 6px;
+    padding: 16px 18px;
+    box-shadow: 6px 6px 0 #cde4e2;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.person-card:hover,
+.person-card:focus-within {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 #cde4e2;
+}
+
+.person-card .person-name {
+    font-size: 1.15em;
+    margin: 0 0 2px;
+}
+
+.person-card .person-name a:link,
+.person-card .person-name a:visited {
+    color: #14171a;
+}
+
+.person-card .person-name a:hover {
+    color: #2a6f72;
+}
+
+.person-card p {
+    margin: 0;
+    line-height: 1.45;
+}
+
+.person-role {
+    font-size: 0.8em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #5b6167;
+}
+
+.person-note {
+    margin-top: 6px !important;
+    font-size: 0.92em;
+    color: #4a5056;
+}
+
+.intern-list {
+    padding-left: 0;
+}
+
+.intern-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #e3e6e8;
+}
+
+.intern-list li:last-child {
+    border-bottom: none;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+    background: #1f2328;
+    color: #e6e6e6;
+    padding: 28px 0 24px;
+    margin-top: 2em;
+}
+
+.site-footer .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    padding: 0;
+    margin: 0 0 10px;
+}
+
+.site-footer a:link,
+.site-footer a:visited {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.site-footer a:hover {
+    color: #bfe3e1;
+}
+
+.site-footer a:focus-visible {
+    outline-color: #fff;
+}
+
+.footer-address {
+    margin: 0;
+    color: #c9cdd1;
+}
+
+/* year headings on the publications page */
+.pub-year {
+    font-size: 1.5em;
+    color: #2a6f72;
+    border-bottom: 2px solid #e3e6e8;
+    padding-bottom: 6px;
+    margin: 1.6em 0 0.8em;
+}
+
+/* ---------- Print-style accents ----------
+   Dark outline with a solid offset block behind, used at full strength
+   on the team cards and more quietly elsewhere. */
+
+:root {
+    --ink: #1f2328;
+    --block: #cde4e2;
+    --block-soft: #e4efee;
+    --hairline: #d3dadc;
+}
+
+/* home page photo */
+img.profile-photo {
+    border: 1.5px solid var(--ink);
+    border-radius: 6px;
+    box-shadow: 8px 8px 0 var(--block);
+}
+
+/* news: one quiet panel, items divided by dashed rules */
+.news-list {
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    box-shadow: 5px 5px 0 var(--block-soft);
+    background: #fff;
+}
+
+.news-list li {
+    margin: 0;
+    padding: 14px 20px 14px calc(20px + 6em);
+    border-bottom: 1px dashed var(--hairline);
+}
+
+.news-list li:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 767px) {
+    .news-list li {
+        padding: 12px 16px;
+    }
+}
+
+/* publications: year as a small outlined tag */
+.pub-year {
+    display: inline-block;
+    font-size: 1.2em;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+    border-radius: 4px;
+    padding: 2px 12px;
+    box-shadow: 3px 3px 0 var(--block);
+    margin: 1.8em 0 1em;
+}
+
+/* honours: awards as small tiles, tables in a frame */
+.award-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+    gap: 12px;
+    padding: 0 6px 0 0;
+}
+
+.award-grid li {
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    box-shadow: 4px 4px 0 var(--block-soft);
+    padding: 10px 14px;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.table-frame {
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    box-shadow: 5px 5px 0 var(--block-soft);
+    overflow-x: auto;
+    margin-bottom: 1.5em;
+}
+
+.table-frame table {
+    margin: 0;
+}
+
+.table-frame th,
+.table-frame td {
+    border: none;
+    border-bottom: 1px solid var(--hairline);
+}
+
+.table-frame tr:last-child td {
+    border-bottom: none;
+}
+
+.table-frame th {
+    background: var(--block-soft);
+}
+
+/* name in the navbar: a muted teal at a lighter weight */
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: #a4cdc8;
+    text-decoration: none;
+}
+
+/* ---------- Publication filters ----------
+   A compact row tucked to the left: inline labels, small menus, no panel. */
+
+.pub-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 18px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0.2em 0 1.2em;
+    font-size: 0.85em;
+}
+
+.pub-filters[hidden] {
+    display: none;
+}
+
+.filter-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-field label {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #5b6167;
+}
+
+.filter-field select {
+    font: inherit;
+    min-height: 32px;
+    padding: 3px 8px;
+    border: 1px solid #9aa3a8;
+    border-radius: 4px;
+    background: #fff;
+    color: var(--ink);
+}
+
+.filter-reset {
+    font: inherit;
+    padding: 0;
+    border: none;
+    background: none;
+    color: #2a6f72;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+}
+
+.filter-reset:hover {
+    color: #1d4e50;
+}
+
+.filter-field select:focus-visible,
+.filter-reset:focus-visible {
+    outline: 3px solid #1a5fb4;
+    outline-offset: 2px;
+}
+
+.filter-count {
+    margin: 0;
+    color: #5b6167;
+}
+
+/* ---------- Phone menu ----------
+   A labelled "Menu" button whose three bars turn into a cross when open,
+   and a roomier open menu with the current page marked. */
+
+.navbar-inverse .navbar-toggle {
+    align-items: center;
+    gap: 8px;
+    margin: 8px 15px 8px 0;
+    padding: 7px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 6px;
+    background: transparent;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* three bars drawn beside the label */
+.navbar-toggle::before {
+    content: "";
+    width: 18px;
+    height: 14px;
+    background:
+        linear-gradient(#fff, #fff) top / 100% 2px no-repeat,
+        linear-gradient(#fff, #fff) center / 100% 2px no-repeat,
+        linear-gradient(#fff, #fff) bottom / 100% 2px no-repeat;
+    border-radius: 1px;
+}
+
+.navbar-toggle[aria-expanded="true"]::before {
+    background:
+        linear-gradient(45deg, transparent calc(50% - 1px), #fff calc(50% - 1px), #fff calc(50% + 1px), transparent calc(50% + 1px)),
+        linear-gradient(-45deg, transparent calc(50% - 1px), #fff calc(50% - 1px), #fff calc(50% + 1px), transparent calc(50% + 1px));
+    width: 14px;
+    height: 14px;
+    margin: 0 2px;
+}
+
+.toggle-label {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+@media (max-width: 767px) {
+    .navbar-inverse .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-inverse .navbar-collapse {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: none;
+    }
+
+    .navbar-inverse .navbar-nav {
+        margin: 6px -15px 10px;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        padding: 13px 20px;
+        font-size: 17px;
+    }
+
+    .navbar-inverse .navbar-nav > li > a[aria-current="page"] {
+        color: #a4cdc8;
+        font-weight: 700;
+        text-decoration: none;
+    }
 }
