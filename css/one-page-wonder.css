@@ -865,6 +865,13 @@ img.profile-photo {
     display: flex;
     align-items: center;
     gap: 8px;
+    max-width: 100%;
+}
+
+/* long topic names must not push the menu off small screens */
+.filter-field select {
+    min-width: 0;
+    max-width: 100%;
 }
 
 .filter-field label {

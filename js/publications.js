@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("data/publications.csv") 
+    fetch("data/publications.csv", { cache: "no-cache" }) // always check for an updated list
         .then(response => response.text())
         .then(data => {
             let publications = parseCSV(data);
@@ -35,7 +35,7 @@ function parseCSV(data) {
 
 // Creates prefixes for counts of conferences, journals, etc.
 function addPublicationIdentifiers(publications) {
-    let typeCounts = { conference: 0, journal: 0, demo: 0, poster: 0, bookchapter:0, magazine: 0};
+    let typeCounts = { conference: 0, journal: 0, demo: 0, poster: 0, bookchapter:0, magazine: 0, workshop: 0};
     
     publications.forEach(pub => {
         let typeShort = "";
@@ -46,6 +46,7 @@ function addPublicationIdentifiers(publications) {
             case "poster": typeShort = "P"; break;
             case "bookchapter": typeShort = "BC"; break;
             case "magazine": typeShort = "M"; break;
+            case "workshop": typeShort = "W"; break;
         }
         if (typeShort) {
             typeCounts[pub.Type.toLowerCase()] += 1;
@@ -63,15 +64,31 @@ const TYPE_LABELS = {
     poster: "Poster",
     demo: "Demo",
     bookchapter: "Book chapter",
-    magazine: "Magazine article"
+    magazine: "Magazine article",
+    workshop: "Workshop paper"
 };
 
-// Fills the year and type menus, then redraws the list whenever they change
+// Topics come from the Topics column, separated by semicolons
+function getTopics(pub) {
+    return (pub.Topics || "").split(";").map(topic => topic.trim()).filter(Boolean);
+}
+
+// Fills the topic, year and type menus, then redraws the list whenever they change
 function setUpFilters(publications) {
     const form = document.getElementById("pub-filters");
+    const topicSelect = document.getElementById("filter-topic");
     const yearSelect = document.getElementById("filter-year");
     const typeSelect = document.getElementById("filter-type");
     const count = document.getElementById("filter-count");
+
+    // topics in alphabetical order, each with how many papers it has
+    const topicCounts = {};
+    publications.forEach(pub => getTopics(pub).forEach(topic => {
+        topicCounts[topic] = (topicCounts[topic] || 0) + 1;
+    }));
+    Object.keys(topicCounts).sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" })).forEach(topic => {
+        topicSelect.add(new Option(`${topic} (${topicCounts[topic]})`, topic));
+    });
 
     [...new Set(publications.map(pub => pub.Year))].forEach(year => {
         yearSelect.add(new Option(year, year));
@@ -81,16 +98,19 @@ function setUpFilters(publications) {
         .forEach(type => typeSelect.add(new Option(TYPE_LABELS[type] || type, type)));
 
     function update() {
+        const topic = topicSelect.value;
         const year = yearSelect.value;
         const type = typeSelect.value;
         const shown = publications.filter(pub =>
+            (!topic || getTopics(pub).includes(topic)) &&
             (!year || pub.Year === year) && (!type || pub.Type.toLowerCase() === type));
         displayPublications(shown);
-        count.textContent = (year || type)
+        count.textContent = (topic || year || type)
             ? `Showing ${shown.length} of ${publications.length} publications`
             : `${publications.length} publications`;
     }
 
+    topicSelect.addEventListener("change", update);
     yearSelect.addEventListener("change", update);
     typeSelect.addEventListener("change", update);
     // the reset button clears the menus; redraw once the values have changed
