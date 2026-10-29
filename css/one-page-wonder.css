@@ -1188,3 +1188,10 @@ img.profile-photo {
 .project-link {
     font-weight: 700;
 }
+
+/* honours: award icon (as on the publications page) sits in a fixed slot so the venues line up */
+.award-list .award-icon {
+    display: inline-block;
+    width: 1.6em;
+    color: goldenRod;
+}

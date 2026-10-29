@@ -165,7 +165,7 @@ function displayPublications(publications) {
         let videoIcon = pub.VideoLink ? `<a href="${pub.VideoLink}" target="_blank" rel="noopener" class="video-icon" style="margin-left: 5px; color: #b83a26; text-decoration: none; display: inline;"><i class="fa-solid fa-film fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #b83a26; display: inline;">Video</span>${newTab}</a>` : "";
         
         // Press column holds the id of the paper's section on the press page
-        let pressIcon = pub.Press ? `<a href="press.html#${pub.Press}" class="press-icon" style="margin-left: 5px; color: #b84f00; text-decoration: none; display: inline;"><i class="fa-regular fa-newspaper fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #b84f00; display: inline;">Press</span><span class="sr-only"> coverage of “${pub.Title}”</span></a>` : "";
+        let pressIcon = pub.Press ? `<a href="press.html#${pub.Press}" class="press-icon" style="margin-left: 5px; color: #7a3fa8; text-decoration: none; display: inline;"><i class="fa-regular fa-newspaper fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #7a3fa8; display: inline;">Press</span><span class="sr-only"> coverage of “${pub.Title}”</span></a>` : "";
 
         let listItem = document.createElement("li");
         listItem.classList.add("publication-item");
@@ -196,6 +196,7 @@ function getAwardIcon(award) {
     if (type === "1") icon = "fa fa-trophy fa-lg";
     else if (type === "2") icon = "fa fa-medal fa-lg";
     else if (type === "3") icon = "fa fa-star fa-lg" ;
+    else if (type === "4") icon = "fa fa-ribbon fa-lg"; // social impact awards
     
     return icon ? `<i class="${icon}" style="color: goldenRod; margin-right: 2px;" aria-hidden="true"></i>` : "";
 }
