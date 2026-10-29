@@ -167,6 +167,9 @@ function displayPublications(publications) {
         // Press column holds the id of the paper's section on the press page
         let pressIcon = pub.Press ? `<a href="press.html#${pub.Press}" class="press-icon" style="margin-left: 5px; color: #7a3fa8; text-decoration: none; display: inline;"><i class="fa-regular fa-newspaper fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #7a3fa8; display: inline;">Press</span><span class="sr-only"> coverage of “${pub.Title}”</span></a>` : "";
 
+        // App column holds an App Store link for an app released from the paper
+        let appIcon = pub.App ? `<a href="${pub.App}" target="_blank" rel="noopener" class="app-icon" style="margin-left: 5px; color: #1f2328; text-decoration: none; display: inline;"><i class="fa-brands fa-app-store-ios fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #1f2328; display: inline;">App</span>${newTab}</a>` : "";
+
         let listItem = document.createElement("li");
         listItem.classList.add("publication-item");
         listItem.innerHTML = `
@@ -179,7 +182,7 @@ function displayPublications(publications) {
                     <p class="lead" style="display: inline;">
                         <span class="paper-title">${pub.Title}</span><br>
                         <span class="paper-meta">${authorsFormatted}. <i class="paper-venue">${pub.Publication}</i>, ${pub.Year}.</span>
-                        &nbsp; ${awardText ? `<span class="award" style="color: green;"><u>${awardIcon} ${awardText}</u></span>` : ""} ${pdfIcon} ${videoIcon} ${pressIcon} <br><br>
+                        &nbsp; ${awardText ? `<span class="award" style="color: green;"><u>${awardIcon} ${awardText}</u></span>` : ""} ${pdfIcon} ${videoIcon} ${pressIcon} ${appIcon} <br><br>
                     </p>
                 </div>
             </div>
