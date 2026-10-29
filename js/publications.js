@@ -148,7 +148,7 @@ function displayPublications(publications) {
             container.append(heading, list);
         }
 
-        let authorsFormatted = pub.Authors.split(";").map(name => {
+        let authorsFormatted = pub.Authors.split(";").filter(name => name.trim()).map(name => {
             let parts = name.trim().split(", ");
             let formattedName = parts.length === 2 ? `${parts[1]} ${parts[0]}` : name;
             return formattedName.includes("Timothy Neate") ? `<u>${formattedName}</u>` : formattedName;
@@ -164,6 +164,9 @@ function displayPublications(publications) {
        
         let videoIcon = pub.VideoLink ? `<a href="${pub.VideoLink}" target="_blank" rel="noopener" class="video-icon" style="margin-left: 5px; color: #b83a26; text-decoration: none; display: inline;"><i class="fa-solid fa-film fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #b83a26; display: inline;">Video</span>${newTab}</a>` : "";
         
+        // Press column holds the id of the paper's section on the press page
+        let pressIcon = pub.Press ? `<a href="press.html#${pub.Press}" class="press-icon" style="margin-left: 5px; color: #b84f00; text-decoration: none; display: inline;"><i class="fa-regular fa-newspaper fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #b84f00; display: inline;">Press</span><span class="sr-only"> coverage of “${pub.Title}”</span></a>` : "";
+
         let listItem = document.createElement("li");
         listItem.classList.add("publication-item");
         listItem.innerHTML = `
@@ -174,8 +177,9 @@ function displayPublications(publications) {
                 </div>
                 <div class="col-sm-11">
                     <p class="lead" style="display: inline;">
-                        ${authorsFormatted}. <i class="paper-title">${pub.Title}</i>, ${pub.Publication}, ${pub.Year}.
-                        &nbsp; ${awardText ? `<span class="award" style="color: green;"><u>${awardIcon} ${awardText}</u></span>` : ""} ${pdfIcon} ${videoIcon} <br><br>
+                        <span class="paper-title">${pub.Title}</span><br>
+                        <span class="paper-meta">${authorsFormatted}. <i class="paper-venue">${pub.Publication}</i>, ${pub.Year}.</span>
+                        &nbsp; ${awardText ? `<span class="award" style="color: green;"><u>${awardIcon} ${awardText}</u></span>` : ""} ${pdfIcon} ${videoIcon} ${pressIcon} <br><br>
                     </p>
                 </div>
             </div>
