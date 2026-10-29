@@ -160,15 +160,15 @@ function displayPublications(publications) {
         // Screen-reader-only text says which paper each link is for and that it opens a new tab
         let newTab = `<span class="sr-only"> for “${pub.Title}” (opens in a new tab)</span>`;
 
-        let pdfIcon = pub.Link ? `<a href="${pub.Link}" target="_blank" rel="noopener" class="pdf-icon" style="margin-left: 5px; color: royalBlue; text-decoration: none; display: inline;"><i class="fa fa-file-pdf fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: royalBlue; display: inline;">PDF</span>${newTab}</a>` : "";
+        let pdfIcon = pub.Link ? `<a href="${pub.Link}" target="_blank" rel="noopener" class="pdf-icon" style="color: royalBlue; text-decoration: none; display: inline;"><i class="fa fa-file-pdf fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: royalBlue; display: inline;">PDF</span>${newTab}</a>` : "";
        
-        let videoIcon = pub.VideoLink ? `<a href="${pub.VideoLink}" target="_blank" rel="noopener" class="video-icon" style="margin-left: 5px; color: #b83a26; text-decoration: none; display: inline;"><i class="fa-solid fa-film fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #b83a26; display: inline;">Video</span>${newTab}</a>` : "";
+        let videoIcon = pub.VideoLink ? `<a href="${pub.VideoLink}" target="_blank" rel="noopener" class="video-icon" style="color: #b83a26; text-decoration: none; display: inline;"><i class="fa-solid fa-film fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #b83a26; display: inline;">Video</span>${newTab}</a>` : "";
         
         // Press column holds the id of the paper's section on the press page
-        let pressIcon = pub.Press ? `<a href="press.html#${pub.Press}" class="press-icon" style="margin-left: 5px; color: #7a3fa8; text-decoration: none; display: inline;"><i class="fa-regular fa-newspaper fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #7a3fa8; display: inline;">Press</span><span class="sr-only"> coverage of “${pub.Title}”</span></a>` : "";
+        let pressIcon = pub.Press ? `<a href="press.html#${pub.Press}" class="press-icon" style="color: #7a3fa8; text-decoration: none; display: inline;"><i class="fa-regular fa-newspaper fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #7a3fa8; display: inline;">Press</span><span class="sr-only"> coverage of “${pub.Title}”</span></a>` : "";
 
         // App column holds an App Store link for an app released from the paper
-        let appIcon = pub.App ? `<a href="${pub.App}" target="_blank" rel="noopener" class="app-icon" style="margin-left: 5px; color: #1f2328; text-decoration: none; display: inline;"><i class="fa-brands fa-app-store-ios fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #1f2328; display: inline;">App</span>${newTab}</a>` : "";
+        let appIcon = pub.App ? `<a href="${pub.App}" target="_blank" rel="noopener" class="app-icon" style="color: #1f2328; text-decoration: none; display: inline;"><i class="fa-brands fa-app-store-ios fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #1f2328; display: inline;">App</span>${newTab}</a>` : "";
 
         let listItem = document.createElement("li");
         listItem.classList.add("publication-item");
@@ -178,12 +178,11 @@ function displayPublications(publications) {
                 <div class="col-sm-1 text-left">
                     <span class="pub-id">${pub.Identifier}</span>
                 </div>
-                <div class="col-sm-11">
-                    <p class="lead" style="display: inline;">
-                        <span class="paper-title">${pub.Title}</span><br>
-                        <span class="paper-meta">${authorsFormatted}. <i class="paper-venue">${pub.Publication}</i>, ${pub.Year}.</span>
-                        &nbsp; ${awardText ? `<span class="award" style="color: green;"><u>${awardIcon} ${awardText}</u></span>` : ""} ${pdfIcon} ${videoIcon} ${pressIcon} ${appIcon} <br><br>
-                    </p>
+                <div class="col-sm-11 lead pub-body">
+                    <div class="paper-title">${pub.Title}</div>
+                    <div class="paper-authors">${authorsFormatted}</div>
+                    <div class="paper-venue">${pub.Publication}, ${pub.Year}</div>
+                    <div class="paper-links">${awardText ? `<span class="award" style="color: green;"><u>${awardIcon} ${awardText}</u></span>` : ""}${pdfIcon}${videoIcon}${pressIcon}${appIcon}</div>
                 </div>
             </div>
         `;
