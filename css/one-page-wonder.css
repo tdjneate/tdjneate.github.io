@@ -1064,3 +1064,108 @@ img.profile-photo {
     padding: 6px 0;
     font-size: 1.1em;
 }
+
+/* ---------- Projects page ----------
+   One section per project: text beside a framed picture, swapping sides
+   on alternate projects; stacked with the picture first on phones. */
+
+.project {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 2.2em 0;
+    border-bottom: 1px solid var(--hairline);
+}
+
+.project:last-child {
+    border-bottom: none;
+}
+
+.project-image {
+    order: -1;
+}
+
+.project-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 1.5px solid var(--ink);
+    border-radius: 6px;
+    box-shadow: 8px 8px 0 var(--block);
+}
+
+/* a logo in place of a photo: shown whole on a white panel */
+.project-image--logo img {
+    object-fit: contain;
+    padding: 12%;
+    background: #fff;
+}
+
+@media (min-width: 768px) {
+    .project {
+        grid-template-columns: 7fr 5fr;
+        gap: 40px;
+        align-items: start;
+    }
+
+    .project-image {
+        order: 0;
+        margin-right: 8px;
+    }
+
+    .project:nth-child(even) {
+        grid-template-columns: 5fr 7fr;
+    }
+
+    .project:nth-child(even) .project-image {
+        order: -1;
+        margin-right: 0;
+    }
+}
+
+.project-logo {
+    display: block;
+    width: auto;
+    height: 40px;
+    margin-bottom: 14px;
+    border-radius: 3px;
+}
+
+.project h2 {
+    margin-top: 0;
+    font-size: 1.45em;
+    line-height: 1.25;
+}
+
+/* funder, partners, dates and role as labelled rows */
+.project-details {
+    margin: 0 0 1em;
+    font-size: 0.9em;
+}
+
+.project-details div {
+    display: grid;
+    grid-template-columns: 6.5em 1fr;
+    gap: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--hairline);
+}
+
+.project-details dt {
+    font-size: 0.85em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #5b6167;
+    padding-top: 2px;
+}
+
+.project-details dd {
+    margin: 0;
+}
+
+.project-link {
+    font-weight: 700;
+}
