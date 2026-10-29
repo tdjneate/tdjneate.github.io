@@ -172,8 +172,8 @@ function displayPublications(publications) {
         listItem.innerHTML = `
             <div class="row align-items-left">   
  
-                <div class="col-sm-1 text-left" style="font-size: 1.6em; color: #6b6b6b; font-weight: 600; margin-left:0px;">
-                    ${pub.Identifier}
+                <div class="col-sm-1 text-left">
+                    <span class="pub-id">${pub.Identifier}</span>
                 </div>
                 <div class="col-sm-11">
                     <p class="lead" style="display: inline;">
