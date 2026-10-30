@@ -262,10 +262,12 @@ function acmCitation(pub) {
 }
 
 // Key is first author's surname, year and the title's first word, e.g. Wyatt2026beyond;
-// a leading "A", "An" or "The" is skipped, so "A Survey on..." gives Zhao2026survey
+// short leading words (articles, pronouns, prepositions) are skipped, so "A Survey on..." gives Zhao2026survey
+const KEY_SKIP_WORDS = ["a", "an", "the", "i", "you", "we", "it", "my", "our", "your", "is", "are", "of", "on", "in", "to", "for", "and", "at"];
+
 function bibtexKey(pub) {
     const words = pub.Title.split(/\s+/).map(plainAscii).filter(Boolean);
-    const firstWord = words.find(word => !["a", "an", "the"].includes(word.toLowerCase())) || words[0] || "";
+    const firstWord = words.find(word => !KEY_SKIP_WORDS.includes(word.toLowerCase())) || words[0] || "";
     return plainAscii(surname(authorNames(pub)[0] || "")) + pub.Year + firstWord.toLowerCase();
 }
 
