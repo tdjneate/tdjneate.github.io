@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
-    <link href="css/one-page-wonder.css?v=2" rel="stylesheet">
+    <link href="css/one-page-wonder.css?v=3" rel="stylesheet">
 
 </head>
 
@@ -98,7 +98,28 @@
                     <div id="publication-results" aria-busy="true">
                         <p class="lead">Loading publications…</p>
                     </div>
-                    <script src="js/publications.js?v=15" defer></script>
+
+                    <!-- Filled in by js/publications.js when a Cite button is pressed -->
+                    <dialog class="cite-dialog" id="cite-dialog" aria-labelledby="cite-heading">
+                        <div class="cite-inner">
+                            <div class="cite-header">
+                                <h2 id="cite-heading">Cite this paper</h2>
+                                <button type="button" class="cite-close" aria-label="Close">&times;</button>
+                            </div>
+                            <p class="cite-paper" id="cite-paper"></p>
+
+                            <h3>ACM Reference Format</h3>
+                            <p class="cite-text" id="cite-acm"></p>
+                            <button type="button" class="cite-copy" data-copy="acm">Copy citation</button>
+
+                            <h3>BibTeX</h3>
+                            <pre class="cite-text cite-bibtex" id="cite-bibtex"></pre>
+                            <button type="button" class="cite-copy" data-copy="bibtex">Copy BibTeX</button>
+
+                            <p class="cite-status" id="cite-status" role="status"></p>
+                        </div>
+                    </dialog>
+                    <script src="js/publications.js?v=18" defer></script>
                 </div>
             </div>
 

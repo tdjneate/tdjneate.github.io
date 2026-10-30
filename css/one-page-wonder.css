@@ -123,6 +123,25 @@ content: "–";
     white-space: nowrap;
 }
 
+/* cite: a button styled like the links beside it */
+.cite-button {
+    font: inherit;
+    padding: 0;
+    border: none;
+    background: none;
+    color: #2a6f72;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.cite-button:hover {
+    color: #1d4e50;
+}
+
+.cite-label {
+    text-decoration: underline;
+}
+
 .headline {
     padding: 150px 0;
 }
@@ -1239,4 +1258,117 @@ img.profile-photo {
     width: auto;
     vertical-align: -0.225em;
     fill: currentColor;
+}
+
+/* citation dialog: the print-style outline and offset block, over a dimmed page */
+.cite-dialog {
+    width: min(40em, calc(100vw - 32px));
+    max-height: calc(100vh - 48px);
+    padding: 0;
+    color: var(--ink);
+    background: #fff;
+    border: 1.5px solid var(--ink);
+    border-radius: 6px;
+    box-shadow: 8px 8px 0 var(--block);
+}
+
+.cite-dialog::backdrop {
+    background: rgba(31, 35, 40, 0.45);
+}
+
+.cite-inner {
+    padding: 20px 24px 16px;
+}
+
+.cite-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.cite-header h2 {
+    margin: 0;
+    font-size: 1.4em;
+}
+
+.cite-close {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    margin-right: -10px;
+    font-size: 1.8em;
+    line-height: 1;
+    color: var(--ink);
+    background: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cite-close:hover {
+    background: var(--block-soft);
+}
+
+.cite-paper {
+    margin: 4px 0 0;
+    color: #5b6167;
+    font-style: italic;
+}
+
+.cite-dialog h3 {
+    margin: 1.2em 0 0.4em;
+    font-size: 0.85em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #5b6167;
+}
+
+.cite-text {
+    margin: 0 0 10px;
+    padding: 10px 12px;
+    background: var(--block-soft);
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.cite-bibtex {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+    color: var(--ink);
+    white-space: pre;
+    overflow-x: auto;
+    word-break: normal;
+}
+
+.cite-copy {
+    font: inherit;
+    font-size: 0.9em;
+    font-weight: 700;
+    padding: 5px 14px;
+    color: var(--ink);
+    background: #fff;
+    border: 1.5px solid var(--ink);
+    border-radius: 4px;
+    box-shadow: 3px 3px 0 var(--block);
+    cursor: pointer;
+}
+
+.cite-copy:hover {
+    background: var(--block-soft);
+}
+
+.cite-copy:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
+
+.cite-status {
+    min-height: 1.5em;
+    margin: 12px 0 0;
+    color: #2a6f72;
+    font-weight: 700;
 }
