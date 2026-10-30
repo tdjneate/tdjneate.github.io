@@ -9,9 +9,12 @@
     <meta name="author" content="Timothy Neate">
     <title>CHI 2025 Paper Statistics – Timothy Neate</title>
     <!-- Bootstrap Core CSS -->
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.trim.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../../css/one-page-wonder.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
+    <link href="../../css/one-page-wonder.css?v=2" rel="stylesheet">
     <style>
         .header-container {
             display: flex;
@@ -21,6 +24,7 @@
 
         .header-container img {
             height: 100px;
+            width: auto;
         }
     </style>
 </head>
@@ -60,7 +64,7 @@
                     <br><br>
                     <div class="header-container">
                         <h1 id="chistats">CHI 2025 Paper Stats</h1>
-                        <a href="https://chi2025.acm.org/"><img src="chi2025Logo.svg" alt="CHI 2025 conference website"></a>
+                        <a href="https://chi2025.acm.org/"><img src="chi2025Logo.svg" alt="CHI 2025 conference website" width="200" height="178"></a>
                     </div>
                     <br><br>
                     <p class="lead">Below are some potentially interesting statistics I have generated from the JSON file from the <a href="https://programs.sigchi.org/chi/2025/program">CHI 2025 program</a>. I consider only 'full papers' here. There were a total of 1,249 accepted full papers, from a total of 5,014 submitted (24.9% accept rate). Presenting statistics like this is an idea I borrowed (stole) from <a href="https://www.whatthehci.com/">whatthehci.com</a>, which seems to no longer be updated. You can also check out some cool statistics for the conference <a href="https://chi2025.acm.org/chi-2025-papers-track-post-pc-outcomes-report/">on the official blog</a>.</p>
@@ -89,9 +93,7 @@
                         <li><a href="honourable_mention_rank.html">Ranking of insitutions by Honourable Mention Awards</a></li>
                         <li><a href="all_awards_rank.html">Ranking of insitutions by awards (all)</a></li>
                     </ul>
-                            
-                    
-                                
+
                                 <br>
 <p class="lead"> <strong>Note:</strong> All files are static HTML, generated with some simple Python scripts. There are issues with the original data—e.g., the data includes both "King's College London" and "Kings College London." Other decisions were made for ease of understanding and implementation. In short, do not use this as any kind of definitive source. It is also important to note that many of the above numbers are mostly meaningless, and you should not take them too seriously. <a href="https://interactions.acm.org/archive/view/january-february-2025/chis-greatest-hits-analyzing-the-100-most-cited-papers-in-43-years-of-research-at-acm-chi">This article  </a>summarizes well that many of these metrics are somewhat unimportant. For instance "<i>none of the top 100 CHI papers received a Best Paper award, and only two received an honorable mention</i>".</p>
 
@@ -117,11 +119,7 @@
 
     <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="../../js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/menu.js" defer></script>
 </body>
 
 </html>

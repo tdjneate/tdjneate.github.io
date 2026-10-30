@@ -160,15 +160,15 @@ function displayPublications(publications) {
         // Screen-reader-only text says which paper each link is for and that it opens a new tab
         let newTab = `<span class="sr-only"> for “${pub.Title}” (opens in a new tab)</span>`;
 
-        let pdfIcon = pub.Link ? `<a href="${pub.Link}" target="_blank" rel="noopener" class="pdf-icon" style="color: royalBlue; text-decoration: none; display: inline;"><i class="fa fa-file-pdf fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: royalBlue; display: inline;">PDF</span>${newTab}</a>` : "";
+        let pdfIcon = pub.Link ? `<a href="${pub.Link}" target="_blank" rel="noopener" class="pdf-icon" style="color: royalBlue; text-decoration: none; display: inline;">${icon("file-pdf")} <span style="text-decoration: underline; color: royalBlue; display: inline;">PDF</span>${newTab}</a>` : "";
        
-        let videoIcon = pub.VideoLink ? `<a href="${pub.VideoLink}" target="_blank" rel="noopener" class="video-icon" style="color: #b83a26; text-decoration: none; display: inline;"><i class="fa-solid fa-film fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #b83a26; display: inline;">Video</span>${newTab}</a>` : "";
+        let videoIcon = pub.VideoLink ? `<a href="${pub.VideoLink}" target="_blank" rel="noopener" class="video-icon" style="color: #b83a26; text-decoration: none; display: inline;">${icon("film")} <span style="text-decoration: underline; color: #b83a26; display: inline;">Video</span>${newTab}</a>` : "";
         
         // Press column holds the id of the paper's section on the press page
-        let pressIcon = pub.Press ? `<a href="press.html#${pub.Press}" class="press-icon" style="color: #7a3fa8; text-decoration: none; display: inline;"><i class="fa-regular fa-newspaper fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #7a3fa8; display: inline;">Press</span><span class="sr-only"> coverage of “${pub.Title}”</span></a>` : "";
+        let pressIcon = pub.Press ? `<a href="press.html#${pub.Press}" class="press-icon" style="color: #7a3fa8; text-decoration: none; display: inline;">${icon("newspaper")} <span style="text-decoration: underline; color: #7a3fa8; display: inline;">Press</span><span class="sr-only"> coverage of “${pub.Title}”</span></a>` : "";
 
         // App column holds an App Store link for an app released from the paper
-        let appIcon = pub.App ? `<a href="${pub.App}" target="_blank" rel="noopener" class="app-icon" style="color: #1f2328; text-decoration: none; display: inline;"><i class="fa-brands fa-app-store-ios fa-lg" aria-hidden="true"></i> <span style="text-decoration: underline; color: #1f2328; display: inline;">App</span>${newTab}</a>` : "";
+        let appIcon = pub.App ? `<a href="${pub.App}" target="_blank" rel="noopener" class="app-icon" style="color: #1f2328; text-decoration: none; display: inline;">${icon("app-store-ios")} <span style="text-decoration: underline; color: #1f2328; display: inline;">App</span>${newTab}</a>` : "";
 
         let listItem = document.createElement("li");
         listItem.classList.add("publication-item");
@@ -194,11 +194,17 @@ function displayPublications(publications) {
 function getAwardIcon(award) {
     if (!award) return "";
     const [type, text] = award.split(";").map(item => item.trim()); // Adjusted parsing for new format
-    let icon = "";
-    if (type === "1") icon = "fa fa-trophy fa-lg";
-    else if (type === "2") icon = "fa fa-medal fa-lg";
-    else if (type === "3") icon = "fa fa-star fa-lg" ;
-    else if (type === "4") icon = "fa fa-ribbon fa-lg"; // social impact awards
+    let name = "";
+    if (type === "1") name = "trophy";
+    else if (type === "2") name = "medal";
+    else if (type === "3") name = "star";
+    else if (type === "4") name = "ribbon"; // social impact awards
     
-    return icon ? `<i class="${icon}" style="color: goldenRod; margin-right: 2px;" aria-hidden="true"></i>` : "";
+    return name ? icon(name, "color: goldenRod; margin-right: 2px;") : "";
+}
+// Icons are symbols in img/icons.svg (Font Awesome Free); the viewBox keeps each icon's own width
+const ICON_WIDTHS = { "file-pdf": 384, film: 512, newspaper: 512, "app-store-ios": 448, trophy: 576, medal: 512, star: 576, ribbon: 448 };
+
+function icon(name, style) {
+    return `<svg class="icon" viewBox="0 0 ${ICON_WIDTHS[name]} 512" aria-hidden="true" focusable="false"${style ? ` style="${style}"` : ""}><use href="img/icons.svg#${name}"></use></svg>`;
 }

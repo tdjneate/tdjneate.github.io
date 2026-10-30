@@ -2,9 +2,6 @@
  one page wonder, adapted by tdjn
  */
 
-/* Atkinson Hyperlegible Next: designed by the Braille Institute for low-vision legibility */
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,300..800;1,300..800&display=swap');
-
 
 body {
     margin-top: 50px;
@@ -1234,4 +1231,12 @@ img.profile-photo {
     color: #2a6f72;
     font-variant-numeric: tabular-nums;
     letter-spacing: 0.02em;
+}
+
+/* icons from img/icons.svg, sized like Font Awesome's large icons */
+.icon {
+    height: 1.25em;
+    width: auto;
+    vertical-align: -0.225em;
+    fill: currentColor;
 }

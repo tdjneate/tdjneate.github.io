@@ -2,9 +2,6 @@
  * Page Wonder HTML Template, adapted by tdjn
  */
 
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-@import url('https://fonts.googleapis.com/css?family=Poppins');
 body 
 {
 
@@ -411,7 +408,7 @@ margin:5%;
     position: relative;
     height: 200px; /* or whatever height you need */
    
-    background-image: url('../img/banner.jpg');
+    background-image: url('../img/banner.webp');
     background-size: cover;
     background-position: center;
     width: 100%;
