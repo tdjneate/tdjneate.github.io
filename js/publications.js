@@ -73,9 +73,12 @@ const TYPE_LABELS = {
     workshop: "Workshop paper"
 };
 
-// Topics come from the Topics column, separated by semicolons
+// Topics come from the Topics column, separated by semicolons;
+// any paper with something in the Award column also counts under "Awards"
 function getTopics(pub) {
-    return (pub.Topics || "").split(";").map(topic => topic.trim()).filter(Boolean);
+    const topics = (pub.Topics || "").split(";").map(topic => topic.trim()).filter(Boolean);
+    if (pub.Award.trim()) topics.push("Awards");
+    return topics;
 }
 
 // Fills the topic, year and type menus, then redraws the list whenever they change
